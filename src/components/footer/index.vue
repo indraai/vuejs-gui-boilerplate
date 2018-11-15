@@ -17,16 +17,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
-
 <template>
-  <section></section>
+  <footer>&copy;2018 Quinn Michaels - indra.ai</footer>
 </template>
 
 <script>
-// template javascript
 
 export default {
-  name: '*name*',
+  name: 'IndraFooter',
   components: {},
   computed: {},
   methods: {},
@@ -35,5 +33,5 @@ export default {
 </script>
 
 <style lang="stylus">
-// custom template styles
+
 </style>

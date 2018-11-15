@@ -1,0 +1,10 @@
+.badge
+  padding: .25rem .5rem
+  font-size: .9rem
+  border-radius: .3rem
+  margin: .1rem
+  display: inline-block
+
+  for color in $statusColors
+    &-{color}
+      background-color: $statusColors[color]

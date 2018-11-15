@@ -1,4 +1,4 @@
-# GUI BOILERPLATE
+# INDRA VUEJS GUI BOILERPLATE
 This is the GUI (Graphical User Interface) boilerplate toolkit for building out Indra interfaces for use in various projects.
 
 The gui boilerplate is built on standard Open Source components like NodeJs, Webpack, VueJs, and Stylus Preprocessor (CSS).

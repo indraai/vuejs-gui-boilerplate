@@ -22,8 +22,6 @@ import axios from 'axios'
 const global = {
   namespaced: true,
   state: {
-    title: 'Indra.ai Super Cool App',
-    describe: 'This is the coolest boilerplate app ever to be developed.',
     h1: 'H1 Title Heading',
     h2: 'H2 Title Heading',
     h3: 'H3 Title Heading',
@@ -32,7 +30,6 @@ const global = {
     h6: 'H6 Title Heading',
     colors: [
       "white",
-      "orange",
       "orange-lt",
       "orange-md",
       "orange-dk",

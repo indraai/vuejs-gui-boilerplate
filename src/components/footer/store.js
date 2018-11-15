@@ -15,17 +15,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-@require('vars')
+"use strict";
+// THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
+const footer = {
+  namespaced: true,
+  state: {},
+  getters: {},
+  mutations: {},
+}
 
-@require('mixins')
-
-@require('animation')
-@require('icons')
-@require('typography')
-
-@require('global')
-@require('layout')
-@require('inputs')
-@require('buttons')
-@require('alerts')
-@require('badges')
+export { footer }

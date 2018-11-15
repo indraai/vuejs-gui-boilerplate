@@ -15,17 +15,23 @@
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-@require('vars')
+"use strict";
+// THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
+const header = {
+  namespaced: true,
+  state: {
+    title: 'Indra.ai Super Awesome GUI Boilerplate',
+    describe: 'The coolest boilerplate app ever to be developed.',
+  },
+  getters: {
+    title(state) {
+      return state.title;
+    },
+    describe(state) {
+      return state.describe;
+    },
+  },
+  mutations: {},
+}
 
-@require('mixins')
-
-@require('animation')
-@require('icons')
-@require('typography')
-
-@require('global')
-@require('layout')
-@require('inputs')
-@require('buttons')
-@require('alerts')
-@require('badges')
+export { header }

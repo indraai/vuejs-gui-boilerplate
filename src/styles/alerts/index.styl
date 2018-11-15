@@ -1,0 +1,9 @@
+.alert
+  padding: 1rem
+  border-radius: .3rem
+  font-size: 1.2rem
+  margin: .1rem
+
+  for color in $statusColors
+    &-{color}
+      background-color: $statusColors[color]
