@@ -1,5 +1,5 @@
 <template>
-  <main id="app"></main>
+  <main id="app"><h1>Indra.ai VueJs Boilerplate</h1></main>
 </template>
 
 <script>
