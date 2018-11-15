@@ -49,10 +49,10 @@ export default {
 header
   position: relative;
   background-color: $colors.orange-lt
-  background-image: url(../../assets/img/header-bg.jpg)
+  background-image: url(../../assets/img/header-bg.png)
   background-repeat: no-repeat
-  background-size: stretch
-  background-position: center
+  background-size: 100% auto
+  background-position: right
   text-align: center
   padding: 1rem
   color: $colors.orange-dk
