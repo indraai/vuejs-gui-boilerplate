@@ -1,0 +1,56 @@
+{
+  "name": "prototype",
+  "version": "0.0.0",
+  "description": "indra site gui",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "author": "quinn michaels",
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "devDependencies": {
+    "axios": "^0.16.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^6.0.0",
+    "babel-preset-latest": "^6.0.0",
+    "body-parser": "^1.17.2",
+    "colors": "^1.1.2",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "express": "^4.15.2",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.28.0",
+    "markdown-loader": "^2.0.0",
+    "mongodb": "^2.2.21",
+    "mongodb-core": "^2.1.11",
+    "monk": "^3.1.3",
+    "style-loader": "^0.16.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "tiny-cookie": "^2.0.2",
+    "url-loader": "^0.5.8",
+    "vue": "^2.2.1",
+    "vue-cookie": "^1.1.4",
+    "vue-loader": "^11.1.4",
+    "vue-resource": "^1.3.0",
+    "vue-router": "^2.3.0",
+    "vue-smooth-scroll": "^1.0.11",
+    "vue-template-compiler": "^2.2.1",
+    "vue-touch": "^2.0.0-beta.4",
+    "vuex": "^2.2.1",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.0"
+  },
+  "stylintrc": {
+    "trailingWhitespace": true
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    }
+  }
+}

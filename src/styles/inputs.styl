@@ -1,0 +1,74 @@
+@require 'vars'
+
+form
+  transition: all .5s linear
+  position: relative
+  display: flex
+  flex-flow: row nowrap
+
+  align-items: stretch
+  justify-content: center
+  align-content: center
+  
+  flex: 1 100%
+  
+  padding: 0
+  margin: 0
+
+input
+  &[type="text"]
+    flex: 1
+    background: white
+    transition: all .5s linear
+    display: inline-block
+    font-weight: 100
+    padding: .5rem
+    font-weight: 200
+    outline: none
+    line-height: 1
+    // background: blue
+    margin: .5rem
+    color: $colors.charcoal
+    border: 2px solid rgba($colors.blue, .5)
+    border-radius: .5rem
+    box-shadow: inset 0 1px 3px rgba(black, .15)
+    font-size: 1.2rem
+
+  [type=range]
+    -webkit-appearance: none
+    margin: 10px 0
+    width: 100%
+    border-radius: .5rem
+    background-color: transparent
+
+    &:focus
+      outline: none
+
+      &::-webkit-slider-runnable-track
+        background: #367ebd
+
+    &::-webkit-slider-runnable-track
+      width: 100%
+      height: 1rem
+      cursor: pointer
+      animate: 0.5s
+      // box-shadow: inset 0 1px 3px rgba(black, 30%)
+      background-color: $colors.charcoal
+      border-radius: .5rem
+      border: none
+      
+      
+    $button-size = 2rem
+    &::-webkit-slider-thumb
+      // box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d
+      border: 2px solid $colors.charcoal
+      height: $button-size
+      width: $button-size
+      border-radius: 50%
+      background: #ffffff
+      cursor: pointer
+      -webkit-appearance: none
+      margin-top: -.5rem
+
+button
+  outline: none

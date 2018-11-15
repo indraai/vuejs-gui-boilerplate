@@ -1,0 +1,9 @@
+{
+  "apps" : [
+    {
+      "name" : "indra",
+      "script" : "src/app.js",
+      "watch" : true
+    },
+  ],
+}

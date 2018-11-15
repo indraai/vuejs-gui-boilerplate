@@ -1,0 +1,23 @@
+@require "vars.styl"
+
+  //
+  [class*=icn-]
+  	font-family: 'icons'
+  	font-style: normal
+  	font-variant: normal
+  	font-weight: normal
+  	line-height: 1
+  	speak: none
+  	text-transform: none
+  	-moz-osx-font-smoothing: grayscale
+  	-webkit-font-smoothing: antialiased
+
+  for icon in $icons
+    .icn-{icon}::before
+      content: $icons[icon]
+
+  @font-face
+  	font-family: 'icons'
+  	src: url('../assets/icons/linear/Linearicons-Free.ttf?w118d')
+  	font-style: normal
+  	font-weight: normal
