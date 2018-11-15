@@ -1,28 +1,30 @@
-.btn
+button
   transition: all .3s linear
   font-size: 1.3rem
-
   background-color: $colors.blue
   border-radius: .5rem
   box-shadow: $box-shadow
   color: white
   font-weight: 300
-  
   position: relative
   border: none
   margin: 0
   padding: .5rem
   text-align: center
-  
+
   &.sm
     font-size: .9rem
     padding: .2rem .4rem
+  &.lg
+    font-size: 1.5rem
+    padding: .75rem 1rem
+
   &:focus
     outline: none
-    
+
   &:hover
     cursor: pointer
-  
+
   &.current
     background: lighten($colors.yellow, 60%)
     color: $colors.red
@@ -31,4 +33,3 @@
   &.current:active
     box-shadow: 0 0 .1rem rgba($colors.charcoal, 5%)
     background-color: lighten($colors.charcoal, 95%)
-  

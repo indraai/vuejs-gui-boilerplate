@@ -1,0 +1,19 @@
+// headings.styl
+// this file builds the headings styles for use with regular headings and display classes
+// the classes are accessed with regular heading tags with .h1..h6 and with added .display class to increase the font-size by 1rem
+
+$base-size = 3rem
+$new-size = $base-size
+
+for dsp in (1..6)
+  h{dsp},
+  .h{dsp}
+    font-weight: 300
+    margin: 0
+    padding: 0
+    font-size: $new-size
+
+    &.display
+      font-size: $new-size + 1
+
+  $new-size = $new-size - .25;

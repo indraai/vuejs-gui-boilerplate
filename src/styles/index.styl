@@ -1,58 +1,12 @@
-@require 'vars'
-@require 'icons'
-@require 'animation'
-@require 'fonts'
-@require 'inputs'
-@require 'buttons'
+@require('vars')
 
-*
-  /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
+@require('mixins')
 
-html, body, header, main, footer, div, p, article, section, h1, h2, h3, h4, h5, h6, a, span, ul, ol, li, dt, dd, aside, dialog, form, textarea, input, select
-  box-sizing: border-box
+@require('animation')
+@require('icons')
+@require('typography')
 
-body, button, h1, h2, h3, h4, h5, p, div, article, section, span
-  font-family: 'Avenir Next', HelveticaNeue, Helvetica, Arial, sans-serif
-
-  
-html, body
-  height: 100%
-
-
-body
-  transition: background-color .5s linear
-  background-color: white
-  -webkit-text-size-adjust: none
-  font-size: 12px
-  margin: 0px
-  padding: 0px
-  width: 100%
-  font-weight: 300
-  color: $text-color
-
-h1
-  font-weight: 300
-  overflow: visible
-  margin: 0px
-  padding: 0px
-  text-align: center
-
-  &.title
-    flex: 0 auto
-    padding: 1rem 0 .5rem 0
-    margin: 0
-    font-size: 1.4rem
-
-#bg
-  background-size: 100% auto
-  position: fixed
-  top: -1rem
-  left: -1rem
-  right: -1rem
-  bottom: -1rem
-  width: calc(100% + 2rem)
-  height: calc(100% + 2rem)
-  
+@require('global')
+@require('layout')
+@require('inputs')
+@require('buttons')

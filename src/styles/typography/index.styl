@@ -1,0 +1,43 @@
+// main controller file for the typography
+// other files for sub functions of typography are required here while smaller base classes can be added directly to this file
+
+@require('headings')
+
+caption
+  display: flex
+  margin: 1rem
+  padding: 1rem
+  font-size: 1rem
+  border-top: 2px solid $colors.blue
+
+.lead
+  font-size: 1.25rem
+  font-weight: 300
+
+// mark text
+mark
+  background-color: $colors.orange-lt
+
+s, strike, del
+  text-decoration: line-through
+
+u, ins
+  text-decoration: underline
+
+small, .small
+  font-size: 80%
+
+b, strong
+  font-weight: 900
+
+i, em
+  font-style: italic
+
+blockquote, .blockquote
+  margin: 1rem
+  font-size: 1.25rem
+
+  footer, .footer
+    display: block
+    font-size: 80%
+    color: $colors.charcoal
