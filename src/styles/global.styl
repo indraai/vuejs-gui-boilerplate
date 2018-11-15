@@ -24,3 +24,15 @@ body
   width: 100%
   font-weight: 300
   color: $text-color
+
+
+// global color classes
+for $color in $colors
+  .{$color}
+    &-txt
+      color: $colors[$color]
+    &-bg
+      background-color: $colors[$color]
+    &-border
+      border: 1px solid transparent
+      border-color: $colors[$color]
