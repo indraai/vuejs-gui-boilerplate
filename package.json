@@ -7,8 +7,11 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
-  "author": "quinn michaels",
-  "license": "UNLICENSED",
+  "author": {
+    "name": "Quinn Michaels",
+    "url": "https://indra.ai"
+  },
+  "license": "GPL-3.0",
   "dependencies": {},
   "devDependencies": {
     "axios": "^0.16.2",

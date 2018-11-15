@@ -3,17 +3,27 @@ This is the GUI (Graphical User Interface) boilerplate toolkit for building out 
 
 The gui boilerplate is built on standard Open Source components like NodeJs, Webpack, VueJs, and Stylus Preprocessor (CSS).
 
+## Fork Repository
+First you want to fork the repository into a new project for your use.
+
 ## Clone Repository
+Then clone the repository to your dev machine to start using it on your projects.
 
 ## Install
+Install the base components to get going.
+
 `npm install`
 
 ## Running the server
+The server runs in two modes.  Development and Production.
 
 ### Development Server
 `npm run dev`
+
 ### Production Builds
 `npm run prod`
+
+-------
 
 ## Webpack
 The boilerplate uses webpack to package and deliver a the developer experience.
