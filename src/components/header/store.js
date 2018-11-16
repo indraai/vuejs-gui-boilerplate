@@ -32,6 +32,7 @@ const header = {
     },
   },
   mutations: {},
+  actions: {},
 }
 
 export { header }

@@ -17,7 +17,7 @@
 
 "use strict";
 // THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
-const footer = {
+const menu = {
   namespaced: true,
   state: {},
   getters: {},
@@ -25,4 +25,4 @@ const footer = {
   actions: {},
 }
 
-export { footer }
+export { menu }

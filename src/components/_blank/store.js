@@ -22,6 +22,7 @@ const *name* = {
   state: {},
   getters: {},
   mutations: {},
+  actions: {},
 }
 
 export { *name* }

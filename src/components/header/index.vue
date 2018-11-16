@@ -51,14 +51,14 @@ header
   background-color: $colors.orange-lt
   background-image: url(../../assets/img/header-bg.png)
   background-repeat: no-repeat
-  background-size: 100% auto
-  background-position: right
+  background-size: 100%
+  background-position: center
   text-align: center
   padding: 1rem
   color: $colors.orange-dk
-  text-shadow: 0 1px 1px $colors.yellow
+  text-shadow: 0 3px 6px $colors.charcoal
   display: flex
-  align-items: center
+  align-items: stretch
   align-content: center
   justify-content: center
   flex-flow: column nowrap
@@ -73,16 +73,16 @@ header
       width: 200px
       height: auto
 
-  .avatar, h1, p
-    background-color: rgba($colors.orange-lt, .9)
+  h1, p
+    text-align: left
+    color: $colors.white
+
   h1
-    border-radius: 3rem
     padding: 1rem 2rem
     margin: 0
     font-weight: 500
   p
     margin: 0
-    padding: 0 1rem .5rem 1rem
+    padding: 0 2rem .5rem 2rem
     font-size: 2rem
-    border-radius: 0 0 2rem 2rem
 </style>
