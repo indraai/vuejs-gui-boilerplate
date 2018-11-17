@@ -19,6 +19,8 @@
 // other files for sub functions of typography are required here while smaller base classes can be added directly to this file
 
 @require('headings')
+p
+  font-size: 1.2rem
 
 ul
   list-style: none
@@ -27,7 +29,7 @@ ul
   li:before
     content: ''
     display: inline-block
-    background-image: url(../assets/img/list-item.png)
+    background-image: url(./assets/img/list-item.png)
     background-size: auto 100%
     background-position: center
     background-repeat: no-repeat
@@ -43,13 +45,13 @@ caption
   border-top: 2px solid $colors.blue
 
 .lead
-  font-size: 1.25rem
+  font-size: 1.5rem
   font-weight: 300
 
 .hero
   padding: 3rem 2rem
   margin-bottom: 1rem
-  
+
 // mark text
 mark
   background-color: $colors.orange-lt
@@ -77,3 +79,10 @@ blockquote, .blockquote
     display: block
     font-size: 80%
     color: $colors.charcoal
+
+code
+  background-color: $colors.charcoal
+  color: $colors.yellow
+  display: block
+  padding: .5rem
+  border-radius: .3rem

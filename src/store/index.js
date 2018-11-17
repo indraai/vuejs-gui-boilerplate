@@ -35,6 +35,7 @@ export default new Vuex.Store({
     header,
     footer,
     menu,
+    main,
     chuck,
   }
 })

@@ -1,4 +1,6 @@
+'use strict'
 // Copyright 2018 Quinn Michaels
+//
 // This file is part of Indra VueJs Gui Boilerplate
 //
 // Indra VueJs Gui Boilerplate is free software:
@@ -15,23 +17,23 @@
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-@require('layout')
-//this is the file
+import { shallowMount, createLocalVue } from '@vue/test-utils'
+import Vuex from 'vuex'
 
-.panels
-  display: flex
-  flex-flow: row nowrap
-  align-items: stretch
+const localVue = createLocalVue()
+localVue.use(Vuex)
 
-  .panel
-    flex: 1
-    background-color: rgba($colors.charcoal, .1)
-    margin: .1rem
-    padding: 1rem
-    h2
-      text-align: center
-      .icn
-        font-size: 1.2em
-        display: block
-    p
-      font-size: 1.5em
+import *component* from './index.vue'
+import {*store*} from './store.js'
+
+describe('*component*', () => {
+  let store
+  beforeEach(() => {
+    store = new Vuex.Store(*store*)
+  })
+
+  it('expect component to be defined', () => {
+    const wrapper = shallowMount(*component*, {store, localVue})
+    expect(wrapper).to.not.be.an('undefined')
+  })
+})

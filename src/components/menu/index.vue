@@ -21,15 +21,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 <template>
   <nav>
     <a href="#header" v-smooth-scroll><i class="icn-home"></i><br>Home</a>
-    <a href="#headings" v-smooth-scroll="{offset:-100}"><i class="icn-text-format"></i><br>Headings</a>
-    <a href="#lists" v-smooth-scroll="{offset:-100}"><i class="icn-list"></i><br>Lists</a>
-    <a href="#alerts" v-smooth-scroll="{offset:-100}"><i class="icn-bullhorn"></i><br>Alerts</a>
-    <a href="#buttons" v-smooth-scroll="{offset:-100}"><i class="icn-pointer-down"></i><br>Buttons</a>
-    <a href="#forms" v-smooth-scroll="{offset:-100}"><i class="icn-highlight"></i><br>Forms</a>
-    <a href="#colors" v-smooth-scroll="{offset:-100}"><i class="icn-leaf"></i><br>Colors</a>
-    <a href="#icons" v-smooth-scroll="{offset:-100}"><i class="icn-thumbs-up"></i><br>Icons</a>
-    <a href="#examples" v-smooth-scroll="{offset:-100}"><i class="icn-bookmark"></i><br>Examples</a>
-    <a href="#examples" v-smooth-scroll="{offset:-100}"><i class="icn-eye"></i><br>Info</a>
+    <a href="#code" v-smooth-scroll="{offset:-100}"><i class="icn-code"></i><br>Code</a>
+    <a href="#technology" v-smooth-scroll="{offset:-100}"><i class="icn-rocket"></i><br>Tech</a>
+    <a href="#elements" v-smooth-scroll="{offset:-100}"><i class="icn-paperclip"></i><br>Elements</a>
+    <a href="#information" v-smooth-scroll="{offset:-100}"><i class="icn-eye"></i><br>Info</a>
   </nav>
 </template>
 
@@ -65,7 +60,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 // custom template styles
   @require('../../styles/vars')
   nav
@@ -76,7 +71,6 @@ export default {
     justify-content: center
     align-content: center
     background-color: $colors.charcoal
-    padding: 1rem
 
     &.sticky
       position: fixed
@@ -90,12 +84,20 @@ export default {
       text-decoration: none
       display: inline-block
       text-align: center
+      padding: 1rem
       width: 75px
-      color: $colors.orange-lt
+      height: 100%
+      color: $colors.fire
+      text-shadow: 0 0 3px darken($colors.fire, 30%)
 
       &:hover
         color: $colors.blue
         text-shadow: 0 0 9px darken($colors.blue, 50%)
+      &:active
+      &:focus
+        color: $colors.earth
+        text-shadow: 0 0 9px darken($colors.earth, 50%)
+
       i
         font-size: 2rem
 </style>

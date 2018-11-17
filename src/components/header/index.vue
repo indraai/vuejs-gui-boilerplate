@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 @require '../../styles/vars'
 
 header
@@ -53,7 +53,7 @@ header
   background-position: right
   text-align: center
   padding: 1rem
-  color: lighten($colors.fire, 75%)
+  color: lighten($colors.fire, 80%)
   display: flex
   align-items: stretch
   align-content: center
@@ -63,16 +63,18 @@ header
 
   h1, p
     text-align: left
-    line-height: 1
 
   h1
     padding: 1rem 2rem 0 2rem
     margin: 10rem 0 0 0
     font-weight: 100
-    font-size: 5rem
+    font-size: 7rem
     font-weight: 200
+    letter-spacing: -6px
+    line-height: 1
   p
     margin: 0
     padding: 0 2rem .5rem 2rem
-    font-size: 2rem
+    font-size: 3rem
+    line-height: .5
 </style>

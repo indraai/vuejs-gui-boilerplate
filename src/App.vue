@@ -29,10 +29,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <script>
   // in this part of the component we see basic data creation where we can look through colors and set the text of the heading tags from the data.
-  import IndraHeader from './header/index.vue';
-  import IndraFooter from './footer/index.vue';
-  import IndraMenu from './menu/index.vue';
-  import IndraMain from './main/index.vue';
+  import IndraHeader from './components/header/index.vue';
+  import IndraFooter from './components/footer/index.vue';
+  import IndraMenu from './components/menu/index.vue';
+  import IndraMain from './components/main/index.vue';
 
   export default {
     name: 'App',
@@ -51,9 +51,9 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 </script>
 
 <style lang="stylus">
-// here we import all the base styles into the template for use
-// then below that we can overwrite or modify or create any necessary styles for the current template.
-  @require '../styles'
+// here we import al the base styles into the template for use
+// then belo that we can overwrite or modify or create any necessary styles for the current template.
+  @require './styles'
 
   #app
     margin: auto

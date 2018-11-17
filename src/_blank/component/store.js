@@ -1,7 +1,7 @@
+'use strict';
 // Copyright 2018 Quinn Michaels
 // This file is part of Indra VueJs Gui Boilerplate
 //
-
 // Indra VueJs Gui Boilerplate is free software:
 // you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -16,28 +16,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-import Vue from 'vue'
-
-import VueResource from 'vue-resource'
-import VueTouch from 'vue-touch'
-import VueSmoothScroll from 'vue-smooth-scroll'
-import VueCookie from 'vue-cookie';
-
-import App from './components/App.vue'
-
-import store from './store'
-
-Vue.use(VueResource)
-Vue.use(VueTouch)
-Vue.use(VueSmoothScroll)
-Vue.use(VueCookie)
-
-function init() {
-  new Vue({
-    el: '#app',
-    store,
-    render: h => h(App),
-    created() {}
-  })
+// THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
+const *store* = {
+  namespaced: true,
+  state: {},
+  getters: {},
+  mutations: {},
+  actions: {},
 }
-init()
+
+export { *store* }

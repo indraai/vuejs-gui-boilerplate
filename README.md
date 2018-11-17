@@ -12,7 +12,15 @@ Then clone the repository to your dev machine to start using it on your projects
 ## Install
 Install the base components to get going.
 
-`npm install`
+Install the Vue CLI tool needed to run things
+```
+$ npm install vue-cli -g
+```
+
+Install the package requirements
+```
+$npm install
+````
 
 ## Running the server
 The server runs in two modes.  Development and Production.

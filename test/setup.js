@@ -1,6 +1,8 @@
+'use strict'
 // Copyright 2018 Quinn Michaels
 // This file is part of Indra VueJs Gui Boilerplate
 //
+
 // Indra VueJs Gui Boilerplate is free software:
 // you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,24 +16,12 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
+// global file for setting up mocha tests
 
-@require('layout')
-//this is the file
+// setup the default testing parameters
 
-.panels
-  display: flex
-  flex-flow: row nowrap
-  align-items: stretch
+require('jsdom-global')()
+const {expect} = require('chai')
 
-  .panel
-    flex: 1
-    background-color: rgba($colors.charcoal, .1)
-    margin: .1rem
-    padding: 1rem
-    h2
-      text-align: center
-      .icn
-        font-size: 1.2em
-        display: block
-    p
-      font-size: 1.5em
+//set global expect variable
+global.expect = expect

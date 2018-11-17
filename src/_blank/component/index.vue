@@ -26,7 +26,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 // template javascript
 
 export default {
-  name: '*name*',
+  name: '*component*',
   components: {},
   computed: {},
   methods: {},

@@ -30,107 +30,59 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
         </div>
         <div class="hero-image"><img src="../../assets/img/avatar.png" alt=""></div>
       </div>
+    </section>
+    <section class="philosophy panels" id="philosophy">
+      <div class="panel">
+        <h2><i class="icn icn-eye"></i>Imagine</h2>
+        <p>Everything that is created begins in the imagination.</p>
+      </div>
+      <div class="panel">
+        <h2><i class="icn icn-pencil"></i>Create</h2>
+        <p>Once the idea is imagined a process of creation is formed.</p>
+      </div>
+      <div class="panel">
+        <h2><i class="icn icn-diamond"></i>Process</h2>
+        <p>In the moment of creation a process completes all the steps.</p>
+      </div>
+    </section>
+    <section class="code" id="code">
+      <h2><i class="icn icn-code"></i> Code</h2>
+      <p>The indra.design gui toolkit is available to clone directly from github. <br><a href="https://github.com/indraai/vuejs-gui-boilerplate" target="github">https://github.com/indraai/vuejs-gui-boilerplate</a></p>
 
-
+      <p>To clone the git repository:</p>
+      <code>git clone git@github.com:indraai/vuejs-gui-boilerplate.git</code>
+      <hr>
+      <p class="alert alert-primary text-white"><i class="icn-warning"></i> Forking the repository is a smart idea if you plan on making changes to the code.</p>
     </section>
 
-    <p class="lead"></p>
+    <section class="technology" id="technology">
+      <h2><i class="icn icn-rocket"></i> Technology</h2>
+      <p>At the indra.design project we <i class="icn-heart"></i> open source technology. That is why we develop our technology on some of the most trusted platforms and libraries like NodeJs, VueJs, Stylus, and WebPack</p>
+      <div class="badges">
+        <img src="../../assets/img/nodejs.png" alt="">
+        <img src="../../assets/img/vuejs.png" alt="">
+        <img src="../../assets/img/stylus.png" alt="">
+        <img src="../../assets/img/webpack.png" alt="">
+      </div>
+      <div class="badges testing">
+        <img src="../../assets/img/mocha.png" alt="">
+        <img src="../../assets/img/chai.png" alt="">
+      </div>
+    </section>
+    <section class="elements" id="elements">
+      <h2><i class="icn icn-paperclip"></i> Elements</h2>
+      <p>The elements of an effective design are important to the message you as an idea developer are attempting to relay.  Everything from the fonts, colors, spacing, layouts, icons, and buttons send a message to your user saying, "This is me!"</p>
+      <h3>Components</h3>
+      <p>The user interface components are built using a customized VueJs single file templating system on WebPack bundling system.</p>
+      <h3>Styles</h3>
+      <p>Global styles are developed first and then each individual VueJs component then has access to those styles for individual modification and usage.</p>
+      <h3>Development</h3>
+      <p>The development process is delivered through a sweet WebPack dev/prod setup.</p>
 
-    <section class="headings" id="headings">
-      <h2>Headings</h2>
-      <caption>Regular Headings</caption>
-      <article class="items">
-        <h1>H1 Heading</h1>
-        <h2>H2 Heading</h2>
-        <h3>H3 Heading</h3>
-        <h4>H4 Heading</h4>
-        <h5>h5 Heading</h5>
-        <h6>h6 Heading</h6>
-      </article>
     </section>
-    <section class="display-headings">
-      <h2>Display Headings</h2>
-      <caption>Those display classes when you want your headings to be bigger than they already are for that obvious touch.</caption>
-      <article class="items">
-        <h1 class="display">H1 Display Heading</h1>
-        <h2 class="display">H2 Display Heading</h2>
-        <h3 class="display">H3 Display Heading</h3>
-        <h4 class="display">H4 Display Heading</h4>
-        <h5 class="display">H5 Display Heading</h5>
-        <h6 class="display">H6 Display Heading</h6>
-      </article>
-    </section>
-    <section class="lists" id="lists">
-      <h2>List Items</h2>
-      <caption>Those boring bullets are gone, and hello beautiful Indra head list items to tickle your imagination.</caption>
-      <article class="items">
-        <ul>
-          <li>List Item</li>
-          <li>List Item</li>
-          <li>List Item</li>
-          <li>List Item</li>
-          <li>List Item</li>
-        </ul>
-      </article>
-    </section>
-    <section class="alerts" id="alerts">
-      <h2>Alerts</h2>
-      <caption>Varoius cool ass classes to use for your alerts and shit.</caption>
-      <article class="items">
-        <div class="alert alert-primary">A primary alert for that boring shit you just have to show people.</div>
-        <div class="alert alert-secondary">A secondary alert for when they don't pay attention the first time.</div>
-        <div class="alert alert-success">A success alert for the times when they get it right.</div>
-        <div class="alert alert-danger">A danger alert for shit is about to go down!</div>
-        <div class="alert alert-warning">A warning alert for when someone is about to do something they probably shouldn't.</div>
-      </article>
-    </section>
-    <section class="buttons" id="buttons">
-      <h2>Buttons</h2>
-      <caption>Check out these form elements in development for your 👀.</caption>
-      <article class="buttons-items container">
-        <div><button class="btn">default button</button></div>
-        <div><button class="btn btn-sm">small button</button></div>
-        <div><button class="btn btn-md">medium button</button></div>
-        <div><button class="btn btn-lg">large button</button></div>
-      </article>
-      <article class="buttons-items container">
-        <div><button class="btn btn-primary">Primary button</button></div>
-        <div><button class="btn btn-secondary">Secondary button</button></div>
-        <div><button class="btn btn-success">Success button</button></div>
-        <div><button class="btn btn-danger">Danger button</button></div>
-        <div><button class="btn btn-warning">Warning button</button></div>
-      </article>
-    </section>
-    <section class="forms" id="forms">
-      <h2>Forms</h2>
-      <caption>Form Elements so you have somewhere to press buttons and have it appear like magic.</caption>
-    </section>
-    <section class="colors" id="colors">
-      <h2>Colors</h2>
-      <caption>These are the color classes</caption>
-      <article class="items" v-for="color in (colors)">
-        <div :class="colorText(color)"><strong>{{color}}</strong>The color text</div>
-        <div :class="colorBg(color)"><strong>{{color}}</strong>The color background</div>
-        <div :class="colorBorder(color)"><strong>{{color}}</strong>The color border</div>
-      </article>
-    </section>
-    <section class="icons" id="icons">
-      <h2>Icons</h2>
-      <caption>These are the various icons that are included using the Linear Icons Free package.</caption>
-      <article class="items">
-        <span v-for="icon in icons"><i :class="iconClass(icon)"></i><br>.icn-{{icon}}</span>
-      </article>
-    </section>
-    <section class="examples example-chat" id="examples">
-      <h2><i class="icn-poop"></i> Examples</h2>
-      <section>Here are some examples to show off some of the shit this thing can do when you put your imagination into it. We built a few examples to get your imagination going</section>
-      <IndraChuck></IndraChuck>
-    </section>
-    <section class="info" id="info">
-      <h2>Information</h2>
-      <p>Thank you for taking the to look over our little program here.  If you are with a company, agency, or development group please reach out to us about on-site offerings.</p>
-      <p>At indra.ai we can assist you with lots of ceative and technical things that you may need help with and we work on a very flexible offering model.</p>
-      <p>If you are interested in having Indra.ai come and teach you how to really use this toolkit reach us at <a href="contact@indra.ai">contact@indra.ai</a>, and we can get the ball rolling.</p>
+    <section class="information" id="information">
+      <h2><i class="icn icn-eye"></i> Information</h2>
+      <p>We really <i class="icn-heart text-fire"></i><i class="icn-heart text-fire"></i><i class="icn-heart text-fire"></i> working with developers, designers, and other creative types, so if you'd like us to come into your environment to show you how indra.design can really <i class="icn-rocket"></i> your team send us an email <a href="contact@indra.ai">contact@indra.ai</a>, so we can get the ball rolling.</p>
       <p>If you would like to provide offerings of support you can do that at:</p>
       <ul>
         <li><a href="https://paypal.me/rahulaclub">paypal.me/rahulaclub</a></li>
@@ -175,11 +127,26 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 // custom template styles
   @require '../../styles/vars'
   main
     padding: 1rem
     max-width: 900px
     margin: auto
+
+    > section
+      margin-bottom: 5rem
+
+    .technology
+      .badges
+        text-align: center
+        padding: .5rem
+
+        img
+          margin: 0 .5rem
+        &.testing
+          img
+            width: auto
+            height: 100px
 </style>
