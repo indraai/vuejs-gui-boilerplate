@@ -20,15 +20,16 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <nav>
-    <a href="#headings" v-smooth-scroll><i class="icn-text-format"></i><br>Headings</a>
-    <a href="#lists" v-smooth-scroll><i class="icn-list"></i><br>Lists</a>
-    <a href="#alerts" v-smooth-scroll><i class="icn-bullhorn"></i><br>Alerts</a>
-    <a href="#forms" v-smooth-scroll><i class="icn-highlight"></i><br>Forms</a>
-    <a href="#buttons" v-smooth-scroll><i class="icn-pointer-down"></i><br>Buttons</a>
-    <a href="#colors" v-smooth-scroll><i class="icn-leaf"></i><br>Colors</a>
-    <a href="#icons" v-smooth-scroll><i class="icn-thumbs-up"></i><br>Icons</a>
-    <a href="#examples" v-smooth-scroll><i class="icn-bookmark"></i><br>Examples</a>
-    <a href="#examples" v-smooth-scroll><i class="icn-eye"></i><br>Info</a>
+    <a href="#header" v-smooth-scroll><i class="icn-home"></i><br>Home</a>
+    <a href="#headings" v-smooth-scroll="{offset:-100}"><i class="icn-text-format"></i><br>Headings</a>
+    <a href="#lists" v-smooth-scroll="{offset:-100}"><i class="icn-list"></i><br>Lists</a>
+    <a href="#alerts" v-smooth-scroll="{offset:-100}"><i class="icn-bullhorn"></i><br>Alerts</a>
+    <a href="#buttons" v-smooth-scroll="{offset:-100}"><i class="icn-pointer-down"></i><br>Buttons</a>
+    <a href="#forms" v-smooth-scroll="{offset:-100}"><i class="icn-highlight"></i><br>Forms</a>
+    <a href="#colors" v-smooth-scroll="{offset:-100}"><i class="icn-leaf"></i><br>Colors</a>
+    <a href="#icons" v-smooth-scroll="{offset:-100}"><i class="icn-thumbs-up"></i><br>Icons</a>
+    <a href="#examples" v-smooth-scroll="{offset:-100}"><i class="icn-bookmark"></i><br>Examples</a>
+    <a href="#examples" v-smooth-scroll="{offset:-100}"><i class="icn-eye"></i><br>Info</a>
   </nav>
 </template>
 
@@ -85,12 +86,16 @@ export default {
       z-index: 100
 
     a
+      transition: $transition
       text-decoration: none
       display: inline-block
       text-align: center
       width: 75px
       color: $colors.orange-lt
 
+      &:hover
+        color: $colors.blue
+        text-shadow: 0 0 9px darken($colors.blue, 50%)
       i
         font-size: 2rem
 </style>

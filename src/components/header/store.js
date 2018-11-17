@@ -20,8 +20,8 @@
 const header = {
   namespaced: true,
   state: {
-    title: 'Indra.ai Super Awesome GUI Boilerplate',
-    describe: 'The coolest boilerplate app ever to be developed.',
+    title: 'indra.design',
+    describe: 'amazing interfaces',
   },
   getters: {
     title(state) {

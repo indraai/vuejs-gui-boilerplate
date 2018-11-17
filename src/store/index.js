@@ -22,8 +22,10 @@ import {global} from './global.js'
 import {header} from '../components/header/store.js'
 import {footer} from '../components/footer/store.js'
 import {menu} from '../components/menu/store.js'
+import {main} from '../components/main/store.js'
 import {chuck} from '../components/chuck/store.js'
 import {errors} from '../components/errors/store.js'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({

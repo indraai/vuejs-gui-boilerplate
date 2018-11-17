@@ -18,9 +18,8 @@ You should have received a copy of the GNU General Public License
 along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 <template>
-  <header>
-    <span class="avatar"><img src="../../assets/img/avatar.png" alt=""></span>
-    <h1>{{title}}</h1>
+  <header id="header">
+    <h1 v-text="title"></h1>
     <p v-text="describe"></p>
 </header>
 </template>
@@ -48,15 +47,13 @@ export default {
 
 header
   position: relative;
-  background-color: $colors.orange-lt
-  background-image: url(../../assets/img/header-bg.png)
+  background-color: $colors.fire
   background-repeat: no-repeat
-  background-size: 100%
-  background-position: center
+  background-size: auto 100%
+  background-position: right
   text-align: center
   padding: 1rem
-  color: $colors.orange-dk
-  text-shadow: 0 3px 6px $colors.charcoal
+  color: lighten($colors.fire, 75%)
   display: flex
   align-items: stretch
   align-content: center
@@ -64,23 +61,16 @@ header
   flex-flow: column nowrap
   box-shadow: 0 0 1rem darken($colors.charcoal, 50%)
 
-  .avatar
-    display: inline-block
-    border-radius: 50%
-    margin-bottom: 1rem
-
-    img
-      width: 200px
-      height: auto
-
   h1, p
     text-align: left
-    color: $colors.white
+    line-height: 1
 
   h1
-    padding: 1rem 2rem
-    margin: 0
-    font-weight: 500
+    padding: 1rem 2rem 0 2rem
+    margin: 10rem 0 0 0
+    font-weight: 100
+    font-size: 5rem
+    font-weight: 200
   p
     margin: 0
     padding: 0 2rem .5rem 2rem
