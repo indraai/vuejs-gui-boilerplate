@@ -26,10 +26,13 @@ The server runs in two modes.  Development and Production.
 -------
 
 ## Webpack
+https://webpack.js.org/
 The boilerplate uses webpack to package and deliver a the developer experience.
 
 ## VueJs
+https://vuejs.org/v2/api
 VueJs is the UI toolkit we are using to build the user interfaces.
 
 ## Stylus
+http://stylus-lang.com/
 Stylus is a CSS preprocessor that provides programmer functionality to CSS development.
