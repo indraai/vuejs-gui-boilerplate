@@ -1,6 +1,7 @@
 // Copyright 2018 Quinn Michaels
 // This file is part of Indra VueJs Gui Boilerplate
 //
+
 // Indra VueJs Gui Boilerplate is free software:
 // you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
