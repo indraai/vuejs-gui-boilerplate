@@ -1,4 +1,6 @@
+'use strict';
 // Copyright 2018 Quinn Michaels
+//
 // This file is part of Indra VueJs Gui Boilerplate
 //
 // Indra VueJs Gui Boilerplate is free software:
@@ -15,38 +17,5 @@
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-$colors = {
-  white: #ffffff,
-  orange-lt: #f5aa00,
-  orange-md: #be6300,
-  orange-dk: #6b533a,
-  yellow: #f1d14d,
-  charcoal: #363636,
-  blue: #0090ff,
-  red: #ad2323,
-  air: #e4d81a,
-  water: #315fc6,
-  fire: #e43b1a,
-  earth: #42c631,
-  pink: #ff6bf9,
-  santa: #d12f2f,
-  rose: #d6376b,
-}
-$statusColors = {
-  primary: $colors.blue,
-  secondary: $colors.orange-lt,
-  success: $colors.earth,
-  danger: $colors.fire,
-  warning: $colors.yellow,
-  info: $colors.air,
-}
-
-$heads = {
-  
-}
-
-$fontFamily = 'brandon-grotesque', 'Avenir Next', HelveticaNeue, Helvetica, Arial, sans-serif
-$transition = all .5s linear
-
-$text-color = $colors.charcoal
-$box-shadow = 0 .2rem .4rem rgba($colors.charcoal, 12%)
+const heads = require('index.json');
+module.exports = heads;

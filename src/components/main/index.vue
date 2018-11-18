@@ -20,6 +20,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <main>
+    <section class="heads"><h1>HEADS</h1><i class="heads heads-indra-s"></i><i class="heads heads-indra-full"></i></section>
     <section class="hero">
       <div class="container">
         <div class="hero-content">
