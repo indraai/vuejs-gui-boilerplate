@@ -6,7 +6,4 @@ https://vuejs.org/v2/guide/components.html
 
 ## How it works
 
-1. Create a component based on the `/components/_blank` template.
-2. Add the new component to the store index `/store/index.js`.
-2. Add the new component to the `/components/App.vue` file or the local file.
-3. Start using component.
+1. Create a component based on the `/_blank/component/` template and follow the instructions in the README.

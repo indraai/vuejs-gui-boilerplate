@@ -38,9 +38,23 @@ https://webpack.js.org/
 The boilerplate uses webpack to package and deliver a the developer experience.
 
 ## VueJs
-https://vuejs.org/v2/api
 VueJs is the UI toolkit we are using to build the user interfaces.
 
+### General Guide
+https://vuejs.org/v2/guide
+
+### API Reference
+https://vuejs.org/v2/api
+
 ## Stylus
-http://stylus-lang.com/
 Stylus is a CSS preprocessor that provides programmer functionality to CSS development.
+http://stylus-lang.com/
+
+## Chai Assertion Library
+Chai is how you write your tests for your components
+
+## General Guide
+https://www.chaijs.com/guide/
+
+### API Reference
+https://www.chaijs.com/api/
