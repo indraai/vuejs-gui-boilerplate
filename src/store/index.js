@@ -28,6 +28,7 @@ import {errors} from '../components/errors/store.js'
 import {heads} from '../components/heads/store.js'
 import {gallery} from '../components/gallery/store.js'
 import {videos} from '../components/videos/store.js'
+import {soundcloud} from '../components/soundcloud/store.js'
 
 Vue.use(Vuex)
 
@@ -43,5 +44,6 @@ export default new Vuex.Store({
     heads,
     gallery,
     videos,
+    soundcloud,
   }
 })

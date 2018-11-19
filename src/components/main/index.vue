@@ -71,21 +71,33 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     <section class="elements" id="elements">
       <h2><i class="icn icn-paperclip"></i> Elements</h2>
       <p>The elements of an effective design are important to the message you as an idea developer are attempting to relay.  Everything from the fonts, colors, spacing, layouts, icons, and buttons send a message to your user saying, "This is me!"</p>
-      <h3>Components</h3>
-      <p>The user interface components are built using a customized VueJs single file templating system on WebPack bundling system.</p>
-      <h3>Styles</h3>
-      <p>Global styles are developed first and then each individual VueJs component then has access to those styles for individual modification and usage.</p>
-      <h3>Development</h3>
-      <p>The development process is delivered through a sweet WebPack dev/prod setup.</p>
+      <ul>
+        <li>Design - First design the interface</li>
+        <li>Develop - Then develop the component</li>
+        <li>Style - Then build the style</li>
+        <li>Test - Then test to confirm functionality</li>
+      </ul>
 
     </section>
     <IndraHeads></IndraHeads>
     <IndraGallery></IndraGallery>
     <IndraVideos></IndraVideos>
+    <IndraSoundcloud></IndraSoundcloud>
+    <IndraChuck></IndraChuck>
     <section class="information" id="information">
       <h2><i class="icn icn-eye"></i> Information</h2>
-      <p>We <i class="icn-heart text-fire"></i> If you are interested in bringing indra.design into your environment to really <i class="icn-rocket"></i> your team send us an email <a href="contact@indra.ai">contact@indra.ai</a>, and we can get the ball rolling.</p>
-      <p>To provide offerings of support you can do that at:</p>
+      <p>We operate on the offering model, and if you are interested in bringing indra.design into your environment to really <i class="icn-rocket text-blue"></i> your team send us an email <a href="contact@indra.ai">contact@indra.ai</a>, and we can get the ball rolling. <i class="icn-heart text-fire"></i></p>
+      <h5>Social Media</h5>
+      <ul>
+        <li><a href="https://twitter.com/indradotai">twitter.com/indradotai</a></li>
+        <li><a href="http://www.youtube.com/c/IndraDeva">youtube.com/IndraDeva</a></li>
+        <li><a href="https://www.facebook.com/IndraBuddha">facebook.com/IndraBuddha</a></li>
+      </ul>
+      <h5>Need Help</h5>
+      <ul>
+        <li><a href="https://discord.gg/SWnaARs">Discord Chat</a></li>
+      </ul>
+      <h5>Offerings of Support</h5>
       <ul>
         <li><a href="https://paypal.me/rahulaclub">paypal.me/rahulaclub</a></li>
         <li><a href="https://patreon.com/rahulaclub">patreon.com/rahulaclub</a></li>
@@ -100,6 +112,7 @@ import IndraChuck from '../chuck/index.vue';
 import IndraHeads from '../heads/index.vue';
 import IndraGallery from '../gallery/index.vue';
 import IndraVideos from '../videos/index.vue';
+import IndraSoundcloud from '../soundcloud/index.vue';
 
 export default {
   name: 'IndraMain',
@@ -107,7 +120,7 @@ export default {
     IndraChuck,
     IndraHeads,
     IndraGallery,
-    IndraVideos,
+    IndraSoundcloud,
   },
   computed: {
     colors() {

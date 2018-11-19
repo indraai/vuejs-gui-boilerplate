@@ -20,9 +20,11 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <section class="chuck-example">
-    <h3>Chuck Norris Jokes</h3>
-    <div class="chuck-joke" v-text="joke"></div>
-    <button class="btn btn-warning" @click="askChuck"><img :src="bot.avatar" alt="" class="icon"></button>
+    <h1><i class="icn icn-bullhorn"></i> Chuck Norris Jokes</h1>
+    <article class="joke-box">
+      <div class="chuck-joke" v-html="joke"></div>
+      <button class="btn btn-warning" @click="askChuck"><img :src="bot.avatar" alt="" class="icon"></button>
+    </article>
   </section>
 </template>
 
@@ -58,11 +60,14 @@ export default {
   @require '../../styles/vars'
 
   .chuck-example
-    margin: auto
-    text-align: center
+
     .btn
       border-radius: 50%
       margin-top: .5rem
+
+    .joke-box
+      text-align: center
+      padding: 1rem
 
     .chuck-joke
       width: 500px

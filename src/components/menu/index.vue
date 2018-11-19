@@ -21,12 +21,14 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 <template>
   <nav>
     <span class="title">indra.design</span>
-    <a href="#header" v-smooth-scroll><i class="icn icn-home"></i>Home</a>
-    <a href="#code" v-smooth-scroll="{offset:-100}"><i class="icn icn-code"></i>Code</a>
-    <a href="#technology" v-smooth-scroll="{offset:-100}"><i class="icn icn-rocket"></i>Tech</a>
-    <a href="#elements" v-smooth-scroll="{offset:-100}"><i class="icn icn-paperclip"></i>Elements</a>
-    <a href="#elements" v-smooth-scroll="{offset:-100}"><i class="icn icn-mustache"></i>Heads</a>
-    <a href="#information" v-smooth-scroll="{offset:-100}"><i class="icn icn-eye"></i>Info</a>
+    <a href="#header" v-smooth-scroll><i class="icn icn-home"></i>home</a>
+    <a href="#code" v-smooth-scroll="{offset:-100}"><i class="icn icn-code"></i>code</a>
+    <a href="#technology" v-smooth-scroll="{offset:-100}"><i class="icn icn-rocket"></i>tech</a>
+    <a href="#elements" v-smooth-scroll="{offset:-100}"><i class="icn icn-paperclip"></i>elements</a>
+    <a href="#heads" v-smooth-scroll="{offset:-100}"><i class="icn icn-mustache"></i>heads</a>
+    <a href="#gallery" v-smooth-scroll="{offset:-100}"><i class="icn icn-picture"></i>gallery</a>
+    <a href="#videos" v-smooth-scroll="{offset:-100}"><i class="icn icn-film-play"></i>videos</a>
+    <a href="#information" v-smooth-scroll="{offset:-100}"><i class="icn icn-eye"></i>info</a>
   </nav>
 </template>
 
@@ -66,7 +68,6 @@ export default {
 // custom template styles
   @require('../../styles/vars')
   nav
-    transition: $transition
     font-size: .8rem
     display: flex
     flex-flow: row nowrap
@@ -99,6 +100,7 @@ export default {
     .icn
       font-size: 2rem
       display: block
+      height: 2.5rem
 
     &.sticky
       position: fixed
@@ -106,17 +108,21 @@ export default {
       left: 0
       right: 0
       z-index: 100
+      padding: 1rem
 
       .title
         display: inline-block
         font-size: 2rem
-        padding: 0 1rem
         flex: 1 auto
 
       a
-        font-size: 1.5rem
+        font-size: 1.2rem
         width: auto
+        padding: .5rem
+        color: $colors.yellow
       .icn
-        font-size: 1rem
+        font-size: .75em
+        margin-right: .3em
+        height: inherit
         display: inline-block
 </style>

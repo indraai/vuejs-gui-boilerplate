@@ -18,7 +18,10 @@ You should have received a copy of the GNU General Public License
 along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 <template>
-  <footer>&copy;2018 Quinn Michaels - indra.ai</footer>
+  <footer>
+    <article class="footer-left">&copy;Copyright 2018 Quinn Michaels | indra.ai</article>
+    <article class="footer-right"><img src="https://deva.space/cdn/badges/License-GPL-v3-blue.svg" alt="GPL-v3 License"></article>
+  </footer>
 </template>
 
 <script>
@@ -33,5 +36,18 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  @require '../../styles/vars'
+  footer
+    padding: 1rem
+    background-color: $colors.charcoal
+    color: lighten($colors.charcoal, 75%)
+    display: flex
+    flex-flow: row nowrap
+
+    .footer
+      &-left
+        flex: 1
+      &-right
+        flex: 0
 
 </style>
