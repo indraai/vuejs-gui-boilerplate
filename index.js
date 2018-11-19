@@ -21,17 +21,37 @@ if (cmd.comp) {
   // create the component name and the store name for the component
   // component name should have a camel case Indra name
   // while the store component should be all lower case
-  const cComp = 'Indra' + cmd.comp.charAt(0).toUpperCase() + cmd.comp.substr(1).toLowerCase();
-  const cStore = cmd.comp.toLowerCase();
-  if (fs.existsSync(path.join(cPath, cStore))) {
-    console.log('that component already exists');
+  const comp = {
+    name: 'Indra' + cmd.comp.charAt(0).toUpperCase() + cmd.comp.substr(1).toLowerCase(),
+    store: cmd.comp.toLowerCase(),
+    dir: path.join(cPath, cmd.comp.toLowerCase()),
+  }
+  if (fs.existsSync(path.join(comp.dir, comp.name))) {
+    console.log('That component already exists.');
   }
   else {
-    console.log('comp: ', cPath, cComp, cStore);
+
+    console.log('Name: ', comp.name);
+    console.log('Store: ', comp.store);
+    console.log('Path: ', comp.dir);
+
+    // first let's create out new directory once we have found that one does not exist already
+    fs.mkdirSync(comp.dir)
+
+    // now we are looping through the files let's read them and change any values and write them to their new folder.
     fs.readdir(cBlank, (err, items) => {
       if (err) console.error(err);
-      console.log(items);
-    })
-    console.log('CREATE A NEW COMPONENT', cmd.comp);
+      items.forEach(item => {
+        const itemName = item === 'test.js' ? 'index.test.js' : item;
+        const blankPath = path.join(cBlank, item);
+        const itemPath = path.join(comp.dir, itemName);
+        const itemContent = fs.readFileSync(blankPath, 'utf8')
+                        .replace(/:component:/g, comp.name)
+                        .replace(/:store:/g, comp.store);
+        fs.writeFileSync(itemPath, itemContent)
+        console.log('File: ', itemPath);
+      });
+      console.log(`${comp.name} has been created`);
+    });
   }
 }

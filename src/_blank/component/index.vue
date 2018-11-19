@@ -1,9 +1,8 @@
 <!--
 Copyright 2018 Quinn Michaels
+This file is part of indra.design
 
-This file is part of Indra VueJs Gui Boilerplate
-
-Indra VueJs Gui Boilerplate is free software:
+indra.design is free software:
 you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -19,21 +18,31 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section></section>
+  <section>
+    <h1 v-html="title"></h1>
+    <p v-html="description"></p>
+  </section>
 </template>
 
 <script>
 // template javascript
 
 export default {
-  name: '*component*',
+  name: ':component:',
   components: {},
-  computed: {},
+  computed: {
+    title() {
+      return this.$store.getters[':store:/title']
+    },
+    description() {
+      return this.$store.getters[':store:/description']
+    },
+  },
   methods: {},
   created() {}
 }
 </script>
 
-<style lang="stylus">
-// custom template styles
+<style lang="stylus" scoped>
+  // custom template styles
 </style>

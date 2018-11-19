@@ -16,15 +16,17 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
- -->
+-->
 
 <template>
   <nav>
-    <a href="#header" v-smooth-scroll><i class="icn-home"></i><br>Home</a>
-    <a href="#code" v-smooth-scroll="{offset:-100}"><i class="icn-code"></i><br>Code</a>
-    <a href="#technology" v-smooth-scroll="{offset:-100}"><i class="icn-rocket"></i><br>Tech</a>
-    <a href="#elements" v-smooth-scroll="{offset:-100}"><i class="icn-paperclip"></i><br>Elements</a>
-    <a href="#information" v-smooth-scroll="{offset:-100}"><i class="icn-eye"></i><br>Info</a>
+    <span class="title">indra.design</span>
+    <a href="#header" v-smooth-scroll><i class="icn icn-home"></i>Home</a>
+    <a href="#code" v-smooth-scroll="{offset:-100}"><i class="icn icn-code"></i>Code</a>
+    <a href="#technology" v-smooth-scroll="{offset:-100}"><i class="icn icn-rocket"></i>Tech</a>
+    <a href="#elements" v-smooth-scroll="{offset:-100}"><i class="icn icn-paperclip"></i>Elements</a>
+    <a href="#elements" v-smooth-scroll="{offset:-100}"><i class="icn icn-mustache"></i>Heads</a>
+    <a href="#information" v-smooth-scroll="{offset:-100}"><i class="icn icn-eye"></i>Info</a>
   </nav>
 </template>
 
@@ -64,6 +66,7 @@ export default {
 // custom template styles
   @require('../../styles/vars')
   nav
+    transition: $transition
     font-size: .8rem
     display: flex
     flex-flow: row nowrap
@@ -71,24 +74,19 @@ export default {
     justify-content: center
     align-content: center
     background-color: $colors.charcoal
+    color: lighten($colors.charcoal, 50%)
 
-    &.sticky
-      position: fixed
-      top: 0
-      left: 0
-      right: 0
-      z-index: 100
+    .title
+      display: none
 
     a
-      transition: $transition
       text-decoration: none
       display: inline-block
       text-align: center
       padding: 1rem
       width: 75px
       height: 100%
-      color: $colors.fire
-      text-shadow: 0 0 3px darken($colors.fire, 30%)
+      color: lighten($colors.charcoal, 50%)
 
       &:hover
         color: $colors.blue
@@ -98,6 +96,27 @@ export default {
         color: $colors.earth
         text-shadow: 0 0 9px darken($colors.earth, 50%)
 
-      i
+    .icn
+      font-size: 2rem
+      display: block
+
+    &.sticky
+      position: fixed
+      top: 0
+      left: 0
+      right: 0
+      z-index: 100
+
+      .title
+        display: inline-block
         font-size: 2rem
+        padding: 0 1rem
+        flex: 1 auto
+
+      a
+        font-size: 1.5rem
+        width: auto
+      .icn
+        font-size: 1rem
+        display: inline-block
 </style>

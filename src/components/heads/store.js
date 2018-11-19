@@ -18,11 +18,14 @@
 
 // THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
 
-const :store: = {
+const heads = {
   namespaced: true,
   state: {
-    title: ':component:',
-    description: ':component: (:store:) is ready for use.'
+    open: false,
+    viewing: false,
+    title: 'Heads',
+    description: 'IndraHeads (heads) is ready for use.',
+    profiles: false,
   },
   getters: {
     title(state) {
@@ -30,7 +33,16 @@ const :store: = {
     },
     description(state) {
       return state.description;
-    }
+    },
+    profiles(state) {
+      return state.profiles;
+    },
+    open(state) {
+      return state.open;
+    },
+    viewing(state) {
+      return state.profiles[state.viewing];
+    },
   },
   mutations: {
     title(state, data) {
@@ -39,6 +51,19 @@ const :store: = {
     description(state, data) {
       state.description = data;
     },
+    profiles(state, data) {
+      state.profiles = data;
+    },
+    open(state, data) {
+      state.open = data;
+    },
+    viewing(state, data) {
+      state.viewing = data;
+    },
+    close(state) {
+      state.viewing = false;
+      state.open = false;
+    }
   },
   actions: {
     title({commit}, data) {
@@ -47,7 +72,18 @@ const :store: = {
     description({commit}, data) {
       commit('description', data);
     },
+    profiles({commit}, data) {
+      const {profiles} = require('./data.json');
+      commit('profiles', profiles);
+    },
+    open({commit}, data) {
+      commit('open', true);
+      commit('viewing', data);
+    },
+    close({commit}) {
+      commit('close');
+    }
   },
 }
 
-export { :store: }
+export { heads }

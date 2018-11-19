@@ -25,6 +25,9 @@ import {menu} from '../components/menu/store.js'
 import {main} from '../components/main/store.js'
 import {chuck} from '../components/chuck/store.js'
 import {errors} from '../components/errors/store.js'
+import {heads} from '../components/heads/store.js'
+import {gallery} from '../components/gallery/store.js'
+import {videos} from '../components/videos/store.js'
 
 Vue.use(Vuex)
 
@@ -37,5 +40,8 @@ export default new Vuex.Store({
     menu,
     main,
     chuck,
+    heads,
+    gallery,
+    videos,
   }
 })

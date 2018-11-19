@@ -22,17 +22,17 @@ import Vuex from 'vuex'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-import :component: from './index.vue'
-import {:store:} from './store.js'
+import IndraHeads from './index.vue'
+import {heads} from './store.js'
 
-describe(':component:', () => {
+describe('IndraHeads', () => {
   let store
   beforeEach(() => {
-    store = new Vuex.Store(:store:)
+    store = new Vuex.Store(heads)
   })
 
   it('expect component to be defined', () => {
-    const wrapper = shallowMount(:component:, {store, localVue})
+    const wrapper = shallowMount(IndraHeads, {store, localVue})
     expect(wrapper).to.not.be.an('undefined')
   })
 })

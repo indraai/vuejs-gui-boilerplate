@@ -22,17 +22,17 @@ import Vuex from 'vuex'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-import :component: from './index.vue'
-import {:store:} from './store.js'
+import IndraVideos from './index.vue'
+import {heads} from './store.js'
 
-describe(':component:', () => {
+describe('IndraVideos', () => {
   let store
   beforeEach(() => {
-    store = new Vuex.Store(:store:)
+    store = new Vuex.Store(heads)
   })
 
   it('expect component to be defined', () => {
-    const wrapper = shallowMount(:component:, {store, localVue})
+    const wrapper = shallowMount(IndraVideos, {store, localVue})
     expect(wrapper).to.not.be.an('undefined')
   })
 })

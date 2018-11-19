@@ -10,26 +10,30 @@ First you want to fork the repository into a new project for your use.
 Then clone the repository to your dev machine to start using it on your projects.
 
 ## Install
-Install the base components to get going.
-
-Install the Vue CLI tool needed to run things
-```
-$ npm install vue-cli -g
-```
-
 Install the package requirements
 ```
 $npm install
-````
+```
 
 ## Running the server
 The server runs in two modes.  Development and Production.
 
 ### Development Server
-`npm run dev`
+To run the development server and see how things work run this command.
+```
+$npm run dev
+```
 
 ### Production Builds
-`npm run prod`
+To create a production build and package all the files into the `./build` directory for deployment run this command.
+```
+$npm run prod
+```
+
+### CLI
+There is a light `cli` to make it easier to create new components. This will create a blank new component for you.
+
+```$node index.js -c <name>```
 
 -------
 

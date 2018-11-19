@@ -1,6 +1,6 @@
-# :component:
+# IndraHeads
 
-Component: `./src/components/:store:/`
+Component: `./src/components/heads/`
 
 ## Welcome
 Welcome to getting your new component started.  To get it installed in your application it requires a few manual steps from you.  Sure we could have automated this for you, but over time automating this next step could potentially cause more problems then it solves so adding your new component to your app in your way is your job.
@@ -11,12 +11,12 @@ If you are using the basic structure of indra.design and this is a global compon
 1. Add the component import in the script block and then insert the variable into the components object of the `App`
 ```javascript
   // add this import line
-  import :component: from './components/:store:/index.vue';
+  import IndraHeads from './components/heads/index.vue';
 
   export default {
     name: 'App',
     components: {
-      :component:, // add this
+      IndraHeads, // add this
     },
     data() {
       return {};
@@ -29,19 +29,19 @@ If you are using the basic structure of indra.design and this is a global compon
 2. Adding the store files to the global listing `./src/store/index.js`   
 ```javascript
   // add this import line
-  import {:store:} from '../components/:store:/store.js'
+  import {heads} from '../components/heads/store.js'
 
   export default new Vuex.Store({
     modules: {
       global,
-      :store:, // add this
+      heads, // add this
     }
   })
 ```
 
 3. Using your new component.  From here your blank component is ready to use in your app and develop amazing new ideas from.
 ```html
-  <:component:></:component:>
+  <IndraHeads></IndraHeads>
 ```
 
 ### Coding Habits

@@ -20,7 +20,6 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <main>
-    <section class="heads"><h1>HEADS</h1><i class="heads heads-indra-s"></i><i class="heads heads-indra-full"></i></section>
     <section class="hero">
       <div class="container">
         <div class="hero-content">
@@ -29,7 +28,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
           <p class="lead">The indra.design open source tool can help developers in creating amazing complex dynamic interfaces that will WOW your friends, coworkers, and land you that #RockstarDeveloper role.</p>
           <p class="lead">Built ontop of NodeJs, VueJs, Stylus(CSS), and WebPack this will enable any developer to adapt their skills hardened over the many years of pounding away at a keyboard.</p>
         </div>
-        <div class="hero-image"><img src="../../assets/img/avatar.png" alt=""></div>
+        <div class="hero-image"><i class="heads-indra-l"></i></div>
       </div>
     </section>
     <section class="philosophy panels" id="philosophy">
@@ -55,7 +54,6 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
       <hr>
       <p class="alert alert-primary text-white"><i class="icn-warning"></i> Forking the repository is a smart idea if you plan on making changes to the code.</p>
     </section>
-
     <section class="technology" id="technology">
       <h2><i class="icn icn-rocket"></i> Technology</h2>
       <p>At the indra.design project we <i class="icn-heart"></i> open source technology. That is why we develop our technology on some of the most trusted platforms and libraries like NodeJs, VueJs, Stylus, and WebPack</p>
@@ -81,10 +79,13 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
       <p>The development process is delivered through a sweet WebPack dev/prod setup.</p>
 
     </section>
+    <IndraHeads></IndraHeads>
+    <IndraGallery></IndraGallery>
+    <IndraVideos></IndraVideos>
     <section class="information" id="information">
       <h2><i class="icn icn-eye"></i> Information</h2>
-      <p>We really <i class="icn-heart text-fire"></i><i class="icn-heart text-fire"></i><i class="icn-heart text-fire"></i> working with developers, designers, and other creative types, so if you'd like us to come into your environment to show you how indra.design can really <i class="icn-rocket"></i> your team send us an email <a href="contact@indra.ai">contact@indra.ai</a>, so we can get the ball rolling.</p>
-      <p>If you would like to provide offerings of support you can do that at:</p>
+      <p>We <i class="icn-heart text-fire"></i> If you are interested in bringing indra.design into your environment to really <i class="icn-rocket"></i> your team send us an email <a href="contact@indra.ai">contact@indra.ai</a>, and we can get the ball rolling.</p>
+      <p>To provide offerings of support you can do that at:</p>
       <ul>
         <li><a href="https://paypal.me/rahulaclub">paypal.me/rahulaclub</a></li>
         <li><a href="https://patreon.com/rahulaclub">patreon.com/rahulaclub</a></li>
@@ -96,11 +97,17 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 <script>
 // template javascript
 import IndraChuck from '../chuck/index.vue';
+import IndraHeads from '../heads/index.vue';
+import IndraGallery from '../gallery/index.vue';
+import IndraVideos from '../videos/index.vue';
 
 export default {
   name: 'IndraMain',
   components: {
     IndraChuck,
+    IndraHeads,
+    IndraGallery,
+    IndraVideos,
   },
   computed: {
     colors() {
