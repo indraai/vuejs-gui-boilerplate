@@ -99,6 +99,7 @@ export default {
       align-content: center
       align-items: center
       justify-content: center
+      overflow: auto
 
       .close
         transition: $transition
@@ -106,7 +107,7 @@ export default {
         border: none
         color: $colors.white
         font-size: 5rem
-        position: absolute
+        position: fixed
         top: 0
         right: 0
         border: none
@@ -123,6 +124,7 @@ export default {
       &-item
         img
           box-shadow: 0 3px 9px darken($colors.charcoal, 50%)
+          max-width: 100%
       &-card
         color: lighten($colors.charcoal, 30%)
         width: 75%

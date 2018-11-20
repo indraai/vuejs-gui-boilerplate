@@ -83,6 +83,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     <IndraGallery></IndraGallery>
     <IndraVideos></IndraVideos>
     <IndraSoundcloud></IndraSoundcloud>
+    <IndraRahula></IndraRahula>
     <IndraChuck></IndraChuck>
     <section class="information" id="information">
       <h2><i class="icn icn-eye"></i> Information</h2>
@@ -113,6 +114,7 @@ import IndraHeads from '../heads/index.vue';
 import IndraGallery from '../gallery/index.vue';
 import IndraVideos from '../videos/index.vue';
 import IndraSoundcloud from '../soundcloud/index.vue';
+import IndraRahula from '../rahula/index.vue';
 
 export default {
   name: 'IndraMain',
@@ -122,6 +124,7 @@ export default {
     IndraGallery,
     IndraVideos,
     IndraSoundcloud,
+    IndraRahula,
   },
   computed: {
     colors() {
@@ -172,10 +175,11 @@ export default {
             width: auto
             height: 100px
 
-    .hero-image
+    .hero-image, .hero-content > h1
       display: none
+
     @media screen and (min-width: 700px)
-      .hero-image
+      .hero-image, .hero-content > h1
         display: inherit
 
 </style>

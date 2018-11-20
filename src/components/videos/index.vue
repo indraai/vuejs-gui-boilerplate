@@ -18,7 +18,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section class="videos">
+  <section class="videos" id="videos">
     <h1><i class="icn icn-film-play"></i> {{title}}</h1>
     <p v-html="description"></p>
     <article class="videos-list">

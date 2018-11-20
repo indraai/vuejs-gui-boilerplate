@@ -117,7 +117,7 @@ export default {
         text-align: center
         color: $menu-color
         text-decoration: none
-        padding: 2rem
+        padding: 1rem
 
         &:hover
           color: $colors.blue

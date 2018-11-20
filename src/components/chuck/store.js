@@ -26,7 +26,7 @@ const chuck = {
     bot: {
       name: 'Chuck Norris',
       avatar: 'https://media.discordapp.net/attachments/465948115732660255/474792404025737227/chuck.png',
-      url: 'http://api.icndb.com/jokes/random?exclude=[explicit]',
+      url: 'https://api.icndb.com/jokes/random?exclude=[explicit]',
     },
   },
   getters: {

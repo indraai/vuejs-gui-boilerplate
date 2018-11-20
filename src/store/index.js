@@ -29,6 +29,7 @@ import {heads} from '../components/heads/store.js'
 import {gallery} from '../components/gallery/store.js'
 import {videos} from '../components/videos/store.js'
 import {soundcloud} from '../components/soundcloud/store.js'
+import {rahula} from '../components/rahula/store.js'
 
 Vue.use(Vuex)
 
@@ -45,5 +46,6 @@ export default new Vuex.Store({
     gallery,
     videos,
     soundcloud,
+    rahula,
   }
 })

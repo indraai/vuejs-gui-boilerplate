@@ -60,7 +60,7 @@ export default {
       return this.$store.getters['heads/viewing'];
     },
     viewingClass() {
-      return `heads-${this.viewing.name}-l`
+      return `heads-${this.viewing.name}-m`
     }
   },
   methods: {
@@ -104,14 +104,14 @@ export default {
         left: 0
         right: 0
         bottom: 0
-        background-color: $colors.charcoal
+        background-color: $colors.white
         display: flex
 
         .close
           transition: $transition
           background-color: transparent
           border: none
-          color: $colors.white
+          color: $colors.charcoal
           font-size: 5rem
           position: absolute
           top: 0
@@ -123,14 +123,17 @@ export default {
 
         &-card
           background-color: $colors.white
-          width: 75%
           margin: auto
           border-radius: 1rem
           padding: 1rem
           display: flex
+          flex-flow: column nowrap
+          justify-content: center
+          align-items: center
 
           .info
             padding: 0 0 0 1rem
+
       &-{$head.name}
         &-full
           $f-size = 512px
