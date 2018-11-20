@@ -25,7 +25,7 @@ const chuck = {
     joke: '',
     bot: {
       name: 'Chuck Norris',
-      avatar: 'https://media.discordapp.net/attachments/465948115732660255/474792404025737227/chuck.png',
+      avatar: 'https://deva.space/cdn/chuck.png',
       url: 'https://api.icndb.com/jokes/random?exclude=[explicit]',
     },
   },

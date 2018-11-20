@@ -18,22 +18,20 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section>
-    <h1 v-html="title"></h1>
+  <section class="rahula" id="rahula">
+    <h1><i class="icn icn-pencil"></i> {{title}}</h1>
     <p v-html="description"></p>
-    <article class="items">
-      <div v-for="topic in topics">
-        <h3 v-html="topic.title" @click="topicOpen(topic.slug)"></h3>
-      </div>
+    <article class="rahula-topics">
+      <h4 v-for="topic in topics" class=""><a href="#" v-html="topic.title" @click.prevent="topicOpen(topic.tid)"></a></h4>
     </article>
-    <article class="topic-viewing" v-if="open">
+    <article class="rahula-topic-viewing" v-if="open">
       <button class="close" @click="topicClose"><i class="icn-cross"></i></button>
-      <div class="topic-viewing-card">
+      <div class="rahula-topic-viewing-card">
         <h1 v-html="viewing.title"></h1>
-        <div class="topic-author">
+        <div class="rahula-topic-author">
           by <span>{{viewing.posts[0].user.username}}</span>
         </div>
-        <div class="topic-tags">
+        <div class="rahula-topic-tags">
           tags <span v-for="tag in viewing.tags" v-text="tag.value"></span>
         </div>
         <article v-html="viewing.posts[0].content"></article>
@@ -85,54 +83,58 @@ export default {
 <style lang="stylus" scoped>
   // custom template styles
   @require '../../styles/vars'
-
-  .topic
-    &-viewing
-      position: fixed
-      top: 0
-      left: 0
-      right: 0
-      bottom: 0
-      height: 100%
-      width: 100%
-      background-color: $colors.white
-      z-index: 1000
-
-      &-card
-        max-width: 900px
-        height: 100%
-        margin: auto
-        overflow: auto
-
-      .close
-        transition: $transition
-        background-color: transparent
-        border: none
-        color: $colors.charcoal
-        font-size: 5rem
-        position: absolute
-        top: 0
-        right: 0
-        border: none
-        outline: none
-        &:hover
+  .rahula
+    &-topics
+      h4
+        padding: 1rem 0
+        a
           color: $colors.blue
 
-    &-tags
-      padding: .5rem
-      font-size: 1.5rem
+    &-topic
+      &-viewing
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        height: 100%
+        width: 100%
+        background-color: $colors.white
+        z-index: 1000
 
-      span
-        display: inline-block
-        padding: 0 1rem
-        background-color: $colors.yellow
-        margin: 0 .1rem
-        color: darken($colors.yellow, 75%)
-        border-radius: .5rem
-        &::before
-          content: '#'
+        &-card
+          max-width: 900px
+          height: 100%
+          margin: auto
+          overflow: auto
 
-    &-author
-      padding: .5rem
-      font-size: 2rem
+        .close
+          transition: $transition
+          background-color: transparent
+          border: none
+          color: $colors.charcoal
+          font-size: 5rem
+          position: absolute
+          top: 0
+          right: 0
+          border: none
+          outline: none
+          &:hover
+            color: $colors.blue
+
+      &-tags
+        padding: .5rem
+        font-size: 1.5rem
+
+        span
+          display: inline-block
+          padding: 0 1rem
+          background-color: $colors.yellow
+          margin: 0 .1rem
+          color: darken($colors.yellow, 75%)
+          border-radius: .5rem
+
+      &-author
+        padding: .5rem
+        font-size: 2rem
 </style>

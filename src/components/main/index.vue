@@ -58,32 +58,21 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
       <h2><i class="icn icn-rocket"></i> Technology</h2>
       <p>At the indra.design project we <i class="icn-heart"></i> open source technology. That is why we develop our technology on some of the most trusted platforms and libraries like NodeJs, VueJs, Stylus, and WebPack</p>
       <div class="badges">
-        <img src="../../assets/img/nodejs.png" alt="">
-        <img src="../../assets/img/vuejs.png" alt="">
-        <img src="../../assets/img/stylus.png" alt="">
-        <img src="../../assets/img/webpack.png" alt="">
+        <img src="https://deva.space/cdn/badges/nodejs.png" alt="">
+        <img src="https://deva.space/cdn/badges/vuejs.png" alt="">
+        <img src="https://deva.space/cdn/badges/stylus.png" alt="">
+        <img src="https://deva.space/cdn/badges/webpack.png" alt="">
       </div>
       <div class="badges testing">
-        <img src="../../assets/img/mocha.png" alt="">
-        <img src="../../assets/img/chai.png" alt="">
+        <img src="https://deva.space/cdn/badges/mocha.png" alt="">
+        <img src="https://deva.space/cdn/badges/chai.png" alt="">
       </div>
     </section>
-    <section class="elements" id="elements">
-      <h2><i class="icn icn-paperclip"></i> Elements</h2>
-      <p>The elements of an effective design are important to the message you as an idea developer are attempting to relay.  Everything from the fonts, colors, spacing, layouts, icons, and buttons send a message to your user saying, "This is me!"</p>
-      <ul>
-        <li>Design - First design the interface</li>
-        <li>Develop - Then develop the component</li>
-        <li>Style - Then build the style</li>
-        <li>Test - Then test to confirm functionality</li>
-      </ul>
-
-    </section>
+    <IndraRahula></IndraRahula>
     <IndraHeads></IndraHeads>
     <IndraGallery></IndraGallery>
     <IndraVideos></IndraVideos>
     <IndraSoundcloud></IndraSoundcloud>
-    <IndraRahula></IndraRahula>
     <IndraChuck></IndraChuck>
     <section class="information" id="information">
       <h2><i class="icn icn-eye"></i> Information</h2>

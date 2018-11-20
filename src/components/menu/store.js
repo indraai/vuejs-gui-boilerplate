@@ -39,9 +39,9 @@ const menu = {
         text: 'tech',
       },
       {
-        href: '#elements',
-        class: 'icn icn-paperclip',
-        text: 'elements',
+        href: '#rahula',
+        class: 'icn icn-pencil',
+        text: 'blog',
       },
       {
         href: '#heads',

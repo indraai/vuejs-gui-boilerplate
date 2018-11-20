@@ -28,8 +28,8 @@ const rahula = {
   state: {
     open: false,
     viewing: false,
-    title: 'Rahula Posts',
-    description: 'Recent Posts from Rahula.club',
+    title: 'Blog',
+    description: 'Recent blogs from indra.design delivered by rahula.club',
     topics: [],
   },
   getters: {
@@ -79,14 +79,15 @@ const rahula = {
     },
     topics({commit}, data) {
       callRahula('category/38/indra-design').then(result => {
-        commit('topics', result.data.topics)
+        const { topics } = result.data;
+        commit('topics', topics.slice(0,5))
       }).catch(console.error)
     },
     open({commit}, data) {
       callRahula('topic/' + data).then(result => {
+        const {data} = result;
         commit('open', true);
-        console.log('rahula data', result.data);
-        commit('viewing', result.data);
+        commit('viewing', data);
       }).catch(console.error)
     },
     close({commit}) {
