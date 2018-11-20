@@ -21,8 +21,8 @@
 const soundcloud = {
   namespaced: true,
   state: {
-    title: 'IndraSoundcloud',
-    description: 'IndraSoundcloud (soundcloud) is ready for use.'
+    title: 'Soundcloud',
+    description: 'A collection of singing bowl sounds created by Quinn Michaels.'
   },
   getters: {
     title(state) {

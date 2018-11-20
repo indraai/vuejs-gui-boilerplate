@@ -24,7 +24,7 @@ const videos = {
     open: false,
     viewing: false,
     title: 'Videos',
-    description: 'A simple videos component',
+    description: 'A collection of sound painting videos created by Quinn Michaels',
     items: false,
   },
   getters: {

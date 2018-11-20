@@ -43,38 +43,44 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@require '../../styles/vars'
+  @require '../../styles/vars'
 
-header
-  position: relative;
-  background-color: $colors.fire
-  background-repeat: no-repeat
-  background-size: auto 100%
-  background-position: right
-  text-align: center
-  padding: 1rem
-  color: lighten($colors.fire, 80%)
-  display: flex
-  align-items: stretch
-  align-content: center
-  justify-content: center
-  flex-flow: column nowrap
-  box-shadow: 0 0 1rem darken($colors.charcoal, 50%)
+  header
+    position: relative;
+    background-color: $colors.fire
+    background-repeat: no-repeat
+    background-size: auto 100%
+    background-position: right
+    text-align: center
+    padding: 1rem
+    color: lighten($colors.fire, 80%)
+    display: flex
+    align-items: stretch
+    align-content: center
+    justify-content: center
+    flex-flow: column nowrap
+    box-shadow: 0 0 1rem darken($colors.charcoal, 50%)
 
-  h1, p
-    text-align: left
+    h1, p
+      text-align: left
 
-  h1
-    padding: 1rem 2rem 0 2rem
-    margin: 10rem 0 0 0
-    font-weight: 100
-    font-size: 7rem
-    font-weight: 200
-    letter-spacing: -6px
-    line-height: 1
-  p
-    margin: 0
-    padding: 0 2rem .5rem 2rem
-    font-size: 3rem
-    line-height: .5
+    h1
+      padding: 1rem
+      margin: 10rem 0 0 0
+      font-weight: 100
+      font-size: 5rem
+      font-weight: 200
+      letter-spacing: -6px
+      line-height: 1
+    p
+      margin: 0
+      padding: 0 2rem .5rem 2rem
+      font-size: 1.75rem
+      line-height: .5
+
+    @media screen and (min-width: 700px)
+      h1
+        font-size: 9rem
+      p
+        font-size: 3rem
 </style>

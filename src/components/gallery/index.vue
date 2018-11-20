@@ -18,7 +18,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section class="gallery">
+  <section class="gallery" id="gallery">
     <h1><i class="icn icn-picture"></i> {{title}}</h1>
     <p v-html="description"></p>
     <article class="gallery-list">

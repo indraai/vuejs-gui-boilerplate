@@ -19,16 +19,20 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
 <template>
-  <nav>
-    <span class="title">indra.design</span>
-    <a href="#header" v-smooth-scroll><i class="icn icn-home"></i>home</a>
-    <a href="#code" v-smooth-scroll="{offset:-100}"><i class="icn icn-code"></i>code</a>
-    <a href="#technology" v-smooth-scroll="{offset:-100}"><i class="icn icn-rocket"></i>tech</a>
-    <a href="#elements" v-smooth-scroll="{offset:-100}"><i class="icn icn-paperclip"></i>elements</a>
-    <a href="#heads" v-smooth-scroll="{offset:-100}"><i class="icn icn-mustache"></i>heads</a>
-    <a href="#gallery" v-smooth-scroll="{offset:-100}"><i class="icn icn-picture"></i>gallery</a>
-    <a href="#videos" v-smooth-scroll="{offset:-100}"><i class="icn icn-film-play"></i>videos</a>
-    <a href="#information" v-smooth-scroll="{offset:-100}"><i class="icn icn-eye"></i>info</a>
+  <nav class="menu">
+    <div class="menu-small">
+      <div class="menu-title">indra.design</div>
+      <button class="menu-button icn icn-menu" @click="toggle"></button>
+      <div class="menu-items" v-if="open">
+        <a v-for="item in items" :href="item.href" v-smooth-scroll="{offset:-50}" @click="toggle"><i :class="item.class"></i><span>{{item.text}}</span></a>
+      </div>
+    </div>
+    <div class="menu-big">
+      <div class="menu-title">indra.design</div>
+      <div class="menu-items">
+        <a v-for="item in items" :href="item.href" v-smooth-scroll="{offset:-100}"><i :class="item.class"></i><span>{{item.text}}</span></a>
+      </div>
+    </div>
   </nav>
 </template>
 
@@ -37,13 +41,15 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 export default {
   name: 'IndraMenu',
-  data() {
-    return {
-      offset: 0,
+  components: {},
+  computed: {
+    open() {
+      return this.$store.getters['menu/open']
+    },
+    items() {
+      return this.$store.getters['menu/items']
     }
   },
-  components: {},
-  computed: {},
   methods: {
     sticky(event) {
       if (window.pageYOffset >= this.offset) {
@@ -52,6 +58,9 @@ export default {
       else {
         this.$el.classList.remove('sticky')
       }
+    },
+    toggle() {
+      this.$store.dispatch('menu/toggle');
     }
   },
   mounted() {
@@ -67,40 +76,80 @@ export default {
 <style lang="stylus" scoped>
 // custom template styles
   @require('../../styles/vars')
-  nav
-    font-size: .8rem
-    display: flex
-    flex-flow: row nowrap
-    align-items: center
-    justify-content: center
-    align-content: center
-    background-color: $colors.charcoal
-    color: lighten($colors.charcoal, 50%)
+  $menu-color = lighten($colors.charcoal, 80%)
 
-    .title
+
+  .menu
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    background-color: $colors.charcoal
+    color: $menu-color
+
+    &-small
+      display: flex
+      flex-flow: row wrap
+      padding: .5rem
+    &-big
       display: none
 
-    a
-      text-decoration: none
-      display: inline-block
-      text-align: center
-      padding: 1rem
-      width: 75px
-      height: 100%
-      color: lighten($colors.charcoal, 50%)
+    &-title
+      flex: 1
+      font-size: 1.3rem
+    &-dropdown
+      flex: 1
 
-      &:hover
-        color: $colors.blue
-        text-shadow: 0 0 9px darken($colors.blue, 50%)
-      &:active
-      &:focus
-        color: $colors.earth
-        text-shadow: 0 0 9px darken($colors.earth, 50%)
-
-    .icn
+    &-button
       font-size: 2rem
-      display: block
-      height: 2.5rem
+      color: $menu-color
+
+    &-items
+      flex: 1 100%
+      flex-flow: row wrap
+      display: flex
+      justify-content: center
+      align-items: center
+      align-content: center
+      padding: .5rem
+      a
+        flex: 0
+        text-align: center
+        color: $menu-color
+        text-decoration: none
+        padding: 2rem
+
+        &:hover
+          color: $colors.blue
+        &:active
+        &:focus
+          color: $colors.earth
+
+        .icn
+          display: block
+          font-size: 4rem
+
+@media screen and (min-width: 900px)
+  .menu
+    position: relative
+    &-small
+      display: none
+    &-big
+      display: flex
+
+    &-title
+      display: none
+      flex: 0
+
+    &-items
+      flex: 1
+      a
+        flex: 0 auto
+        padding: 1rem
+
+        .icn
+          font-size: 2em
+          height: 2rem
 
     &.sticky
       position: fixed
@@ -110,19 +159,25 @@ export default {
       z-index: 100
       padding: 1rem
 
-      .title
+      .menu-title
         display: inline-block
         font-size: 2rem
-        flex: 1 auto
+        flex: 0
+
+      .menu-items
+        justify-content: flex-end
 
       a
         font-size: 1.2rem
         width: auto
         padding: .5rem
-        color: $colors.yellow
+
       .icn
         font-size: .75em
         margin-right: .3em
         height: inherit
         display: inline-block
+
+
+
 </style>

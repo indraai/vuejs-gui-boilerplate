@@ -24,7 +24,7 @@ const gallery = {
     open: false,
     viewing: false,
     title: 'Gallery',
-    description: 'A simple image viewing gallery component',
+    description: 'A collection of artwork created by Quinn Michaels',
     items: false,
   },
   getters: {

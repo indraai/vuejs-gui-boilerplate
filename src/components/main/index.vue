@@ -41,8 +41,8 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
         <p>Once the idea is imagined a process of creation is formed.</p>
       </div>
       <div class="panel">
-        <h2><i class="icn icn-diamond"></i>Process</h2>
-        <p>In the moment of creation a process completes all the steps.</p>
+        <h2><i class="icn icn-diamond"></i>Develop</h2>
+        <p>The development process completes all the steps.</p>
       </div>
     </section>
     <section class="code" id="code">
@@ -120,6 +120,7 @@ export default {
     IndraChuck,
     IndraHeads,
     IndraGallery,
+    IndraVideos,
     IndraSoundcloud,
   },
   computed: {
@@ -170,4 +171,11 @@ export default {
           img
             width: auto
             height: 100px
+
+    .hero-image
+      display: none
+    @media screen and (min-width: 700px)
+      .hero-image
+        display: inherit
+
 </style>

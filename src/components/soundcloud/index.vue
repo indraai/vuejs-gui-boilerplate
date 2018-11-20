@@ -18,7 +18,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section>
+  <section id="soundcloud">
     <h1 v-html="title"></h1>
     <p v-html="description"></p>
     <article class="soundclound-embed">

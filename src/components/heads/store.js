@@ -24,7 +24,7 @@ const heads = {
     open: false,
     viewing: false,
     title: 'Heads',
-    description: 'IndraHeads (heads) is ready for use.',
+    description: 'A collection of Cartoon Heads created by Quinn Michaels',
     profiles: false,
   },
   getters: {

@@ -18,7 +18,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section class="heads">
+  <section class="heads" id="heads">
     <h1><i class="icn icn-mustache"></i> {{title}}</h1>
     <p v-html="description"></p>
     <article class="heads-list">
