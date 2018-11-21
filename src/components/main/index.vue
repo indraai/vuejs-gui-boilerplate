@@ -19,13 +19,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <main :class="{'chat-open': chatOpen}">
-
-
-
-
-
-
+  <main :class="{'main': true,'chat-open': chatOpen}">
     <section class="hero">
       <div class="container">
         <div class="hero-content">
@@ -153,13 +147,14 @@ export default {
 <style lang="stylus" scoped>
 // custom template styles
   @require '../../styles/vars'
-  main
+  .main
     transition: $transition
     padding: 1rem
     max-width: 900px
     margin: auto
 
     > section
+      transition: $transition
       margin-bottom: 5rem
 
     .technology

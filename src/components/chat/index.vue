@@ -24,8 +24,9 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     </div>
     <div class="chat-window">
       <article class="chat-conversation" id="chat_container">
-        <div v-for="convo in conversation" class="chat-conversation-item">
-          <div class="chat-item">{{convo.user}} {{convo.text}}</div>
+        <div v-for="convo in conversation" :class="{'chat-conversation-item': true, [convo.user]:true}">
+          <div class="user">{{convo.user}} </div>
+          <div class="text">{{convo.text}}</div>
         </div>
       </article>
       <form class="chat-input" v-on:submit.prevent.stop="askQuestion">
@@ -90,7 +91,7 @@ export default {
     position: fixed
     height: 100%
     bottom: 0
-    right: 9rem - $chat-width
+    right: $chat-gap - $chat-width
     width: $chat-width
     padding: 0
     margin: 0
@@ -125,10 +126,41 @@ export default {
       flex: 1 auto
       padding: 1rem
       overflow: auto
+      display: flex
+      flex-flow: column nowrap
 
       &-item
         padding: .25rem
         font-size: 1.5rem
+        display: flex
+        flex-flow: row nowrap
+        align-items: center
+        align-content: stretch
+
+        .user
+          flex: 0 5rem
+          min-width: 5rem
+          min-height: 5rem
+          height: 100%
+
+        .text
+          flex: 1 auto
+          padding: .5rem 1rem
+          background-color: $colors.blue
+          color: lighten($colors.blue, 75%)
+          min-height: 5rem
+          height: 100%
+          border-radius: .5rem
+          box-shadow: 0 2px 6px rgba($colors.charcoal, .5)
+
+        &.Indra
+          .user
+            order: 2
+            text-align: right
+          .text
+            order 1
+            background-color: $colors.earth
+            color: darken($colors.earth, 75%)
 
     &-input
       flex: 0 75px
@@ -156,6 +188,7 @@ export default {
     right: 0
     bottom: 0
     height: 100%
+
 
 
 </style>
