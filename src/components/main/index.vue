@@ -20,13 +20,58 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <main :class="{'chat-open': chatOpen}">
+
+
+
+
+
+
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <p class="lead">Are you paying attention to this man? Because he is like Walt Disney after working out with Arnold Swartzeneggar without all the muscles.</p>
-          <p class="lead">Sometimes he's making art, sometimes it's code, sometimes it's singing bowls, but it's always an adventure of the mind.</p>
+          <h1>indra.design</h1>
+          <p class="lead">Design, develop, and deliver amazing interfaces into the future with indra.design.</p>
+          <p class="lead">The indra.design open source tool can help developers in creating amazing complex dynamic interfaces that will WOW your friends, coworkers, and land you that #RockstarDeveloper role.</p>
+          <p class="lead">Built ontop of NodeJs, VueJs, Stylus(CSS), and WebPack this will enable any developer to adapt their skills hardened over the many years of pounding away at a keyboard.</p>
         </div>
         <div class="hero-image"><i class="heads-indra-l"></i></div>
+      </div>
+    </section>
+    <section class="philosophy panels" id="philosophy">
+      <div class="panel">
+        <h2><i class="icn icn-eye"></i>Imagine</h2>
+        <p>Everything that is created begins in the imagination.</p>
+      </div>
+      <div class="panel">
+        <h2><i class="icn icn-pencil"></i>Create</h2>
+        <p>Once the idea is imagined a process of creation is formed.</p>
+      </div>
+      <div class="panel">
+        <h2><i class="icn icn-diamond"></i>Develop</h2>
+        <p>The development process completes all the steps.</p>
+      </div>
+    </section>
+    <section class="code" id="code">
+      <h2><i class="icn icn-code"></i> Code</h2>
+      <p>The indra.design gui toolkit is available to clone directly from github. <br><a href="https://github.com/indraai/vuejs-gui-boilerplate" target="github">https://github.com/indraai/vuejs-gui-boilerplate</a></p>
+
+      <p>To clone the git repository:</p>
+      <code>git clone git@github.com:indraai/vuejs-gui-boilerplate.git</code>
+      <hr>
+      <p class="alert alert-primary text-white"><i class="icn-warning"></i> Forking the repository is a smart idea if you plan on making changes to the code.</p>
+    </section>
+    <section class="technology" id="technology">
+      <h2><i class="icn icn-rocket"></i> Technology</h2>
+      <p>At the indra.design project we <i class="icn-heart"></i> open source technology. That is why we develop our technology on some of the most trusted platforms and libraries like NodeJs, VueJs, Stylus, and WebPack</p>
+      <div class="badges">
+        <img src="https://deva.space/cdn/badges/nodejs.png" alt="">
+        <img src="https://deva.space/cdn/badges/vuejs.png" alt="">
+        <img src="https://deva.space/cdn/badges/stylus.png" alt="">
+        <img src="https://deva.space/cdn/badges/webpack.png" alt="">
+      </div>
+      <div class="badges testing">
+        <img src="https://deva.space/cdn/badges/mocha.png" alt="">
+        <img src="https://deva.space/cdn/badges/chai.png" alt="">
       </div>
     </section>
     <IndraRahula></IndraRahula>
@@ -34,16 +79,24 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     <IndraGallery></IndraGallery>
     <IndraVideos></IndraVideos>
     <IndraSoundcloud></IndraSoundcloud>
+    <IndraChuck></IndraChuck>
     <section class="information" id="information">
-      <h2><i class="icn icn-eye"></i> Contact Information</h2>
-      <h5>Email</h5>
-      <ul>
-        <li><a href="mailto:contact@quinnmichaels.com">contact@quinnmichaels.com</a></li>
-      </ul>
+      <h2><i class="icn icn-eye"></i> Information</h2>
+      <p>We operate on the offering model, and if you are interested in bringing indra.design into your environment to really <i class="icn-rocket text-blue"></i> your team send us an email <a href="contact@indra.ai">contact@indra.ai</a>, and we can get the ball rolling. <i class="icn-heart text-fire"></i></p>
       <h5>Social Media</h5>
       <ul>
-        <li><a href="https://twitter.com/quinnmichaels">twitter.com/quinnmichaels</a></li>
-        <li><a href="http://www.youtube.com/quinnmichaels">youtube.com/quinnmichaels</a></li>
+        <li><a href="https://twitter.com/indradotai">twitter.com/indradotai</a></li>
+        <li><a href="http://www.youtube.com/c/IndraDeva">youtube.com/IndraDeva</a></li>
+        <li><a href="https://www.facebook.com/IndraBuddha">facebook.com/IndraBuddha</a></li>
+      </ul>
+      <h5>Need Help</h5>
+      <ul>
+        <li><a href="https://discord.gg/SWnaARs">Discord Chat</a></li>
+      </ul>
+      <h5>Offerings of Support</h5>
+      <ul>
+        <li><a href="https://paypal.me/rahulaclub">paypal.me/rahulaclub</a></li>
+        <li><a href="https://patreon.com/rahulaclub">patreon.com/rahulaclub</a></li>
       </ul>
     </section>
   </main>
