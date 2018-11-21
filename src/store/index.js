@@ -30,7 +30,7 @@ import {gallery} from '../components/gallery/store.js'
 import {videos} from '../components/videos/store.js'
 import {soundcloud} from '../components/soundcloud/store.js'
 import {rahula} from '../components/rahula/store.js'
-
+import {chat} from '../components/chat/store.js'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -47,5 +47,6 @@ export default new Vuex.Store({
     videos,
     soundcloud,
     rahula,
+    chat,
   }
 })

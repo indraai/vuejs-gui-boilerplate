@@ -1,7 +1,8 @@
+'use strict';
 // Copyright 2018 Quinn Michaels
-// This file is part of Indra VueJs Gui Boilerplate
+// This file is part of indra.design
 //
-// Indra VueJs Gui Boilerplate is free software:
+// indra.design is free software:
 // you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -15,24 +16,38 @@
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-"use strict";
 // THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
-const main = {
+
+const chat = {
   namespaced: true,
   state: {
-    title: 'Quinn Michaels',
-    describe: 'quinnmichaels.com is the place to find Quinn Michaels'
+    title: 'IndraChat',
+    description: 'IndraChat (chat) is ready for use.'
   },
   getters: {
     title(state) {
       return state.title;
     },
-    describe(state) {
-      return state.describe;
+    description(state) {
+      return state.description;
+    }
+  },
+  mutations: {
+    title(state, data) {
+      state.title = data;
+    },
+    description(state, data) {
+      state.description = data;
     },
   },
-  mutations: {},
-  actions: {},
+  actions: {
+    title({commit}, data) {
+      commit('title', data);
+    },
+    description({commit}, data) {
+      commit('description', data);
+    },
+  },
 }
 
-export { main }
+export { chat }
