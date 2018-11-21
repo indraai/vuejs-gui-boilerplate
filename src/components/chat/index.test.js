@@ -1,7 +1,8 @@
+'use strict'
 // Copyright 2018 Quinn Michaels
-// This file is part of Indra VueJs Gui Boilerplate
+// This file is part of indra.design
 //
-// Indra VueJs Gui Boilerplate is free software:
+// indra.design is free software:
 // you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -15,24 +16,23 @@
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-"use strict";
-// THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
-const main = {
-  namespaced: true,
-  state: {
-    title: 'Quinn Michaels',
-    describe: 'quinnmichaels.com is the place to find Quinn Michaels'
-  },
-  getters: {
-    title(state) {
-      return state.title;
-    },
-    describe(state) {
-      return state.describe;
-    },
-  },
-  mutations: {},
-  actions: {},
-}
+import { shallowMount, createLocalVue } from '@vue/test-utils'
+import Vuex from 'vuex'
 
-export { main }
+const localVue = createLocalVue()
+localVue.use(Vuex)
+
+import IndraChat from './index.vue'
+import {chat} from './store.js'
+
+describe('IndraChat', () => {
+  let store
+  beforeEach(() => {
+    store = new Vuex.Store(chat)
+  })
+
+  it('expect component to be defined', () => {
+    const wrapper = shallowMount(IndraChat, {store, localVue})
+    expect(wrapper).to.not.be.an('undefined')
+  })
+})

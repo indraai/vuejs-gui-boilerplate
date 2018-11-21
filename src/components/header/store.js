@@ -20,8 +20,8 @@
 const header = {
   namespaced: true,
   state: {
-    title: 'indra.design',
-    describe: 'amazing interfaces',
+    title: 'quinn michaels',
+    describe: 'somewhere in the future',
   },
   getters: {
     title(state) {
