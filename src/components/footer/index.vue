@@ -19,8 +19,8 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 <template>
   <footer :class="{'footer': true, 'chat-open': chatOpen}" id="footer">
-    <article class="footer-left">&copy;Copyright 2018 Quinn Michaels | indra.ai</article>
-    <article class="footer-right"><img src="https://deva.space/cdn/badges/License-GPL-v3-blue.svg" alt="GPL-v3 License"></article>
+    <article class="footer-left">&copy;Copyright 2018 Quinn Michaels</article>
+    <article class="footer-right">&nbsp;</article>
   </footer>
 </template>
 

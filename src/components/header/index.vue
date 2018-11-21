@@ -47,7 +47,7 @@ export default {
 
   header
     position: relative;
-    background-color: $colors.fire
+    background-color: $colors.blue
     background-repeat: no-repeat
     background-size: auto 100%
     background-position: right

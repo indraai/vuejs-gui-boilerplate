@@ -19,21 +19,8 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <main :class="{'main': true,'chat-open': chatOpen}">
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <p class="lead">Are you paying attention to this man? Because he is like Walt Disney after working out with Arnold Swartzeneggar without all the muscles.</p>
-          <p class="lead">Sometimes he's making art, sometimes it's code, sometimes it's singing bowls, but it's always an adventure of the mind.</p>
-        </div>
-        <div class="hero-image"><i class="heads-indra-l"></i></div>
-      </div>
-    </section>
-    <IndraRahula></IndraRahula>
-    <IndraHeads></IndraHeads>
+  <main :class="{'main': true}">
     <IndraGallery></IndraGallery>
-    <IndraVideos></IndraVideos>
-    <IndraSoundcloud></IndraSoundcloud>
     <section class="information" id="information">
       <h2><i class="icn icn-eye"></i> Contact Information</h2>
       <h5>Email</h5>
@@ -51,48 +38,15 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <script>
 // template javascript
-import IndraChuck from '../chuck/index.vue';
-import IndraHeads from '../heads/index.vue';
 import IndraGallery from '../gallery/index.vue';
-import IndraVideos from '../videos/index.vue';
-import IndraSoundcloud from '../soundcloud/index.vue';
-import IndraRahula from '../rahula/index.vue';
 
 export default {
   name: 'IndraMain',
   components: {
-    IndraChuck,
-    IndraHeads,
     IndraGallery,
-    IndraVideos,
-    IndraSoundcloud,
-    IndraRahula,
   },
-  computed: {
-    colors() {
-      return this.$store.getters['main/colors'];
-    },
-    icons() {
-      return this.$store.getters['main/icons'];
-    },
-    chatOpen() {
-      return this.$store.getters['chat/open']
-    }
-  },
-  methods: {
-    colorText(color) {
-      return `${color}-txt`;
-    },
-    colorBg(color) {
-      return `${color}-bg`;
-    },
-    colorBorder(color) {
-      return `${color}-border`;
-    },
-    iconClass(icon) {
-      return `icn-${icon}`
-    }
-  },
+  computed: {},
+  methods: {},
   created() {}
 }
 </script>

@@ -22,18 +22,13 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     <h1><i class="icn icn-picture"></i> {{title}}</h1>
     <p v-html="description"></p>
     <article class="gallery-list">
-      <div class="items" v-for="(item,idx) in items" @click="galleryOpen(idx)">
-        <img :src="item.thumb" :alt="item.name">
-        <h3 v-html="item.name"></h3>
+      <div class="gallery-list-item" v-for="item in 96" @click="galleryOpen(item)">
+        <img :src="galleryThumb(item)" :alt="item">
       </div>
     </article>
     <article class="gallery-viewing" v-if="open">
       <button class="close" @click="galleryClose"><i class="icn-cross"></i></button>
-      <div class="gallery-viewing-item"><img :src="viewing.full" alt=""></div>
-      <div class="gallery-viewing-card">
-        <h1 v-text="viewing.title"></h1>
-        <p v-text="viewing.describe"></p>
-      </div>
+      <div class="gallery-viewing-item"><img :src="viewing" alt=""></div>
     </article>
   </section>
 </template>
@@ -49,10 +44,6 @@ export default {
     description() {
       return this.$store.getters['gallery/description'];
     },
-    items() {
-      // yes
-      return this.$store.getters['gallery/items'];
-    },
     open() {
       return this.$store.getters['gallery/open'];
     },
@@ -61,15 +52,15 @@ export default {
     },
   },
   methods: {
-    galleryClass(profile) {
-      return `gallery-${profile.name}-s`;
-    },
-    galleryOpen(profile) {
-      this.$store.dispatch('gallery/open', profile)
+    galleryOpen(item) {
+      this.$store.dispatch('gallery/open', `https://deva.space/cdn/paintings/full/${item}.jpg`);
     },
     galleryClose(profile) {
       this.$store.dispatch('gallery/close')
-    }
+    },
+    galleryThumb(item) {
+      return `https://deva.space/cdn/paintings/thumb/${item}.jpg`;
+    },
   },
   created() {
     this.$store.dispatch('gallery/items')
@@ -85,7 +76,10 @@ export default {
     &-list
       display: flex
       flex-flow: row wrap
-
+      &-item
+        img
+          max-width: 100%
+          max-height: auto
     &-viewing
       z-index: 1000
       position: fixed
@@ -116,20 +110,12 @@ export default {
           color: $colors.blue
 
       &-item
-      &-card
         margin: auto
         margin: 0
         padding: 0
         text-align: center
-      &-item
+
         img
           box-shadow: 0 3px 9px darken($colors.charcoal, 50%)
           max-width: 100%
-      &-card
-        color: lighten($colors.charcoal, 30%)
-        width: 75%
-        border-radius: 1rem
-        display: flex
-        flex-flow: column nowrap
-
 </style>

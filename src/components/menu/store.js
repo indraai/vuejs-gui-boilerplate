@@ -22,6 +22,7 @@ const menu = {
   namespaced: true,
   state: {
     open: false,
+    title: 'Quinn Michaels',
     items: [
       {
         href: '#header',
@@ -29,34 +30,9 @@ const menu = {
         text: 'home',
       },
       {
-        href: '#code',
-        class: 'icn icn-code',
-        text: 'code',
-      },
-      {
-        href: '#technology',
-        class: 'icn icn-rocket',
-        text: 'tech',
-      },
-      {
-        href: '#rahula',
-        class: 'icn icn-pencil',
-        text: 'blog',
-      },
-      {
-        href: '#heads',
-        class: 'icn icn-mustache',
-        text: 'heads',
-      },
-      {
         href: '#gallery',
         class: 'icn icn-picture',
         text: 'gallery',
-      },
-      {
-        href: '#videos',
-        class: 'icn icn-film-play',
-        text: 'videos',
       },
       {
         href: '#information',
@@ -73,6 +49,9 @@ const menu = {
     items(state) {
       return state.items
     },
+    title(state) {
+      return state.title
+    }
   },
   mutations: {
     toggle(state) {

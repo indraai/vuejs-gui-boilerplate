@@ -19,16 +19,16 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
 <template>
-  <nav :class="{'menu': true, 'chat-open': chatOpen}">
+  <nav :class="{'menu': true}">
     <div class="menu-small">
-      <div class="menu-title">indra.design</div>
+      <div class="menu-title" v-html="title"></div>
       <button class="menu-button icn icn-menu" @click="toggle"></button>
       <div class="menu-items" v-if="open">
         <a v-for="item in items" :href="item.href" v-smooth-scroll="{offset:-50}" @click="toggle"><i :class="item.class"></i><span>{{item.text}}</span></a>
       </div>
     </div>
     <div class="menu-big">
-      <div class="menu-title">indra.design</div>
+      <div class="menu-title" v-html="title"></div>
       <div class="menu-items">
         <a v-for="item in items" :href="item.href" v-smooth-scroll="{offset:-100}"><i :class="item.class"></i><span>{{item.text}}</span></a>
       </div>
@@ -49,9 +49,9 @@ export default {
     items() {
       return this.$store.getters['menu/items']
     },
-    chatOpen() {
-      return this.$store.getters['chat/open']
-    },
+    title() {
+      return this.$store.getters['menu/title']
+    }
   },
   methods: {
     sticky(event) {
@@ -136,6 +136,7 @@ export default {
   .menu
     transition: $transition
     position: relative
+
     &-small
       display: none
     &-big
@@ -143,10 +144,12 @@ export default {
 
     &-title
       display: none
-      flex: 0
+      flex: 0 auto
+      min-width: 500px
+      line-height: 2
 
     &-items
-      flex: 1
+      flex: 1 auto
       a
         flex: 0 auto
         padding: 1rem

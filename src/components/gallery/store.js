@@ -25,7 +25,6 @@ const gallery = {
     viewing: false,
     title: 'Gallery',
     description: 'A collection of artwork created by Quinn Michaels',
-    items: false,
   },
   getters: {
     title(state) {
@@ -34,14 +33,11 @@ const gallery = {
     description(state) {
       return state.description;
     },
-    items(state) {
-      return state.items;
-    },
     open(state) {
       return state.open;
     },
     viewing(state) {
-      return state.items[state.viewing];
+      return state.viewing;
     },
   },
   mutations: {
@@ -50,9 +46,6 @@ const gallery = {
     },
     description(state, data) {
       state.description = data;
-    },
-    items(state, data) {
-      state.items = data;
     },
     open(state, data) {
       state.open = data;
@@ -71,10 +64,6 @@ const gallery = {
     },
     description({commit}, data) {
       commit('description', data);
-    },
-    items({commit}, data) {
-      const {items} = require('./data.json');
-      commit('items', items);
     },
     open({commit}, data) {
       commit('open', true);

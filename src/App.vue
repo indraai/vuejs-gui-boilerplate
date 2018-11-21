@@ -23,7 +23,6 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     <IndraHeader></IndraHeader>
     <IndraMenu></IndraMenu>
     <IndraMain></IndraMain>
-    <IndraChat></IndraChat>
     <IndraFooter></IndraFooter>
   </div>
 </template>
@@ -34,7 +33,6 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
   import IndraFooter from './components/footer/index.vue';
   import IndraMenu from './components/menu/index.vue';
   import IndraMain from './components/main/index.vue';
-  import IndraChat from './components/chat/index.vue';
   export default {
     name: 'App',
     components: {
@@ -42,7 +40,6 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
       IndraFooter,
       IndraMenu,
       IndraMain,
-      IndraChat,
     },
     data() {
       return {};

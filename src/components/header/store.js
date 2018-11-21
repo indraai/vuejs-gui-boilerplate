@@ -21,7 +21,7 @@ const header = {
   namespaced: true,
   state: {
     title: 'quinn michaels',
-    describe: 'somewhere in the future',
+    describe: 'and the quantum machine',
   },
   getters: {
     title(state) {
