@@ -19,7 +19,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
 <template>
-  <nav class="menu">
+  <nav :class="{'menu': true, 'chat-open': chatOpen}">
     <div class="menu-small">
       <div class="menu-title">indra.design</div>
       <button class="menu-button icn icn-menu" @click="toggle"></button>
@@ -48,7 +48,10 @@ export default {
     },
     items() {
       return this.$store.getters['menu/items']
-    }
+    },
+    chatOpen() {
+      return this.$store.getters['chat/open']
+    },
   },
   methods: {
     sticky(event) {
@@ -131,6 +134,7 @@ export default {
 
 @media screen and (min-width: 900px)
   .menu
+    transition: $transition
     position: relative
     &-small
       display: none
@@ -178,6 +182,7 @@ export default {
         height: inherit
         display: inline-block
 
-
+    &.chat-open
+      margin-right: $chat-width - $chat-gap
 
 </style>

@@ -19,7 +19,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <main>
+  <main :class="{'chat-open': chatOpen}">
     <section class="hero">
       <div class="container">
         <div class="hero-content">
@@ -75,6 +75,9 @@ export default {
     icons() {
       return this.$store.getters['main/icons'];
     },
+    chatOpen() {
+      return this.$store.getters['chat/open']
+    }
   },
   methods: {
     colorText(color) {
@@ -98,6 +101,7 @@ export default {
 // custom template styles
   @require '../../styles/vars'
   main
+    transition: $transition
     padding: 1rem
     max-width: 900px
     margin: auto
@@ -123,5 +127,6 @@ export default {
     @media screen and (min-width: 700px)
       .hero-image, .hero-content > h1
         display: inherit
-
+  .chat-open
+        margin-right: $chat-width - $chat-gap
 </style>

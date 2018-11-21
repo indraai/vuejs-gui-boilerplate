@@ -17,12 +17,19 @@
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 // THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
+const axios = require('axios');
+const callIndra = axios.create({
+  baseURL: 'http://localhost:9000/api/bot/',
+});
 
 const chat = {
   namespaced: true,
   state: {
     title: 'IndraChat',
-    description: 'IndraChat (chat) is ready for use.'
+    description: 'IndraChat (chat) is ready for use.',
+    open: false,
+    question: '',
+    conversation: [],
   },
   getters: {
     title(state) {
@@ -30,7 +37,16 @@ const chat = {
     },
     description(state) {
       return state.description;
-    }
+    },
+    open(state) {
+      return state.open;
+    },
+    question(state) {
+      return state.question;
+    },
+    conversation(state) {
+      return state.conversation;
+    },
   },
   mutations: {
     title(state, data) {
@@ -39,6 +55,15 @@ const chat = {
     description(state, data) {
       state.description = data;
     },
+    open(state, data) {
+      state.open = !state.open;
+    },
+    question(state, data) {
+      state.question = data;
+    },
+    conversation(state, data) {
+      state.conversation.push(data);
+    }
   },
   actions: {
     title({commit}, data) {
@@ -47,6 +72,30 @@ const chat = {
     description({commit}, data) {
       commit('description', data);
     },
+    open({commit}, data) {
+      commit('open', data)
+    },
+    question({commit}, data) {
+      commit('question', data)
+    },
+    askQuestion({commit, state}, data) {
+
+      commit('conversation', {
+        user: 'me',
+        text: state.question,
+      });
+
+      callIndra('ask?msg=' + state.question).then(result => {
+        const {data} = result
+        console.log('indra result', result);
+        commit('conversation', {
+          user: data.a.bot.name,
+          text: data.a.text
+        })
+      }).catch(console.error)
+
+      commit('question', '');
+    }
   },
 }
 
