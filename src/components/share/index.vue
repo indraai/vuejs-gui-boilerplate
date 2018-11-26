@@ -18,9 +18,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section>
-    <h1 v-html="title"></h1>
-    <p v-html="description"></p>
+  <section class="share">
+    <article class="share-icons">
+      <a :class="{'share-icon': true, [share.name]: true}" :href="shareLink(share.link)" v-for="share in sharing" :target="share.name"><img :src="share.icon" alt=""></a>
+    </article>
   </section>
 </template>
 
@@ -37,12 +38,33 @@ export default {
     description() {
       return this.$store.getters['share/description']
     },
+    sharing() {
+      return this.$store.getters['share/sharing']
+    }
   },
-  methods: {},
+  methods: {
+    shareLink(link) {
+      return `${link}${encodeURI(window.location.href)}`
+    }
+  },
   created() {}
 }
 </script>
 
 <style lang="stylus" scoped>
   // custom template styles
+  @require '../../styles/vars'
+  $icon-size = 128px
+  .share
+    &-icons
+      display: flex
+      justify-content: center
+    &-icon
+      border-radius: 50%
+      box-shadow: 0 0 9px $colors.charcoal
+      width: $icon-size
+      height: $icon-size
+      margin: .5rem
+
+
 </style>
