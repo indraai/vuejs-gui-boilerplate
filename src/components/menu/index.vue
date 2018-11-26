@@ -24,13 +24,13 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
       <div class="menu-title" v-html="title"></div>
       <button class="menu-button icn icn-menu" @click="toggle"></button>
       <div class="menu-items" v-if="open">
-        <a v-for="item in items" :href="item.href" v-smooth-scroll="{offset:-50}" @click="toggle"><i :class="item.class"></i><span>{{item.text}}</span></a>
+        <router-link v-for="item in items" :to="{name: item.href}" :key="item.href" v-smooth-scroll="{offset:-50}" @click="toggle"><i :class="item.class"></i><span>{{item.text}}</span></router-link>
       </div>
     </div>
     <div class="menu-big">
       <div class="menu-title" v-html="title"></div>
       <div class="menu-items">
-        <a v-for="item in items" :href="item.href" v-smooth-scroll="{offset:-100}"><i :class="item.class"></i><span>{{item.text}}</span></a>
+        <router-link v-for="item in items" :to="{name: item.href}" :key="item.href" v-smooth-scroll="{offset:-100}"><i :class="item.class"></i><span>{{item.text}}</span></router-link>
       </div>
     </div>
   </nav>

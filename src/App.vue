@@ -22,7 +22,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
   <div id="app">
     <IndraHeader></IndraHeader>
     <IndraMenu></IndraMenu>
-    <IndraMain></IndraMain>
+    <router-view class="view"></router-view>
     <IndraFooter></IndraFooter>
   </div>
 </template>
@@ -32,20 +32,21 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
   import IndraHeader from './components/header/index.vue';
   import IndraFooter from './components/footer/index.vue';
   import IndraMenu from './components/menu/index.vue';
-  import IndraMain from './components/main/index.vue';
   export default {
     name: 'App',
     components: {
       IndraHeader,
       IndraFooter,
       IndraMenu,
-      IndraMain,
     },
     data() {
       return {};
     },
     computed: {},
     methods: {},
+    beforeCreate() {
+      this.$store.dispatch('blog/loadTopics');
+    }
   }
 </script>
 

@@ -17,14 +17,17 @@
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 // THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
+import axios from 'axios'
 
-const gallery = {
+const blog = {
   namespaced: true,
   state: {
-    open: false,
-    viewing: false,
-    title: '<i class="icn icn-picture"></i> The Gallery',
-    description: 'A collection of artwork created by Quinn Michaels',
+    title: '<i class="icn icn-pencil"></i> The Blog',
+    description: 'The Blog of Quinn Thoughts',
+    get: 'https://rahula.club/api/category/39',
+    topics: [],
+    design: false,
+    topic: false,
   },
   getters: {
     title(state) {
@@ -33,12 +36,15 @@ const gallery = {
     description(state) {
       return state.description;
     },
-    open(state) {
-      return state.open;
+    topics(state) {
+      return state.topics;
     },
-    viewing(state) {
-      return state.viewing;
+    design(state) {
+      return state.design;
     },
+    topic(state) {
+      return state.topic;
+    }
   },
   mutations: {
     title(state, data) {
@@ -47,15 +53,14 @@ const gallery = {
     description(state, data) {
       state.description = data;
     },
-    open(state, data) {
-      state.open = data;
+    topics(state, data) {
+      state.topics = data;
     },
-    viewing(state, data) {
-      state.viewing = data;
+    design(state, data) {
+      state.design = data;
     },
-    close(state) {
-      state.viewing = false;
-      state.open = false;
+    topic(state, data) {
+      state.topic = data;
     }
   },
   actions: {
@@ -65,14 +70,21 @@ const gallery = {
     description({commit}, data) {
       commit('description', data);
     },
-    open({commit}, data) {
-      commit('open', true);
-      commit('viewing', data);
+    loadTopics({commit,state,dispatch}, data) {
+      axios.get(state.get).then(result => {
+        const { topics, name, description } = result.data
+        commit('topics', topics)
+        dispatch('header/title', name, {root: true});
+        dispatch('header/description', description, {root: true});
+        console.log('design', result.data);
+      }).catch(console.error);
     },
-    close({commit}) {
-      commit('close');
+    getTopic({commit, state, dispatch}, data) {
+      axios.get(`https://rahula.club/api/topic/${data}`).then(result => {
+        commit('topic', result.data);
+      }).catch(console.error)
     }
   },
 }
 
-export { gallery }
+export { blog }

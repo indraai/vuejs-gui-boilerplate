@@ -25,19 +25,19 @@ const menu = {
     title: 'Quinn Michaels',
     items: [
       {
-        href: '#header',
+        href: 'main',
         class: 'icn icn-home',
         text: 'home',
       },
       {
-        href: '#gallery',
+        href: 'gallery',
         class: 'icn icn-picture',
         text: 'gallery',
       },
       {
-        href: '#information',
-        class: 'icn icn-eye',
-        text: 'info',
+        href: 'blog',
+        class: 'icn icn-pencil',
+        text: 'blog',
       }
     ],
 

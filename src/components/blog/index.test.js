@@ -1,7 +1,8 @@
+'use strict'
 // Copyright 2018 Quinn Michaels
-// This file is part of Indra VueJs Gui Boilerplate
+// This file is part of indra.design
 //
-// Indra VueJs Gui Boilerplate is free software:
+// indra.design is free software:
 // you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -15,27 +16,23 @@
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-import Vue from 'vue'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 
-import {global} from './global.js'
-import {header} from '../components/header/store.js'
-import {footer} from '../components/footer/store.js'
-import {menu} from '../components/menu/store.js'
-import {main} from '../components/main/store.js'
-import {gallery} from '../components/gallery/store.js'
-import {blog} from '../components/blog/store.js'
+const localVue = createLocalVue()
+localVue.use(Vuex)
 
-Vue.use(Vuex)
+import IndraBlog from './index.vue'
+import {blog} from './store.js'
 
-export default new Vuex.Store({
-  modules: {
-    global,
-    header,
-    footer,
-    menu,
-    main,
-    gallery,
-    blog,
-  }
+describe('IndraBlog', () => {
+  let store
+  beforeEach(() => {
+    store = new Vuex.Store(blog)
+  })
+
+  it('expect component to be defined', () => {
+    const wrapper = shallowMount(IndraBlog, {store, localVue})
+    expect(wrapper).to.not.be.an('undefined')
+  })
 })

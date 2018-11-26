@@ -19,10 +19,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <section class="gallery" id="gallery">
-    <h1><i class="icn icn-picture"></i> {{title}}</h1>
+    <h1 v-html="title"></h1>
     <p v-html="description"></p>
     <article class="gallery-list">
-      <div class="gallery-list-item" v-for="item in 96" @click="galleryOpen(item)">
+      <div class="gallery-list-item" v-for="item in galleryCount" @click="galleryOpen(item)">
         <img :src="galleryThumb(item)" :alt="item">
       </div>
     </article>
@@ -36,8 +36,12 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 <script>
 export default {
   name: 'IndraHeads',
+  props: ['type'],
   components: {},
   computed: {
+    galleryCount() {
+      return this.type === 'small' ? 9 : 96;
+    },
     title() {
       return this.$store.getters['gallery/title'];
     },
@@ -76,10 +80,14 @@ export default {
     &-list
       display: flex
       flex-flow: row wrap
+      justify-content: center
       &-item
+        padding: .3rem
+        line-height: 1
         img
-          max-width: 100%
-          max-height: auto
+          width: 250px
+          height: 140px
+          border-radius: .3rem
     &-viewing
       z-index: 1000
       position: fixed

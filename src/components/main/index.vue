@@ -20,7 +20,8 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <main :class="{'main': true}">
-    <IndraGallery></IndraGallery>
+    <IndraBlog type="small"></IndraBlog>
+    <IndraGallery type="small"></IndraGallery>
     <section class="information" id="information">
       <h2><i class="icn icn-eye"></i> Contact Information</h2>
       <h5>Email</h5>
@@ -39,11 +40,13 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 <script>
 // template javascript
 import IndraGallery from '../gallery/index.vue';
+import IndraBlog from '../blog/index.vue';
 
 export default {
   name: 'IndraMain',
   components: {
     IndraGallery,
+    IndraBlog,
   },
   computed: {},
   methods: {},

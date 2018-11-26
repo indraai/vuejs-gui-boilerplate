@@ -20,7 +20,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 <template>
   <header id="header">
     <h1 v-text="title"></h1>
-    <p v-text="describe"></p>
+    <p v-text="description"></p>
 </header>
 </template>
 
@@ -33,8 +33,8 @@ export default {
     title() {
       return this.$store.getters['header/title'];
     },
-    describe() {
-      return this.$store.getters['header/describe'];
+    description() {
+      return this.$store.getters['header/description'];
     }
   },
   methods: {},
