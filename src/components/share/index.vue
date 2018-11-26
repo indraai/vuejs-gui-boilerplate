@@ -19,6 +19,8 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <section class="share">
+    <h5>Sharing is caring.</h5>
+    <p>Clicking share buttons help create a better future.</p>
     <article class="share-icons">
       <a :class="{'share-icon': true, [share.name]: true}" :href="shareLink(share.link)" v-for="share in sharing" :target="share.name"><img :src="share.icon" alt=""></a>
     </article>
@@ -55,17 +57,23 @@ export default {
 <style lang="stylus" scoped>
   // custom template styles
   @require '../../styles/vars'
-  $icon-size = 128px
+  $icon-size = 100px
   .share
-    &-icons
-      display: flex
-      justify-content: center
+    color: inherit
+    border-top: 3px dotted $colors.orange-lt
+    display: flex
+    flex-flow: column nowrap
+    align-items: center
     &-icon
+      display: inline-block
       border-radius: 50%
       box-shadow: 0 0 9px $colors.charcoal
       width: $icon-size
       height: $icon-size
       margin: .5rem
+      img
+        width: $icon-size
+        height: $icon-size
 
 
 </style>

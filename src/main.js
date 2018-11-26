@@ -43,7 +43,8 @@ const routes = [
 ];
 const router = new VueRouter({
   mode: 'history',
-  routes
+  routes,
+  base: '/',
 });
 
 Vue.use(VueTouch)

@@ -59,41 +59,40 @@ export default {
   // custom template styles
   //tes
   .gallery-view
-      z-index: 1000
+    z-index: 1000
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: $colors.charcoal
+    display: flex
+    flex-flow: column nowrap
+    overflow: auto
+    align-items: center
+    color: lighten($colors.charcoal, 75%)
+
+    &-close
+      transition: $transition
+      background-color: transparent
+      border: none
+      color: $colors.white
+      font-size: 3rem
       position: fixed
       top: 0
-      left: 0
       right: 0
-      bottom: 0
-      background-color: $colors.charcoal
-      display: flex
-      flex-flow: column nowrap
-      align-content: center
-      align-items: center
-      justify-content: center
-      overflow: auto
+      border: none
+      outline: none
+      &:hover
+        color: $colors.blue
 
-      &-close
-        transition: $transition
-        background-color: transparent
-        border: none
-        color: $colors.white
-        font-size: 3rem
-        position: fixed
-        top: 0
-        right: 0
-        border: none
-        outline: none
-        &:hover
-          color: $colors.blue
-
-      &-item
-        margin: auto
-        margin: 0
-        padding: 0
-        text-align: center
-        max-width: 90%
-        img
-          box-shadow: 0 3px 9px darken($colors.charcoal, 50%)
-          max-width: 100%
+    &-item
+      margin: auto
+      margin: 0
+      padding: 0
+      text-align: center
+      max-width: 90%
+      img
+        box-shadow: 0 3px 9px darken($colors.charcoal, 50%)
+        max-width: 100%
 </style>

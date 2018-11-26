@@ -45,7 +45,9 @@ export default {
       return this.$store.getters['gallery/description'];
     },
     items() {
-      return this.$store.getters['gallery/items'];
+      const items = this.$store.getters['gallery/items'];
+      if (this.type && this.type === 'small') return items.slice(0,9)
+      return items;
     }
   },
   methods: {},

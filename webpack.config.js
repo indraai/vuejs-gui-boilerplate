@@ -36,6 +36,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: './src/main.html',
+      baseUrl: '/',
     }),
   ],
   devtool: 'inline-cheap-module-source-map',

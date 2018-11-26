@@ -63,30 +63,12 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
     > section
       padding: 2rem
-
-  .colors
-    margin: 1rem
-    .items
-      > div
-        margin: .3rem
-        font-size: 1.5rem
-        padding: 1rem
-
-  .items
-    margin: 1rem
-
-  .icons
-    .items
-      display: flex
-      flex-flow: row wrap
-      align-items: center
-      align-content: center
-      justify-content: center
-      text-align: center
-      span
-        flex: 1 auto
-        padding: 1rem
-        display: inline-block
-        i
-          font-size: 2rem
+    //
+    // .view
+    //   margin-top: 3rem
+    //
+    // @media screen and (min-width: 700px)
+    //   .view
+    //     margin-top: 5rem
+    //
 </style>

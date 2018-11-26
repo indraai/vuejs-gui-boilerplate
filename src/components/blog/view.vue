@@ -26,6 +26,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
       <div class="blog-view-post-date" v-html="formatDate(post.timestamp)"></div>
       <div v-html="post.content" class="blog-view-post-content"></div>
     </article>
+    <IndraShare></IndraShare>
   </section>
 </template>
 
@@ -42,7 +43,6 @@ export default {
   },
   methods: {
     rahulaLink(data) {
-      console.log('rahulaLink', data);
       return `https://rahula.club/topic/${data}`;
     },
     formatDate(date) {

@@ -24,7 +24,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
       <div class="menu-title" v-html="title"></div>
       <button class="menu-button icn icn-menu" @click="toggle"></button>
       <div class="menu-items" v-if="open">
-        <button v-for="item in items" :key="item.href" @click="toggle(item.href)"><i :class="item.class"></i><span>{{item.text}}</span></button>
+        <button v-for="item in items" :key="item.href" @click="mobileLink(item.href)"><i :class="item.class"></i><span>{{item.text}}</span></button>
       </div>
     </div>
     <div class="menu-big">
@@ -62,10 +62,13 @@ export default {
         this.$el.classList.remove('sticky')
       }
     },
-    toggle(href) {
+    toggle() {
+      return this.$store.dispatch('menu/toggle');
+    },
+    mobileLink(href) {
       this.$router.push({name:href});
       this.$store.dispatch('menu/toggle');
-    }
+    },
   },
   mounted() {
     this.offset = this.$el.offsetTop;
@@ -115,7 +118,7 @@ export default {
       justify-content: center
       align-items: center
       align-content: center
-      padding: .5rem
+      padding: 0
       button
       a
         flex: 0
@@ -166,11 +169,10 @@ export default {
       left: 0
       right: 0
       z-index: 100
-      padding: 1rem
-
+      padding: .5rem
       .menu-title
         display: inline-block
-        font-size: 2rem
+        font-size: 1.5rem
         flex: 0
 
       .menu-items

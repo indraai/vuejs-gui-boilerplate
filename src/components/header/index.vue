@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 <template>
-  <header id="header">
+  <header id="header" :class="{'header': true, 'small':smallClass}">
     <h1 v-text="title"></h1>
     <p v-text="description"></p>
 </header>
@@ -35,7 +35,10 @@ export default {
     },
     description() {
       return this.$store.getters['header/description'];
-    }
+    },
+    smallClass() {
+      return this.$route.name !== 'main';
+    },
   },
   methods: {},
   created() {}
@@ -45,7 +48,7 @@ export default {
 <style lang="stylus" scoped>
   @require '../../styles/vars'
 
-  header
+  .header
     position: relative;
     background-color: $colors.blue
     background-repeat: no-repeat
@@ -83,4 +86,14 @@ export default {
         font-size: 9rem
       p
         font-size: 3rem
+
+    &.small
+      h1
+        margin: 5rem 0 0 0
+        font-size: 4rem
+        padding: 0
+      p
+        font-size: 1rem
+        padding: 0
+        margin: 0
 </style>
