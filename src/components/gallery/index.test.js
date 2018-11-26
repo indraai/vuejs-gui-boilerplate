@@ -23,12 +23,12 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 import IndraGallery from './index.vue'
-import {heads} from './store.js'
+import {gallery} from './store.js'
 
 describe('IndraGallery', () => {
   let store
   beforeEach(() => {
-    store = new Vuex.Store(heads)
+    store = new Vuex.Store(gallery)
   })
 
   it('expect component to be defined', () => {
