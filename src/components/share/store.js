@@ -22,7 +22,24 @@ const share = {
   namespaced: true,
   state: {
     title: 'IndraShare',
-    description: 'IndraShare (share) is ready for use.'
+    description: 'IndraShare (share) is ready for use.',
+    sharing: [
+      {
+        name: 'twitter',
+        link: 'https://twitter.com/intent/tweet?hashtags=indra,indraai&text=indra&via=indradotai&url=',
+        icon: 'https://deva.space/cdn/sharing/twitter-128.png',
+      },
+      {
+        name: 'facebook',
+        link: 'https://www.facebook.com/sharer/sharer.php?u=',
+        icon: 'https://deva.space/cdn/sharing/facebook-128.png',
+      },
+      {
+        name: 'goolge+',
+        link: 'https://plus.google.com/share?app=110&url=',
+        icon: 'https://deva.space/cdn/sharing/googleplus-128.png',
+      }
+    ],
   },
   getters: {
     title(state) {
@@ -30,7 +47,10 @@ const share = {
     },
     description(state) {
       return state.description;
-    }
+    },
+    sharing(state) {
+      return state.sharing;
+    },
   },
   mutations: {
     title(state, data) {
