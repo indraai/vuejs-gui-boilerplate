@@ -25,6 +25,7 @@ const gallery = {
     viewing: false,
     title: '<i class="icn icn-picture"></i> The Gallery',
     description: 'A collection of artwork created by Quinn Michaels',
+    items: [],
   },
   getters: {
     title(state) {
@@ -39,6 +40,9 @@ const gallery = {
     viewing(state) {
       return state.viewing;
     },
+    items(state) {
+      return state.items.reverse();
+    }
   },
   mutations: {
     title(state, data) {
@@ -56,7 +60,10 @@ const gallery = {
     close(state) {
       state.viewing = false;
       state.open = false;
-    }
+    },
+    items(state, data) {
+      state.items = data
+    },
   },
   actions: {
     title({commit}, data) {
@@ -71,6 +78,19 @@ const gallery = {
     },
     close({commit}) {
       commit('close');
+    },
+    loadItems({commit}, data) {
+      // let's build an items array for better use with data later
+      const items = [];
+      for (let x = 1; x <= 96; x++) {
+        items.push({
+          id: x,
+          name: `Artwork ${x}`,
+          caption: `This is Artwork ${x} created by Quinn Michaels`,
+          src: `https://deva.space/cdn/paintings/thumb/${x}.jpg`,
+        });
+      }
+      commit('items', items);
     }
   },
 }

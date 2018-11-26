@@ -46,6 +46,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     methods: {},
     beforeCreate() {
       this.$store.dispatch('blog/loadTopics');
+      this.$store.dispatch('gallery/loadItems')
     }
   }
 </script>

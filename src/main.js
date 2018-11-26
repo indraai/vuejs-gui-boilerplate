@@ -29,6 +29,8 @@ import IndraMain from './components/main/index.vue'
 import IndraBlog from './components/blog/index.vue'
 import IndraBlogView from './components/blog/view.vue'
 import IndraGallery from './components/gallery/index.vue'
+import IndraGalleryView from './components/gallery/view.vue'
+import IndraShare from './components/share/index.vue';
 
 import store from './store'
 
@@ -36,7 +38,8 @@ const routes = [
   { path: '/', name: 'main', component: IndraMain },
   { path: '/blog', name: 'blog', component: IndraBlog },
   { path: '/blog/:id/:title', name: 'blogView', component: IndraBlogView },
-  { path: '/gallery', name: 'gallery', component: IndraGallery }
+  { path: '/gallery', name: 'gallery', component: IndraGallery },
+  { path: '/gallery/:id', name: 'galleryView', component: IndraGalleryView },
 ];
 const router = new VueRouter({routes});
 
@@ -44,6 +47,9 @@ Vue.use(VueTouch)
 Vue.use(VueSmoothScroll)
 Vue.use(VueCookie)
 Vue.use(VueRouter)
+
+// global components
+Vue.component('IndraShare', IndraShare);
 
 function init() {
   new Vue({

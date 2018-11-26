@@ -24,13 +24,13 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
       <div class="menu-title" v-html="title"></div>
       <button class="menu-button icn icn-menu" @click="toggle"></button>
       <div class="menu-items" v-if="open">
-        <router-link v-for="item in items" :to="{name: item.href}" :key="item.href" v-smooth-scroll="{offset:-50}" @click="toggle"><i :class="item.class"></i><span>{{item.text}}</span></router-link>
+        <button v-for="item in items" :key="item.href" @click="toggle(item.href)"><i :class="item.class"></i><span>{{item.text}}</span></button>
       </div>
     </div>
     <div class="menu-big">
       <div class="menu-title" v-html="title"></div>
       <div class="menu-items">
-        <router-link v-for="item in items" :to="{name: item.href}" :key="item.href" v-smooth-scroll="{offset:-100}"><i :class="item.class"></i><span>{{item.text}}</span></router-link>
+        <router-link v-for="item in items" :to="{name: item.href}" :key="item.href"><i :class="item.class"></i><span>{{item.text}}</span></router-link>
       </div>
     </div>
   </nav>
@@ -62,7 +62,8 @@ export default {
         this.$el.classList.remove('sticky')
       }
     },
-    toggle() {
+    toggle(href) {
+      this.$router.push({name:href});
       this.$store.dispatch('menu/toggle');
     }
   },
@@ -115,6 +116,7 @@ export default {
       align-items: center
       align-content: center
       padding: .5rem
+      button
       a
         flex: 0
         text-align: center

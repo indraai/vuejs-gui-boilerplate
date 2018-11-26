@@ -18,13 +18,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section class="gallery" id="gallery">
-    <h1 v-html="title"></h1>
-    <p v-html="description"></p>
-    <article class="gallery-list">
-      <div class="gallery-list-item" v-for="item in items">
-        <router-link :to="{ name: 'galleryView', params: {id:item.id} }"><img :src="item.src" :alt="item"></router-link>
-      </div>
+  <section class="gallery-view" id="gallery_view">
+    <button class="gallery-view-close" @click="close"><i class="icn-cross"></i></button>
+    <article class="gallery-view-item">
+      <div class="gallery-view-img"><img :src="viewing" alt=""></div>
     </article>
   </section>
 </template>
@@ -35,21 +32,24 @@ export default {
   props: ['type'],
   components: {},
   computed: {
-    galleryCount() {
-      return this.type === 'small' ? 9 : 96;
-    },
     title() {
       return this.$store.getters['gallery/title'];
     },
     description() {
       return this.$store.getters['gallery/description'];
     },
-    items() {
-      return this.$store.getters['gallery/items'];
+    viewing() {
+      return this.$store.getters['gallery/viewing'];
+    },
+  },
+  methods: {
+    close() {
+      return this.$router.go(-1)
     }
   },
-  methods: {},
-  created() {}
+  created() {
+    this.$store.dispatch('gallery/open', `https://deva.space/cdn/paintings/full/${this.$route.params.id}.jpg`);
+  }
 }
 </script>
 
@@ -57,19 +57,7 @@ export default {
   @require '../../styles/vars'
   // custom template styles
   //tes
-  .gallery
-    &-list
-      display: flex
-      flex-flow: row wrap
-      justify-content: center
-      &-item
-        padding: .3rem
-        line-height: 1
-        img
-          width: 250px
-          height: 140px
-          border-radius: .3rem
-    &-viewing
+  .gallery-view
       z-index: 1000
       position: fixed
       top: 0
@@ -84,12 +72,12 @@ export default {
       justify-content: center
       overflow: auto
 
-      .close
+      &-close
         transition: $transition
         background-color: transparent
         border: none
         color: $colors.white
-        font-size: 5rem
+        font-size: 3rem
         position: fixed
         top: 0
         right: 0
@@ -103,7 +91,7 @@ export default {
         margin: 0
         padding: 0
         text-align: center
-
+        max-width: 90%
         img
           box-shadow: 0 3px 9px darken($colors.charcoal, 50%)
           max-width: 100%
