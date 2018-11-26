@@ -25,17 +25,17 @@ localVue.use(Vuex)
 localVue.use(VueRouter)
 const router = new VueRouter()
 
-import IndraGallery from './index.vue'
-import {gallery} from './store.js'
+import IndraError from './index.vue'
+import {errors} from './store.js'
 
 describe('IndraGallery', () => {
   let store
   beforeEach(() => {
-    store = new Vuex.Store({modules:{gallery}})
+    store = new Vuex.Store({modules:{errors}})
   })
 
   it('expect component to be defined', () => {
-    const wrapper = shallowMount(IndraGallery, {router, store, localVue})
+    const wrapper = shallowMount(IndraError, {router, store, localVue})
     expect(wrapper).to.not.be.an('undefined')
   })
 })

@@ -18,9 +18,12 @@
 
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
+import VueRouter from 'vue-router'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
+localVue.use(VueRouter)
+const router = new VueRouter()
 
 import IndraBlog from './index.vue'
 import {blog} from './store.js'
@@ -28,11 +31,11 @@ import {blog} from './store.js'
 describe('IndraBlog', () => {
   let store
   beforeEach(() => {
-    store = new Vuex.Store(blog)
+    store = new Vuex.Store({modules:{blog}})
   })
 
   it('expect component to be defined', () => {
-    const wrapper = shallowMount(IndraBlog, {store, localVue})
+    const wrapper = shallowMount(IndraBlog, {router, store, localVue})
     expect(wrapper).to.not.be.an('undefined')
   })
 })
