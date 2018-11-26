@@ -76,14 +76,16 @@ const blog = {
         commit('topics', topics)
         dispatch('header/title', name, {root: true});
         dispatch('header/description', description, {root: true});
-        console.log('design', result.data);
       }).catch(console.error);
     },
-    getTopic({commit, state, dispatch}, data) {
+    getTopic({commit}, data) {
       axios.get(`https://rahula.club/api/topic/${data}`).then(result => {
         commit('topic', result.data);
       }).catch(console.error)
-    }
+    },
+    clearTopic({commit}, data) {
+      commit('topic', false);
+    },
   },
 }
 

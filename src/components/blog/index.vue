@@ -24,7 +24,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     <article class="blog-topics">
       <div v-for="topic in topics" class="blog-topics-topic">
         <h2><router-link :to="{ name: 'blogView', params: {id: topic.tid, title: topic.slug.split('/')[1]} }">{{topic.title}}</router-link></h2>
-        <span v-for="tag in topic.tags" v-html="tag.value"></span>
+        <div class="blog-date" v-html="formatDate(topic.timestamp)"></div>
       </div>
     </article>
   </section>
@@ -48,7 +48,18 @@ export default {
       return this.$store.getters['blog/topics']
     },
   },
-  methods: {},
+  methods: {
+    formatDate(date) {
+      date = new Date(date)
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      };
+      return date.toLocaleDateString('en-US', options);
+    },
+  },
   created() {},
 }
 </script>

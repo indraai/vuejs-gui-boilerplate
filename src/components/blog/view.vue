@@ -19,9 +19,11 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <section class="blog-view">
-    <h1 v-html="topic.title"></h1>
-    <div class="blog-view-tags"><span v-for="tag in topic.tags" v-html="tag.value"></span></div>
+    <h1 class="blog-view-title" v-html="topic.title"></h1>
+    <div class="blog-view-tags"><span class="blog-view-tag" v-for="tag in topic.tags" v-html="tag.value"></span></div>
+    <div class="blog-view-link"><a target="rahula" :href="rahulaLink(topic.slug)" v-html="rahulaLink(topic.slug)"></a></div>
     <article class="blog-view-post" v-for="post in topic.posts">
+      <div class="blog-view-post-date" v-html="formatDate(post.timestamp)"></div>
       <div v-html="post.content" class="blog-view-post-content"></div>
     </article>
   </section>
@@ -38,10 +40,28 @@ export default {
       return this.$store.getters['blog/topic']
     },
   },
-  methods: {},
+  methods: {
+    rahulaLink(data) {
+      console.log('rahulaLink', data);
+      return `https://rahula.club/topic/${data}`;
+    },
+    formatDate(date) {
+      date = new Date(date)
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      };
+      return date.toLocaleDateString('en-US', options);
+    },
+  },
   created() {
     this.$store.dispatch('blog/getTopic', this.$route.params.id);
   },
+  destroyed() {
+    this.$store.dispatch('blog/clearTopic')
+  }
 }
 </script>
 
@@ -52,10 +72,51 @@ export default {
     max-width: 930px
     margin: auto
 
-    &-post
-      &-content
-        border-bottom: 3px solid $colors.charcoal
+    > h1
+      border-bottom: 1px solid $colors.charcoal
+      margin-bottom: 1rem
 
+    &-tags
+      padding: .5rem
+      &::before
+        content: "Tags"
+        display: inline-block
+        padding-right: .5rem
+        margin-right: .5rem
+        border-right: 1px solid $colors.fire
+        width: 2rem
+    &-tag
+      display: inline-block
+      padding: .25rem .75rem
+      border: 1px dotted $colors.blue
+      border-radius: .3rem
+      margin: 0 .1rem
+
+    &-link
+      padding: .5rem
+      &::before
+        content: "Link"
+        display: inline-block
+        padding-right: .5rem
+        margin-right: .5rem
+        border-right: 1px solid $colors.fire
+        width: 2rem
+      a
+        display: inline-block
+        padding: .25rem .75rem
+        border: 1px dotted $colors.earth
+        border-radius: .3rem
+        color: $colors.earth
+
+    &-post
+      margin-top: 1rem
+      border-top: 3px dotted $colors.charcoal
+      &-date
+        font-size: 1.5rem
+        font-weight: 500
+        color: lighten($colors.charcoal, 75%)
+
+      &-content
         code
           display: inline-block
         pre
