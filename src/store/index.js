@@ -24,6 +24,7 @@ import {footer} from '../components/footer/store.js'
 import {menu} from '../components/menu/store.js'
 import {main} from '../components/main/store.js'
 import {gallery} from '../components/gallery/store.js'
+import {videos} from '../components/videos/store.js'
 import {blog} from '../components/blog/store.js'
 import {share} from '../components/share/store.js'
 
