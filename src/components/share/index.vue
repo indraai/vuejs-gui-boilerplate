@@ -30,22 +30,23 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 export default {
   name: 'IndraShare',
+  props: ['share_text'],
   components: {},
   computed: {
     title() {
-      return this.$store.getters['share/title']
+      return this.$store.getters['share/title'];
     },
     description() {
-      return this.$store.getters['share/description']
+      return this.$store.getters['share/description'];
     },
     sharing() {
-      return this.$store.getters['share/sharing']
+      return this.$store.getters['share/sharing'];
     }
   },
   methods: {
     shareLink(link) {
-      return `${link}${encodeURI(window.location.href)}`
-    }
+      return link + window.location.href.replace(/\/#\//g, '/');
+    },
   },
   created() {}
 }

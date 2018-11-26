@@ -41,7 +41,10 @@ const routes = [
   { path: '/gallery', name: 'gallery', component: IndraGallery },
   { path: '/gallery/:id', name: 'galleryView', component: IndraGalleryView },
 ];
-const router = new VueRouter({routes});
+const router = new VueRouter({
+  mode: 'history',
+  routes
+});
 
 Vue.use(VueTouch)
 Vue.use(VueSmoothScroll)

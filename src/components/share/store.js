@@ -26,17 +26,17 @@ const share = {
     sharing: [
       {
         name: 'twitter',
-        link: 'https://twitter.com/intent/tweet?hashtags=indra,indraai&text=indra&via=indradotai&url=',
+        link: 'https://twitter.com/intent/tweet?hashtags=quinnmichaels,fortrent&text=:your%20message%20here:&via=quinnmichaels&url=',
         icon: 'https://deva.space/cdn/sharing/twitter-128.png',
       },
       {
         name: 'facebook',
-        link: 'https://www.facebook.com/sharer/sharer.php?u=',
+        link: 'https://www.facebook.com/sharer/sharer.php?text=:your%20message%20here&u=',
         icon: 'https://deva.space/cdn/sharing/facebook-128.png',
       },
       {
         name: 'goolge+',
-        link: 'https://plus.google.com/share?app=110&url=',
+        link: 'https://plus.google.com/share?app=110&hashtags=quinnmichaels,fortrent&text=:your%20message%20here:&url=',
         icon: 'https://deva.space/cdn/sharing/googleplus-128.png',
       }
     ],

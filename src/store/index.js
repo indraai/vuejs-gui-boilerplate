@@ -25,6 +25,7 @@ import {menu} from '../components/menu/store.js'
 import {main} from '../components/main/store.js'
 import {gallery} from '../components/gallery/store.js'
 import {blog} from '../components/blog/store.js'
+import {share} from '../components/share/store.js'
 
 Vue.use(Vuex)
 
@@ -37,5 +38,6 @@ export default new Vuex.Store({
     main,
     gallery,
     blog,
+    share,
   }
 })

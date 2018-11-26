@@ -23,6 +23,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     <article class="gallery-view-item">
       <div class="gallery-view-img"><img :src="viewing" alt=""></div>
     </article>
+    <IndraShare></IndraShare>
   </section>
 </template>
 
