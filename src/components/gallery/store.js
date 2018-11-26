@@ -82,7 +82,7 @@ const gallery = {
     loadItems({commit}, data) {
       // let's build an items array for better use with data later
       const items = [];
-      for (let x = 1; x <= 96; x++) {
+      for (let x = 1; x <= 95; x++) {
         items.push({
           id: x,
           name: `Artwork ${x}`,

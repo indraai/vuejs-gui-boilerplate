@@ -32,7 +32,12 @@ const menu = {
       {
         href: 'gallery',
         class: 'icn icn-picture',
-        text: 'gallery',
+        text: 'art',
+      },
+      {
+        href: 'videos',
+        class: 'icn icn-camera-video',
+        text: 'video',
       },
       {
         href: 'blog',
