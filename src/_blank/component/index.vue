@@ -18,10 +18,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section>
-    <h1 v-html="title"></h1>
-    <p v-html="description"></p>
-    <article v-html="content"></article>
+  <section class=":component:" id=":component:">
+    <h1 class=":component:-title" v-html="title"></h1>
+    <p class=":component:-description" v-html="description"></p>
+    <article class=":component:-content" v-html="content"></article>
   </section>
 </template>
 
@@ -40,6 +40,9 @@ export default {
     },
     content() {
       return this.$store.getters[':store:/content']
+    },
+    data() {
+      return this.$store.getters[':store:/data']
     }
   },
   methods: {},
@@ -50,4 +53,13 @@ export default {
 <style lang="stylus" scoped>
   // custom template styles
   @require '../../styles/vars'
+  .:component:
+    display: flex
+    &-title
+      flex: 0
+    &-description
+      flex: 0
+    &-content
+      flex: 1
+
 </style>

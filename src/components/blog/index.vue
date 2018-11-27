@@ -19,8 +19,8 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <section :class="{ blog:true, small: type }">
-    <h1 v-html="title"></h1>
-    <p v-html="description"></p>
+    <h1 class="blog-title" v-html="title"></h1>
+    <p class="blog-description" v-html="description"></p>
     <article class="blog-topics">
       <div v-for="topic in topics" class="blog-topics-topic">
         <h2><router-link :to="{ name: 'blogView', params: {id: topic.tid, title: topic.slug.split('/')[1]} }">{{topic.title}}</router-link></h2>
@@ -45,7 +45,9 @@ export default {
       return this.$store.getters['blog/description']
     },
     topics() {
-      return this.$store.getters['blog/topics']
+      const topics = this.$store.getters['blog/topics'];
+      if (this.type && this.type === 'small') return topics.slice(0,3)
+      return topics
     },
   },
   methods: {

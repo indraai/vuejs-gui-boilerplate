@@ -34,8 +34,24 @@ describe(':component:', () => {
     store = new Vuex.Store({modules: {:store:}})
   })
 
-  it('expect component to be defined', () => {
+  it('expects :component: to be defined', () => {
     const wrapper = shallowMount(:component:, {router, store, localVue})
     expect(wrapper).to.not.be.an('undefined')
+  })
+
+  it('expects :component: to have a title', () => {
+    expect(store.getters.title).to.not.be.an('undefined')
+  })
+
+  it('expects :component: to have a description', () => {
+    expect(store.getters.description).to.not.be.an('undefined')
+  })
+
+  it('expects :component: to have content', () => {
+    expect(store.getters.content).to.not.be.an('undefined')
+  })
+
+  it('expects :component: data to be an array', () => {
+    expect(store.getters.data).to.be.an('array')
   })
 })

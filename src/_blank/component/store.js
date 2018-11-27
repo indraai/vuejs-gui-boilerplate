@@ -18,14 +18,16 @@
 
 // THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
 import marked from 'marked';
+const {title, description, data } = require('./data.json');
+const content = marked(require('./content.md'));
 
 const :store: = {
   namespaced: true,
   state: {
-    title: ':component:',
-    description: ':component: (:store:) is ready for use.',
-    content: marked(require('./content.md')),
-    data: require('./data.json')
+    title,
+    description,
+    data,
+    content,
   },
   getters: {
     title(state) {
