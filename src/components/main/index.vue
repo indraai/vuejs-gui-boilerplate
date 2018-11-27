@@ -22,8 +22,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
   <main :class="{'main': true}">
     <IndraBlog type="small"></IndraBlog>
     <IndraGallery type="small"></IndraGallery>
+    <IndraVideos type="small"></IndraVideos>
+    <IndraInfo type="small"></IndraInfo>
     <section class="information" id="information">
-      <h2><i class="icn icn-eye"></i> Contact Information</h2>
+      <h2><i class="icn icn-eye"></i> Contact</h2>
       <h5>Email</h5>
       <ul>
         <li><a href="mailto:contact@quinnmichaels.com">contact@quinnmichaels.com</a></li>
@@ -41,12 +43,16 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 // template javascript
 import IndraGallery from '../gallery/index.vue';
 import IndraBlog from '../blog/index.vue';
+import IndraVideos from '../videos/index.vue';
+import IndraInfo from '../info/index.vue';
 
 export default {
   name: 'IndraMain',
   components: {
     IndraGallery,
     IndraBlog,
+    IndraVideos,
+    IndraInfo,
   },
   computed: {},
   methods: {},

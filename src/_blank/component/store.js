@@ -17,12 +17,15 @@
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 // THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
+import marked from 'marked';
 
 const :store: = {
   namespaced: true,
   state: {
     title: ':component:',
-    description: ':component: (:store:) is ready for use.'
+    description: ':component: (:store:) is ready for use.',
+    content: marked(require('./content.md')),
+    data: require('./data.json')
   },
   getters: {
     title(state) {
@@ -30,6 +33,15 @@ const :store: = {
     },
     description(state) {
       return state.description;
+    },
+    data(state) {
+      return state.data;
+    },
+    content(state) {
+      return state.content;
+    },
+    data(state) {
+      return state.data;
     }
   },
   mutations: {
@@ -39,6 +51,12 @@ const :store: = {
     description(state, data) {
       state.description = data;
     },
+    content(state, data) {
+      state.content = data;
+    },
+    data(state, data) {
+      state.data = data;
+    }
   },
   actions: {
     title({commit}, data) {
@@ -47,6 +65,12 @@ const :store: = {
     description({commit}, data) {
       commit('description', data);
     },
+    content({commit}, data) {
+      commit('content', data);
+    },
+    data({commit}, data) {
+      commit('data', data);
+    }
   },
 }
 

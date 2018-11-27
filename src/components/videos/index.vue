@@ -18,9 +18,16 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section>
+  <section class="videos">
     <h1 v-html="title"></h1>
     <p v-html="description"></p>
+    <article class="videos-content">
+      <div class="videos-thumbnail" v-for="video in videos"  :data-title="video.title">
+        <router-link :to="{ name: 'videoView', params: {id:video.id} }">
+          <img :src="thumbnail(video.id)" alt="">
+        </router-link>
+      </div>
+    </article>
   </section>
 </template>
 
@@ -29,20 +36,66 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 export default {
   name: 'IndraVideos',
+  props: ['type'],
   components: {},
   computed: {
     title() {
-      return this.$store.getters['videos/title']
+      return this.$store.getters['videos/title'];
     },
     description() {
-      return this.$store.getters['videos/description']
+      return this.$store.getters['videos/description'];
     },
+    content() {
+      return this.$store.getters['videos/content'];
+    },
+    videos() {
+      const videos = this.$store.getters['videos/data'];
+      if (this.type && this.type === 'small') return videos.slice(0,9)
+      return videos;
+    }
   },
-  methods: {},
+  methods: {
+    thumbnail(id) {
+      return `http://img.youtube.com/vi/${id}/0.jpg`;
+    }
+  },
   created() {}
 }
 </script>
 
 <style lang="stylus" scoped>
   // custom template styles
+  @require '../../styles/vars'
+  .videos
+    &-content
+      display: flex
+      flex-flow: row wrap
+      justify-content: center
+
+    &-thumbnail
+      position: relative
+      margin: .5rem
+      &[data-title]
+        &::before
+          content: attr(data-title)
+          display: block
+          color: $colors.white
+          background-color: rgba(black, .75)
+          padding: 2rem 1rem
+          font-size: 1.5rem
+          text-align: center
+          position: absolute
+          bottom: 0
+          left: 0
+          right: 0
+          width: calc(100% - 2rem)
+          border-radius: 0 0 1rem 1rem
+          text-overflow: ellipsis
+          overflow: hidden
+          white-space: nowrap
+      img
+        border-radius: .5rem
+        width: 250px
+        height: auto
+
 </style>

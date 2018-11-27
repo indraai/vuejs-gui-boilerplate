@@ -30,6 +30,11 @@ const menu = {
         text: 'home',
       },
       {
+        href: 'blog',
+        class: 'icn icn-pencil',
+        text: 'blog',
+      },
+      {
         href: 'gallery',
         class: 'icn icn-picture',
         text: 'art',
@@ -37,12 +42,12 @@ const menu = {
       {
         href: 'videos',
         class: 'icn icn-camera-video',
-        text: 'video',
+        text: 'videos',
       },
       {
-        href: 'blog',
-        class: 'icn icn-pencil',
-        text: 'blog',
+        href: 'artist',
+        class: 'icn icn-user',
+        text: 'artist',
       }
     ],
 

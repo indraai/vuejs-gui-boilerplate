@@ -42,8 +42,12 @@ export default {
 <style lang="stylus" scoped>
   @require '../../styles/vars'
   .footer
+    position: fixed
+    bottom: 0
+    left: 0
+    right: 0
     transition: $transition
-    padding: 1rem
+    padding: .5rem
     background-color: $colors.charcoal
     color: lighten($colors.charcoal, 75%)
     display: flex

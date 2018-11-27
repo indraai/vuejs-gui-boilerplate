@@ -17,15 +17,15 @@
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 // THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
+import marked from 'marked';
 
-const gallery = {
+const info = {
   namespaced: true,
   state: {
-    open: false,
-    viewing: false,
-    title: '<i class="icn icn-picture"></i> The Art',
-    description: 'A collection of artwork created by Quinn Michaels',
-    items: [],
+    title: '<i class="icn icn-user"></i> The Artist',
+    description: 'Quinn Michaels is the artist, programmer, imagineer behind the <a href="https://indra.design">indra.design</a> platform that runs quinnmichaels.com',
+    content: marked(require('./content.md')),
+    data: require('./data.json')
   },
   getters: {
     title(state) {
@@ -34,14 +34,14 @@ const gallery = {
     description(state) {
       return state.description;
     },
-    open(state) {
-      return state.open;
+    data(state) {
+      return state.data;
     },
-    viewing(state) {
-      return state.viewing;
+    content(state) {
+      return state.content;
     },
-    items(state) {
-      return state.items.reverse();
+    data(state) {
+      return state.data;
     }
   },
   mutations: {
@@ -51,19 +51,12 @@ const gallery = {
     description(state, data) {
       state.description = data;
     },
-    open(state, data) {
-      state.open = data;
+    content(state, data) {
+      state.content = data;
     },
-    viewing(state, data) {
-      state.viewing = data;
-    },
-    close(state) {
-      state.viewing = false;
-      state.open = false;
-    },
-    items(state, data) {
-      state.items = data
-    },
+    data(state, data) {
+      state.data = data;
+    }
   },
   actions: {
     title({commit}, data) {
@@ -72,27 +65,13 @@ const gallery = {
     description({commit}, data) {
       commit('description', data);
     },
-    open({commit}, data) {
-      commit('open', true);
-      commit('viewing', data);
+    content({commit}, data) {
+      commit('content', data);
     },
-    close({commit}) {
-      commit('close');
-    },
-    loadItems({commit}, data) {
-      // let's build an items array for better use with data later
-      const items = [];
-      for (let x = 1; x <= 95; x++) {
-        items.push({
-          id: x,
-          name: `Artwork ${x}`,
-          caption: `This is Artwork ${x} created by Quinn Michaels`,
-          src: `https://deva.space/cdn/paintings/thumb/${x}.jpg`,
-        });
-      }
-      commit('items', items);
+    data({commit}, data) {
+      commit('data', data);
     }
   },
 }
 
-export { gallery }
+export { info }

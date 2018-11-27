@@ -18,10 +18,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section>
-    <h1 v-html="title"></h1>
-    <p v-html="description"></p>
-    <article v-html="content"></article>
+  <section class="info">
+    <h1 class="info-title" v-html="title"></h1>
+    <p class="info-description" v-html="description"></p>
+    <article class="info-content" v-html="content" v-if="!small"></article>
   </section>
 </template>
 
@@ -29,17 +29,21 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 // template javascript
 
 export default {
-  name: ':component:',
+  name: 'IndraInfo',
+  props: ['type'],
   components: {},
   computed: {
     title() {
-      return this.$store.getters[':store:/title']
+      return this.$store.getters['info/title']
+    },
+    small() {
+      return this.type && this.type === 'small'
     },
     description() {
-      return this.$store.getters[':store:/description']
+      return this.$store.getters['info/description']
     },
     content() {
-      return this.$store.getters[':store:/content']
+      return this.$store.getters['info/content']
     }
   },
   methods: {},
@@ -47,7 +51,19 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   // custom template styles
   @require '../../styles/vars'
+  .info
+    max-width: 930px
+    margin: auto
+
+    &-content
+      img[src="https://deva.space/cdn/people/quinn.jpg"]
+        border-radius: 50%
+        box-shadow: 0 3px 9px $colors.charcoal
+        float: left
+        margin-right: 2rem
+        width: 150px
+        height: 150px
 </style>

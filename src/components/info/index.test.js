@@ -25,17 +25,17 @@ localVue.use(Vuex)
 localVue.use(VueRouter)
 const router = new VueRouter()
 
-import IndraVideos from './index.vue'
-import {videos} from './store.js'
+import IndraInfo from './index.vue'
+import {info} from './store.js'
 
-describe('IndraVideos', () => {
+describe('IndraInfo', () => {
   let store
   beforeEach(() => {
-    store = new Vuex.Store({modules: {videos}})
+    store = new Vuex.Store({modules: {info}})
   })
 
   it('expect component to be defined', () => {
-    const wrapper = shallowMount(IndraVideos, {router, store, localVue})
+    const wrapper = shallowMount(IndraInfo, {router, store, localVue})
     expect(wrapper).to.not.be.an('undefined')
   })
 })

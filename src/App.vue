@@ -63,6 +63,9 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
     > section
       padding: 2rem
+
+    .view
+      margin-bottom: 5rem
     //
     // .view
     //   margin-top: 3rem

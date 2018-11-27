@@ -17,12 +17,16 @@
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 // THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
+import marked from 'marked';
 
 const videos = {
   namespaced: true,
   state: {
-    title: 'IndraVideos',
-    description: 'IndraVideos (videos) is ready for use.'
+    title: '<i class="icn icn-camera-video"></i> The Videos',
+    description: 'A collection of art in motion videos made by Quinn Michaels',
+    content: marked(require('./content.md')),
+    data: require('./data.json').videos.reverse(),
+    viewing: false,
   },
   getters: {
     title(state) {
@@ -30,7 +34,16 @@ const videos = {
     },
     description(state) {
       return state.description;
-    }
+    },
+    data(state) {
+      return state.data;
+    },
+    content(state) {
+      return state.content;
+    },
+    viewing(state) {
+      return state.viewing;
+    },
   },
   mutations: {
     title(state, data) {
@@ -39,6 +52,12 @@ const videos = {
     description(state, data) {
       state.description = data;
     },
+    content(state, data) {
+      state.content = data;
+    },
+    viewing(state, data) {
+      state.viewing = data;
+    }
   },
   actions: {
     title({commit}, data) {
@@ -46,6 +65,12 @@ const videos = {
     },
     description({commit}, data) {
       commit('description', data);
+    },
+    content({commit}, data) {
+      commit('content', data);
+    },
+    viewing({commit}, data) {
+      commit('viewing', data);
     },
   },
 }

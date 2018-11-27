@@ -20,7 +20,7 @@ import Vue from 'vue'
 
 import VueTouch from 'vue-touch'
 import VueSmoothScroll from 'vue-smooth-scroll'
-import VueCookie from 'vue-cookie';
+import VueCookie from 'vue-cookie'
 
 import VueRouter from 'vue-router'
 
@@ -30,7 +30,10 @@ import IndraBlog from './components/blog/index.vue'
 import IndraBlogView from './components/blog/view.vue'
 import IndraGallery from './components/gallery/index.vue'
 import IndraGalleryView from './components/gallery/view.vue'
-import IndraShare from './components/share/index.vue';
+import IndraShare from './components/share/index.vue'
+import IndraVideos from './components/videos/index.vue'
+import IndraVideosView from './components/videos/view.vue'
+import IndraInfo from './components/info/index.vue'
 
 import store from './store'
 
@@ -40,6 +43,9 @@ const routes = [
   { path: '/blog/:id/:title', name: 'blogView', component: IndraBlogView },
   { path: '/gallery', name: 'gallery', component: IndraGallery },
   { path: '/gallery/:id', name: 'galleryView', component: IndraGalleryView },
+  { path: '/videos', name: 'videos', component: IndraVideos },
+  { path: '/videos/:id', name: 'videosView', component: IndraVideosView },
+  { path: '/artist', name: 'artist', component: IndraInfo }
 ];
 const router = new VueRouter({
   mode: 'history',
