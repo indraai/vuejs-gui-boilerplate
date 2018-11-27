@@ -24,7 +24,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     <div class="blog-view-link"><a target="rahula" :href="rahulaLink(topic.slug)" v-html="rahulaLink(topic.slug)"></a></div>
     <article class="blog-view-post" v-for="post in topic.posts">
       <div class="blog-view-post-date" v-html="formatDate(post.timestamp)"></div>
-      <div v-html="post.content" class="blog-view-post-content"></div>
+      <div v-html="cleanHTML(post.content)" class="blog-view-post-content"></div>
     </article>
     <IndraShare></IndraShare>
   </section>
@@ -54,6 +54,9 @@ export default {
         day: 'numeric',
       };
       return date.toLocaleDateString('en-US', options);
+    },
+    cleanHTML(html) {
+      return html.replace(/\/assets/g, 'https://rahula.club/assets');
     },
   },
   created() {
@@ -123,4 +126,6 @@ export default {
           > code
             display: block
             padding: 1rem
+        img
+          max-width: 100%
 </style>
