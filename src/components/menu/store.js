@@ -48,6 +48,11 @@ const menu = {
         href: 'artist',
         class: 'icn icn-user',
         text: 'artist',
+      },
+      {
+        href: 'gui',
+        class: 'icn icn-rocket',
+        text: 'gui',
       }
     ],
 

@@ -21,6 +21,7 @@ import Vue from 'vue'
 import VueTouch from 'vue-touch'
 import VueSmoothScroll from 'vue-smooth-scroll'
 import VueCookie from 'vue-cookie'
+import VueSocketIO from 'vue-socket.io'
 
 import VueRouter from 'vue-router'
 
@@ -34,6 +35,7 @@ import IndraShare from './components/share/index.vue'
 import IndraVideos from './components/videos/index.vue'
 import IndraVideosView from './components/videos/view.vue'
 import IndraInfo from './components/info/index.vue'
+import IndraGui from './components/gui/index.vue'
 
 import store from './store'
 
@@ -45,7 +47,8 @@ const routes = [
   { path: '/gallery/:id', name: 'galleryView', component: IndraGalleryView },
   { path: '/videos', name: 'videos', component: IndraVideos },
   { path: '/videos/:id', name: 'videosView', component: IndraVideosView },
-  { path: '/artist', name: 'artist', component: IndraInfo }
+  { path: '/artist', name: 'artist', component: IndraInfo },
+  { path: '/gui', name: 'gui', component: IndraGui }
 ];
 const router = new VueRouter({
   mode: 'history',
@@ -58,6 +61,11 @@ Vue.use(VueSmoothScroll)
 Vue.use(VueCookie)
 Vue.use(VueRouter)
 
+Vue.use(new VueSocketIO({
+    debug: false,
+    connection: 'http://localhost:3900/',
+}));
+
 // global components
 Vue.component('IndraShare', IndraShare);
 
@@ -66,6 +74,27 @@ function init() {
     el: '#app',
     store,
     router,
+    sockets: {
+      connect() {
+        return console.log('socket connected');
+      },
+      'stream:success'(data) {
+        this.$store.dispatch('gui/stream', data);
+      },
+      'party:member:add'(data) {
+        this.$store.dispatch('gui/party', data);
+      },
+      'party:leaders'(data) {
+        this.$store.dispatch('gui/leaders', data);
+      },
+      'party:friends'(data) {
+        this.$store.dispatch('gui/friends', data);
+      },
+      'party:promote'(data) {
+        console.log('party promote', data);
+        this.$store.dispatch('gui/promote', data)
+      }
+    },
     render: h => h(App),
     created() {}
   })

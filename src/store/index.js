@@ -28,6 +28,7 @@ import {videos} from '../components/videos/store.js'
 import {blog} from '../components/blog/store.js'
 import {share} from '../components/share/store.js'
 import {info} from '../components/info/store.js'
+import {gui} from '../components/gui/store.js'
 
 Vue.use(Vuex)
 
@@ -43,5 +44,6 @@ export default new Vuex.Store({
     blog,
     share,
     info,
+    gui,
   }
 })
