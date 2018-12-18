@@ -22,7 +22,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     <h1>leaders</h1>
     <article class="leaders">
       <div class="leaders-data" v-for="leader in leaders.data">
-        <div class="leaders-data-name" v-html="leader.screen_name"></div><div class="leader-data-count" v-html="leader.count"></div>
+        <div @click="mention(leader.screen_name)" class="leaders-data-name" v-html="leader.screen_name"></div><div class="leader-data-count" v-html="leader.count"></div>
       </div>
     </article>
   </section>
@@ -39,7 +39,11 @@ export default {
       return this.$store.getters['gui/leaders']
     },
   },
-  methods: {},
+  methods: {
+    mention(screen_name) {
+      return this.$store.dispatch('gui/question', `@${screen_name} `)
+    }
+  },
   created() {},
   destroyed() {
     this.$store.dispatch('gui/leaders', []);
@@ -51,13 +55,26 @@ export default {
   // custom template styles
   @require '../../styles/vars'
   .IndraLeaders
+    color: $colors.earth
+    background-color: darken($colors.earth, 90%)
+    box-shadow: inset 0 0 1rem rgba($colors.earth, .25)
+
+    > h1
+      background-color: rgba($colors.earth, .1)
+      box-shadow: inset 0 0 1rem rgba($colors.earth, .5)
+
     .leaders
       &-data
         display: flex
         flex-flow: row nowrap
 
         &-name
+          transition: $transition
           flex: 1 0 auto
+          &:hover
+            cursor: pointer
+            color: lighten($colors.earth, 75%)
+            text-shadow: 0 0 3px lighten($colors.earth, 50%)
         &-count
           flex: 0
 

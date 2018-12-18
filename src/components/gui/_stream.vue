@@ -20,8 +20,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 <template>
   <section class="IndraStream" id="IndraStream">
     <h1>stream</h1>
-    <article class="stream" v-for="item in stream">
-      {{item.user.screen_name}}
+    <article class="stream">
+      <div class="stream-item" v-for="item in stream">
+        {{item.user.screen_name}}
+      </div>
     </article>
   </section>
 </template>
@@ -48,4 +50,20 @@ export default {
 <style lang="stylus" scoped>
   // custom template styles
   @require '../../styles/vars'
+  .IndraStream
+    color: $colors.fire
+    background-color: darken($colors.fire, 90%)
+    box-shadow: inset 0 0 1rem rgba($colors.fire, .25)
+    > h1
+      background-color: rgba($colors.fire, .1)
+      text-shadow: 0 0 3px rgba(darken($colors.fire, 50%), .5)
+      box-shadow: inset 0 0 1rem rgba($colors.fire, .5)
+    .stream
+      &-item
+        transition: $transition
+        &:hover
+          cursor: pointer
+          color: lighten($colors.fire, 75%)
+          text-shadow: 0 0 3px lighten($colors.fire, 50%)
+
 </style>

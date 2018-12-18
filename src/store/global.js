@@ -17,14 +17,27 @@
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 // global store operations
-import axios from 'axios'
 
 const global = {
   namespaced: true,
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
+  state: {
+    me: false,
+  },
+  getters: {
+    me(state) {
+      return state.me;
+    }
+  },
+  mutations: {
+    me(state, data) {
+      state.me = data;
+    }
+  },
+  actions: {
+    me({commit}, data) {
+      commit('me', data);
+    }
+  },
 }
 
 export { global }

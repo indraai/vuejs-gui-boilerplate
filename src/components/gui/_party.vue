@@ -20,8 +20,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 <template>
   <section class="IndraParty" id="IndraParty">
     <h1>party</h1>
-    <article class="party" v-for="member in party">
-      {{member.screen_name}}
+    <article class="party">
+      <div class="party-item" v-for="member in party">
+        {{member.screen_name}}
+      </div>
     </article>
   </section>
 </template>
@@ -48,4 +50,19 @@ export default {
 <style lang="stylus" scoped>
   // custom template styles
   @require '../../styles/vars'
+  .IndraParty
+    color: $colors.water
+    background-color: darken($colors.water, 90%)
+    box-shadow: inset 0 0 1rem rgba($colors.water, .25)
+    > h1
+      background-color: rgba($colors.water, .1)
+      text-shadow: 0 0 3px rgba(darken($colors.water, 50%), .5)
+      box-shadow: inset 0 0 1rem rgba($colors.water, .5)
+    .party-item
+      transition: $transition
+      &:hover
+        cursor: pointer
+        color: lighten($colors.water, 75%)
+        text-shadow: 0 0 3px lighten($colors.water, 50%)
+
 </style>

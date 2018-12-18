@@ -33,9 +33,12 @@ const gui = {
     party: [],
     leaders: [],
     friends: [],
-    promote: {},
+    promote: [],
     question: '',
-    answers: [],
+    conversation: [],
+    commands: [],
+    error: false,
+    me: false,
   },
   getters: {
     title(state) {
@@ -71,8 +74,17 @@ const gui = {
     question(state) {
       return state.question;
     },
-    answers(state) {
-      return state.answers;
+    conversation(state) {
+      return state.conversation;
+    },
+    error(state) {
+      return state.error;
+    },
+    me(state) {
+      return state.me;
+    },
+    commands(state) {
+      return state.commands;
     },
   },
   mutations: {
@@ -103,16 +115,28 @@ const gui = {
       state.friends = data;
     },
     promote(state, data) {
-      state.friends = data;
+      state.promote.unshift(data);
     },
     question(state, data) {
       state.question = data;
     },
-    answers(state, data) {
-      state.answers.push(data);
+    conversation(state, data) {
+      state.conversation.push(data);
     },
+    error(state, data) {
+      state.error = data;
+    },
+    me(state, data) {
+      state.me = data;
+    },
+    command(state, data) {
+      state.commands.unshift(data);
+    }
   },
   actions: {
+    me({commit}, data) {
+      commit('me', data);
+    },
     title({commit}, data) {
       commit('title', data);
     },
@@ -144,13 +168,27 @@ const gui = {
       commit('question', data);
     },
     ask({commit,state}) {
+      commit('conversation', {
+        type: 'question',
+        text: state.question
+      });
+      commit('command', state.question);
       axios.post('http://localhost:9300/api/bot/ask/', {
         msg: state.question,
       }).then(answer => {
         console.log('answer', answer.data);
-        commit('answers', answer.data);
+        commit('conversation', {
+          type: 'answer',
+          data: answer.data.a
+        });
         commit('question', '');
       });
+    },
+    error({commit}, data) {
+      commit('error', data);
+    },
+    command({commit}, data) {
+      commit('command', data);
     },
   },
 }

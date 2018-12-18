@@ -18,12 +18,9 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section class="IndraPromote" id="IndraPromote">
-    <article class="promote">
-      <div class="promote-item" v-for="promo in promote">
-        {{promo.a.data.result.text}}
-      </div>
-    </article>
+  <section class="IndraError" id="IndraError">
+    <h1>Error</h1>
+    <article class="error">ERROR DATA</article>
   </section>
 </template>
 
@@ -31,11 +28,11 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 // template javascript
 
 export default {
-  name: 'IndraPromote',
+  name: 'IndraError',
   components: {},
   computed: {
-    promote() {
-      return this.$store.getters['gui/promote']
+    error() {
+      return this.$store.getters['gui/error']
     },
   },
   methods: {},
@@ -49,7 +46,7 @@ export default {
 <style lang="stylus" scoped>
   // custom template styles
   @require '../../styles/vars'
-  #IndraPromote
+  #IndraError
     position: fixed
     top: 0
     right: 0
@@ -59,10 +56,11 @@ export default {
     padding: 0
     overflow: auto
     font-size: .8rem
-    .promote
+    .error
       background: $colors.charcoal
       color: lighten($colors.charcoal, 75%)
       position: relative
+      min-height: 5rem
       border-radius: .3rem
       border: none
       display: flex
@@ -71,11 +69,21 @@ export default {
       overflow: auto
       align-items: center
 
-      $item-width = 350px
+      &::before
+        content: 'Promote'
+        display: inline-block
+        transform: rotate(-90deg)
+        position: absolute
+        left: -.7rem
+        top: 1.5rem
+        text-align: right
+        padding: .2rem
+        color: $colors.orange-lt
+        border-bottom: 1px solid $colors.orange-lt
+
       &-item
-        flex: 1 $item-width
-        width: $item-width
-        min-width: $item-width
+        flex: 1 450px
+        max-width: 450px
         padding: 0 1rem 0 1rem
         &:not(:last-child)
           border-right: 1px solid $colors.orange-lt

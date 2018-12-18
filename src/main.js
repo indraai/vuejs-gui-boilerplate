@@ -78,13 +78,19 @@ function init() {
       connect() {
         return console.log('socket connected');
       },
+      'me:twitter'(data) {
+        console.log('me settings: ', data);
+        this.$store.dispatch('gui/me', data);
+      },
       'stream:success'(data) {
         this.$store.dispatch('gui/stream', data);
       },
-      'party:member:add'(data) {
+      'party:member'(data) {
+        console.log('add party member');
         this.$store.dispatch('gui/party', data);
       },
       'party:leaders'(data) {
+        console.log('party leaders');
         this.$store.dispatch('gui/leaders', data);
       },
       'party:friends'(data) {

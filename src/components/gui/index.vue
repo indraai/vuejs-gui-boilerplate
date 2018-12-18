@@ -25,6 +25,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     <IndraFriends></IndraFriends>
     <IndraPromote></IndraPromote>
     <IndraCommand></IndraCommand>
+    <IndraError v-if="error"></IndraError>
   </main>
 </template>
 
@@ -36,7 +37,7 @@ import IndraLeaders from './_leaders.vue';
 import IndraFriends from './_friends.vue';
 import IndraPromote from './_promote.vue';
 import IndraCommand from './_command.vue';
-
+import IndraError from './_error.vue';
 import axios from 'axios';
 
 export default {
@@ -48,8 +49,13 @@ export default {
     IndraFriends,
     IndraPromote,
     IndraCommand,
+    IndraError,
   },
-  computed: {},
+  computed: {
+    error() {
+      this.$store.getters['gui/error'];
+    }
+  },
   methods: {},
   created() {},
   destroyed() {},
@@ -75,22 +81,25 @@ export default {
 
     display: flex
     flex-flow: row nowrap
+
     > section
-      background: $colors.charcoal
-      box-shadow: 0 0 1rem rgba(darken($colors.charcoal, 50%), .5)
+      background: darken($colors.charcoal, 25%)
       padding: 0
       margin: 0
       flex: 1 0
-      height: calc(100% - 40%)
+      height: 100%
       color: lighten($colors.charcoal, 50%)
       overflow: hidden
+      display: flex
+      flex-flow: column nowrap
       > h1
-          font-size: 1.5rem
-          color: $colors.earth
-          padding: 0
-          margin: 0
-          text-align: center
-          box-shadow: 0 0 1rem rgba(darken($colors.charcoal, 50%), .5)
-          background-color: rgba($colors.earth, .1)
-          text-shadow: 0 0 3px rgba(darken($colors.earth, 50%), .5)
+        font-size: 1.5rem
+        padding: 0
+        margin: 0
+        text-align: center
+        flex: 0 0
+      > article
+        flex: 1 1
+        padding: 1rem
+        overflow: auto
 </style>

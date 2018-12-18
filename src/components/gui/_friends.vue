@@ -50,4 +50,13 @@ export default {
 <style lang="stylus" scoped>
   // custom template styles
   @require '../../styles/vars'
+  .IndraFriends
+    color: $colors.air
+    background-color: darken($colors.air, 90%)
+    box-shadow: inset 0 0 1rem rgba($colors.air, .25)
+    > h1
+      background-color: rgba($colors.air, .1)
+      text-shadow: 0 0 3px rgba(darken($colors.air, 50%), .5)
+      box-shadow: inset 0 0 1rem rgba($colors.air, .5)
+
 </style>
