@@ -18,11 +18,12 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section class="IndraLeaders" id="IndraLeaders">
-    <h1>leaders</h1>
-    <article class="leaders">
-      <div class="leaders-data" v-for="leader in leaders.data">
-        <div @click="mention(leader.screen_name)" class="leaders-data-name" v-html="leader.screen_name"></div><div class="leader-data-count" v-html="leader.count"></div>
+  <section class="IndraHeroes" id="IndraHeroes">
+    <h1>heroes</h1>
+    <article class="heroes">
+      <div class="heroes-data" v-for="leader in heroes.data">
+        <div @click="mention(leader.screen_name)" class="heroes-data-name" v-html="leader.screen_name"></div>
+        <!-- <div class="leader-data-count" v-html="leader.count"></div> -->
       </div>
     </article>
   </section>
@@ -32,11 +33,11 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 // template javascript
 
 export default {
-  name: 'IndraLeaders',
+  name: 'IndraHeroes',
   components: {},
   computed: {
-    leaders() {
-      return this.$store.getters['gui/leaders']
+    heroes() {
+      return this.$store.getters['gui/heroes']
     },
   },
   methods: {
@@ -46,7 +47,7 @@ export default {
   },
   created() {},
   destroyed() {
-    this.$store.dispatch('gui/leaders', []);
+    this.$store.dispatch('gui/heroes', []);
   },
 }
 </script>
@@ -54,7 +55,7 @@ export default {
 <style lang="stylus" scoped>
   // custom template styles
   @require '../../styles/vars'
-  .IndraLeaders
+  .IndraHeroes
     color: $colors.earth
     background-color: darken($colors.earth, 90%)
     box-shadow: inset 0 0 1rem rgba($colors.earth, .25)
@@ -63,7 +64,7 @@ export default {
       background-color: rgba($colors.earth, .1)
       box-shadow: inset 0 0 1rem rgba($colors.earth, .5)
 
-    .leaders
+    .heroes
       &-data
         display: flex
         flex-flow: row nowrap

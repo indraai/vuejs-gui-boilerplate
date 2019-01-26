@@ -31,7 +31,7 @@ const gui = {
     content,
     stream: [],
     party: [],
-    leaders: [],
+    heroes: [],
     friends: [],
     promote: [],
     question: '',
@@ -39,6 +39,7 @@ const gui = {
     commands: [],
     error: false,
     me: false,
+    invited: {},
   },
   getters: {
     title(state) {
@@ -62,8 +63,8 @@ const gui = {
     party(state) {
       return state.party;
     },
-    leaders(state) {
-      return state.leaders;
+    heroes(state) {
+      return state.heroes;
     },
     friends(state) {
       return state.friends;
@@ -86,6 +87,9 @@ const gui = {
     commands(state) {
       return state.commands;
     },
+    invited(state) {
+      return state.invited;
+    }
   },
   mutations: {
     title(state, data) {
@@ -108,8 +112,8 @@ const gui = {
       if (state.party.length > 50) state.party.pop()
       state.party.unshift(data);
     },
-    leaders(state, data) {
-      state.leaders = data;
+    heroes(state, data) {
+      state.heroes = data;
     },
     friends(state, data) {
       state.friends = data;
@@ -131,6 +135,9 @@ const gui = {
     },
     command(state, data) {
       state.commands.unshift(data);
+    },
+    invited(state, data) {
+      state.invited = data;
     }
   },
   actions: {
@@ -155,8 +162,8 @@ const gui = {
     party({commit}, data) {
       commit('party', data);
     },
-    leaders({commit}, data) {
-      commit('leaders', data);
+    heroes({commit}, data) {
+      commit('heroes', data);
     },
     friends({commit}, data) {
       commit('friends', data);
@@ -189,6 +196,9 @@ const gui = {
     },
     command({commit}, data) {
       commit('command', data);
+    },
+    invited({commit}, data) {
+      commit('invited', data);
     },
   },
 }

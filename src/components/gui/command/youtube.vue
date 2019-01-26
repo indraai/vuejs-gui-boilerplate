@@ -1,6 +1,6 @@
 <template>
   <section class="youtube">
-    <article class="youtube-comment" v-if="convo.type === 'comments'" v-for="comment in results">
+    <article class="youtube-comment" v-if="convo.type === 'commentsChannel'" v-for="comment in results">
       <div class="youtube-comment-video">
         <img :src="vidThumb(comment.snippet.videoId)" alt="">
       </div>
@@ -11,7 +11,7 @@
         </div>
         <div class="youtube-comment-text" v-html="comment.snippet.topLevelComment.snippet.textDisplay"></div>
         <div class="youtube-comment-toolbar">
-          <button class="btn toolbar-reply" v-on:click="youtubeAction('reply', comment.id)"><i class="icn icn-bubble"></i></button>
+          <button class="btn toolbar-reply" v-on:click="youtubeAction('reply', comment.id)"><i class="icn icn-bubble"></i> {{comment.snippet.totalReplyCount}}</button>
         </div>
       </div>
     </article>
@@ -26,7 +26,7 @@
       </div>
     </article>
 
-    <article class="youtube-channel" v-if="convo.type === 'channels'" v-for="channel in results">
+    <article class="youtube-channel" v-if="convo.type === 'channels' || convo.type === 'subscriptions'" v-for="channel in results">
       <div class="youtube-channel-thumb">
         <img :src="channel.snippet.thumbnails.default.url" alt="">
       </div>
@@ -44,6 +44,36 @@
             <a @click="youtubeAction('playlistItems', channel.contentDetails.relatedPlaylists.favorites)" class="favorites">favorites</a>
             <a @click="youtubeAction('playlistItems', channel.contentDetails.relatedPlaylists.likes)" class="likes">likes</a>
           </div>
+        </div>
+        <!-- <div class="youtube-channel-toolbar">
+          <button class="btn toolbar-reply" v-on:click="videoReply(channel.id)"><i class="icn icn-bubble"></i></button>
+        </div> -->
+      </div>
+    </article>
+
+    <article class="youtube-item" v-if="convo.type === 'search'" v-for="item in results" @click="youtubeAction('videos', item.id.videoId)">
+      <div class="youtube-item-thumb">
+        <img :src="item.snippet.thumbnails.default.url" alt="">
+      </div>
+      <div class="youtube-item-data">
+        <h3 v-html="item.snippet.title"></h3>
+        <div class="youtube-item-info">
+          <p v-html="item.snippet.description"></p>
+        </div>
+        <!-- <div class="youtube-channel-toolbar">
+          <button class="btn toolbar-reply" v-on:click="videoReply(channel.id)"><i class="icn icn-bubble"></i></button>
+        </div> -->
+      </div>
+    </article>
+
+    <article class="youtube-item" v-if="convo.type === 'playlists'" v-for="item in results" @click="youtubeAction('videos', item.snippet.resourceId.videoId)">
+      <div class="youtube-item-thumb">
+        <img :src="item.snippet.thumbnails.default.url" alt="">
+      </div>
+      <div class="youtube-item-data">
+        <h3 v-html="item.snippet.title"></h3>
+        <div class="youtube-item-info">
+          <p v-html="item.snippet.description"></p>
         </div>
         <!-- <div class="youtube-channel-toolbar">
           <button class="btn toolbar-reply" v-on:click="videoReply(channel.id)"><i class="icn icn-bubble"></i></button>

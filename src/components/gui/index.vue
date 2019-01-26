@@ -21,9 +21,8 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
   <main class="IndraGui" id="IndraGui">
     <IndraStream></IndraStream>
     <IndraParty></IndraParty>
-    <IndraLeaders></IndraLeaders>
+    <IndraHeroes></IndraHeroes>
     <IndraFriends></IndraFriends>
-    <IndraPromote></IndraPromote>
     <IndraCommand></IndraCommand>
     <IndraError v-if="error"></IndraError>
   </main>
@@ -33,9 +32,8 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 // template javascript
 import IndraStream from './_stream.vue';
 import IndraParty from './_party.vue';
-import IndraLeaders from './_leaders.vue';
+import IndraHeroes from './_heroes.vue';
 import IndraFriends from './_friends.vue';
-import IndraPromote from './_promote.vue';
 import IndraCommand from './_command.vue';
 import IndraError from './_error.vue';
 import axios from 'axios';
@@ -45,9 +43,8 @@ export default {
   components: {
     IndraStream,
     IndraParty,
-    IndraLeaders,
+    IndraHeroes,
     IndraFriends,
-    IndraPromote,
     IndraCommand,
     IndraError,
   },
@@ -71,12 +68,12 @@ export default {
 
   .IndraGui
     position: fixed
-    top: 72px
+    top: 0
     left: 0
     right: 0
     bottom: 300px
     width: 100%
-    height: calc(100% - 72px)
+    height: 100%
     background-color: $colors.blue
 
     display: flex

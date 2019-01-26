@@ -19,6 +19,7 @@
         <button class="btn tweet-toolbar-reply" v-on:click="tweetRespond('tweet', tweet.id_str)"><i class="icn icn-bubble"></i></button>
         <button class="btn tweet-toolbar-retweet" @click="tweetRespond('retweet', tweet.id_str)"><i class="icn icn-smile"></i> {{tweet.retweet_count}}</button>
         <button class="btn tweet-toolbr-like" @click="tweetRespond('favorite', tweet.id_str)"><i class="icn icn-heart"></i> {{tweet.favorite_count}}</button>
+        <button class="btn tweet-toolbar-block" @click="tweetRespond('block', tweet.user.screen_name)"><i class="icn icn-poop"></i></button>
       </div>
     </div>
     <div class="tweet tweet-profile" v-if="convo.type === 'user'" :style="profileBG(convo.result.profile_banner_url)">
@@ -26,6 +27,7 @@
       <div class="tweet-data">
         <h5><strong v-html="convo.result.name"></strong> @{{convo.result.screen_name}}</h5>
         <p v-html="convo.result.description"></p>
+        <div class="last-status" v-html="convo.result.status.full_text || convo.result.status.text"></div>
       </div>
     </div>
     <div class="tweet" v-if="convo.type === 'search'" v-for="tweet in convo.result.statuses">
@@ -92,9 +94,22 @@ export default {
 
   .tweet
     &-profile
-      color: red
-      background-repeat: no-no-repeat
+      background-repeat: no-repeat
       background-size: cover
+
+      .tweet-data
+        background-color: rgba(black, .75)
+        padding: 0 .5rem
+        border-radius: .3rem
+
+      .last-status
+        background-color: lighten($colors.air, 50%)
+        color: $colors.charcoal
+        font-weight: normal
+        padding: .5rem
+        border-radius: .3rem
+        margin: 0 0 .3rem 0
+
 
   .tweet
   .message

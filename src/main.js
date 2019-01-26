@@ -89,15 +89,18 @@ function init() {
         console.log('add party member');
         this.$store.dispatch('gui/party', data);
       },
-      'party:leaders'(data) {
-        console.log('party leaders');
-        this.$store.dispatch('gui/leaders', data);
+      'party:heroes'(data) {
+        console.log('party heroes');
+        this.$store.dispatch('gui/heroes', data);
       },
       'party:friends'(data) {
         this.$store.dispatch('gui/friends', data);
       },
-      'party:promote'(data) {
-        console.log('party promote', data);
+      'party:invited'(data) {
+        this.$store.dispatch('gui/invited', data);
+      },
+      'promote:message'(data) {
+        console.log('promote msg', data);
         this.$store.dispatch('gui/promote', data)
       }
     },

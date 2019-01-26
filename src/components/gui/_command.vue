@@ -18,8 +18,11 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 
 <template>
-  <section :class="{ IndraCommand:true, communicating:false, fullscreen:fullscreen }" id="IndraCommand">
-    <button class="command-fullscreen btn btn-primary" type="button" @click="goFull" rel="fullscreen"><i class="icn icn-frame-expand"></i></button>
+  <section :class="{ IndraCommand:true, communicating:false, [screen]:screen }" id="IndraCommand">
+    <div class="command-window-buttons">
+      <button class="command-minimize btn btn-primary" type="button" @click="goScreen('minimize')" rel="minimize"><i class="icn icn-frame-contract"></i></button>
+      <button class="command-fullscreen btn btn-primary" type="button" @click="goScreen('fullscreen')" rel="fullscreen"><i class="icn icn-frame-expand"></i></button>
+    </div>
     <div class="command-frame">
       <div class="command-me" v-if="me">
         <div class="thumb"><img :src="me.profile_image_url_https" alt=""></div>
@@ -38,22 +41,29 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
           <div class="convo-a" v-if="convo.type === 'answer'">
             <span class="convo-a-text" v-text="convo.data.text"></span>
             <div class="convo-a-data" v-if="convo.data.data">
-              <div class="string" v-if="convo.data.data.format === 'string'" v-html="convo.data.data.result"></div>
+              <div class="string" v-if="convo.data.data.format === 'stream'" v-html="convo.data.data.result"></div>
               <IndraCmdTwitter v-if="convo.data.data.format === 'twitter'" :convo="convo.data.data"></IndraCmdTwitter>
               <IndraCmdYoutube v-if="convo.data.data.format === 'youtube'" :convo="convo.data.data"></IndraCmdYoutube>
+              <IndraCmdWiki v-if="convo.data.data.format === 'wiki'" :convo="convo.data.data"></IndraCmdWiki>
+              <div class="string" v-if="convo.data.data.format === 'status'" v-html="convo.data.data.result"></div>
             </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <form class="command-input" method="post" lpformnum="1" v-on:submit.prevent.stop="ask" autocomplete="off">
+    <form class="command-form" method="post" lpformnum="1" v-on:submit.prevent.stop="ask" autocomplete="off">
       <input name="input" ref="command" type="text" maxlength="300"
         v-model="question"
         v-if="smallbig"
         @keyup.up.prevent="prevCommand"
         @keyup.down.prevent="nextCommand"/>
-      <textarea name="textarea" ref="commandText" v-model="question" v-if="!smallbig" :class="{'large':isLargeText}"></textarea>
+      <div v-if="!smallbig" class="textarea">
+        <textarea name="textarea" ref="commandText"
+          :class="{'large':isLargeText}"
+          v-model="question"></textarea>
+        <button type="submit" class="btn submit"><i class="icn icn-bubble"></i></button>
+      </div>
     </form>
   </section>
 </template>
@@ -62,16 +72,18 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 // template javascript
 import IndraCmdTwitter from './command/twitter.vue';
 import IndraCmdYoutube from './command/youtube.vue';
+import IndraCmdWiki from './command/wiki.vue';
 
 export default {
   name: 'IndraCmd',
   components: {
     IndraCmdTwitter,
     IndraCmdYoutube,
+    IndraCmdWiki,
   },
   data() {
     return {
-      fullscreen: false,
+      screen: 'normal',
       cmdIndex: 0,
     }
   },
@@ -106,8 +118,10 @@ export default {
       this.cmdIndex = 0;
       this.$store.dispatch('gui/ask');
     },
-    goFull() {
-      this.fullscreen = !this.fullscreen;
+    goScreen(screen) {
+      if (screen === 'fullscreen' && this.screen === 'fullscreen') this.screen = 'normal';
+      else if (screen === 'fullscreen' && this.screen === 'minimize') this.screen = 'normal';
+      else this.screen = screen;
     },
     prevCommand() {
       if (!this.commands) return;
@@ -140,10 +154,11 @@ export default {
   .IndraCommand
     transition: $transition
     position: fixed
-    bottom: 1rem
-    left: 15%
-    right: 15%
-    width: 70%
+    top: calc(50% - .5rem)
+    left: 20%
+    right: 20%
+    bottom: .5rem
+    width: 60%
     padding: 0
     height: 50%
     display: flex
@@ -152,10 +167,38 @@ export default {
     overflow: visible
 
     &.fullscreen
-      height: calc(100% - 2rem)
-      left: 1rem
-      right: 1rem
-      width: calc(100% - 2rem)
+      height: 100%
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      width: 100%
+      background-color: $colors.charcoal
+
+      .command-frame
+      .command-form
+        border-radius: 0
+        margin: 0
+        border: none
+
+    &.minimize
+      .command-frame
+      .command-form
+      .command-minimize
+        display: none
+
+      .command-window-buttons
+        top: auto
+        bottom: .5rem
+        position: fixed
+        right: .5rem
+        z-index: 1000
+
+        .command-fullscreen
+          font-size: 1.5rem
+          height: 50px
+          width: 50px
+          line-height: 0
 
     .command
       &-me
@@ -190,23 +233,34 @@ export default {
             content: "fri:"
           .statuses::before
             content: "sta:"
-      &-fullscreen
-        color: $colors.white
+
+      &-window-buttons
+        transition: $transition
         position: absolute
-        top: -1rem
-        right: -1rem
+        top: 1px
+        border-radius: 0 0 0 10px
+        line-height: 0
+        right: .5rem
         font-size: 1rem
         line-height: 1
-        border-radius: 1rem
+        z-index: 10
+
+        background: darken($colors.charcoal, 75%)
+      &-fullscreen
+      &-minimize
+        line-height: 0
+        background: transparent
+        color: $colors.white
         &:hover
           color: $colors.air
 
+
       &-frame
-      &-input
+      &-form
         transition: $transition
         box-shadow: 0 0 1rem rgba($colors.blue, .3)
         border: 1px solid rgba($colors.blue, .3)
-        border-radius: 1rem
+        border-radius: .5rem
         background-color: darken($colors.charcoal, 75%)
 
       &-frame
@@ -215,19 +269,16 @@ export default {
         margin-bottom: .5rem
         overflow: hidden
         padding: .5rem
-        background-color: rgba($colors.charcoal, .85)
         display: flex
         flex-flow: column nowrap
 
       &-conversation
         flex: 1
-        background-color: darken($colors.charcoal, 75%)
         overflow: auto
         border-radius: .5rem
-        box-shadow: inset 0 0 9px rgba($colors.blue, .5)
         padding: 1rem .5rem
 
-      &-input
+      &-form
         flex: 0
         padding: .5rem
 
@@ -240,7 +291,7 @@ export default {
           border: none
           width: 100%
           border-radius: 0
-          color: $colors.orange-lt
+          color: $colors.earth
           font-weight: normal
 
         textarea
@@ -248,6 +299,18 @@ export default {
           line-height: 1.5
           &.large
             min-height: 300px
+
+        .textarea
+          display: flex
+
+          .submit
+            background-color: transparent
+            color: $colors.water
+            border: none
+            font-size: 4rem
+            &:hover
+              color: $colors.fire
+              text-shadow: 0 0 9px rgba($colors.air, .5)
 
     .convo-a
     .convo-q
