@@ -1,38 +1,44 @@
-# INDRA VUEJS GUI BOILERPLATE
-This is the GUI (Graphical User Interface) boilerplate toolkit for building out Indra interfaces for use in various projects.
+# COMPONENTS
+The `/components` directory is where you can build out your various application modules or components.
 
-The gui boilerplate is built on standard Open Source components like NodeJs, Webpack, VueJs, and Stylus Preprocessor (CSS).
+For more information on creating VueJs components see this url:
+https://vuejs.org/v2/guide/components.html
 
-## Fork Repository
-First you want to fork the repository into a new project for your use.
+## How it works
 
-## Clone Repository
-Then clone the repository to your dev machine to start using it on your projects.
+1. Create a component based on the `/components/_blank` template.
+  * duplicate _blank and rename for your component.  
 
-## Install
-Install the base components to get going.
 
-`npm install`
+2. Add the new component to the store index `/store/index.js`.  
+   *  **edit the  index.js**  ...  
+   * make a new import...ex( using made up name "seemore")  
+     ` import {seemore} from '../components/seemore/store.js'`    
+    * Add it to the "export defaut" statement.  
+      `seemore,`  
 
-## Running the server
-The server runs in two modes.  Development and Production.
+    *  Now, edit the **index.vue**  template & compose the component.   
+        * give **section** a class  and/or an id.  
+        ` <section class="seemore " id="seemore"> `
 
-### Development Server
-`npm run dev`
+        * Now insert some HTML markup for the component.
 
-### Production Builds
-`npm run prod`
+     *  **EDIT "store.js"**  
+          a. change the const name to seemore   
+          b. change - export {seemore}   
 
--------
 
-## Webpack
-https://webpack.js.org/
-The boilerplate uses webpack to package and deliver a the developer experience.
+3. Add the new component to the `/components/App.vue` file or the local file.  
 
-## VueJs
-https://vuejs.org/v2/api
-VueJs is the UI toolkit we are using to build the user interfaces.
+  * **Import the section into the script.**   
 
-## Stylus
-http://stylus-lang.com/
-Stylus is a CSS preprocessor that provides programmer functionality to CSS development.
+    a. Makeup a reference name "Iseemore"   
+      * This is a tag name to insert into the view.  
+          ` Use:  <Iseemore> in seemore </Iseemore>`  
+
+( in "script" section near the bottom of  page)  
+    b. Make an import statement, add to the list.    
+    c. Add "Iseemore" to the "export default" components list.  
+
+
+## 4.  Start using component.
