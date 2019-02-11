@@ -18,10 +18,11 @@ You should have received a copy of the GNU General Public License
 along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 <template>
-  <header>
-    <span class="avatar"><img src="../../assets/img/avatar.png" alt=""></span>
-    <h1>{{title}}</h1>
-    <p v-text="describe"></p>
+  <header id="header" :class="{'header': true, 'small':smallClass}">
+    <div class="header-content">
+      <h1 v-text="title"></h1>
+      <p v-text="description"></p>
+    </div>
 </header>
 </template>
 
@@ -34,55 +35,75 @@ export default {
     title() {
       return this.$store.getters['header/title'];
     },
-    describe() {
-      return this.$store.getters['header/describe'];
-    }
+    description() {
+      return this.$store.getters['header/description'];
+    },
+    smallClass() {
+      return this.$route.name !== 'main';
+    },
   },
   methods: {},
   created() {}
 }
 </script>
 
-<style lang="stylus">
-@require '../../styles/vars'
+<style lang="stylus" scoped>
+  @require '../../styles/vars'
 
-header
-  position: relative;
-  background-color: $colors.orange-lt
-  background-image: url(../../assets/img/header-bg.png)
-  background-repeat: no-repeat
-  background-size: 100%
-  background-position: center
-  text-align: center
-  padding: 1rem
-  color: $colors.orange-dk
-  text-shadow: 0 3px 6px $colors.charcoal
-  display: flex
-  align-items: stretch
-  align-content: center
-  justify-content: center
-  flex-flow: column nowrap
-  box-shadow: 0 0 1rem darken($colors.charcoal, 50%)
+  .header
+    position: relative;
+    background-image: url(https://deva.space/cdn/banners/qm-02.jpg)
+    background-color: $colors.blue
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center
+    text-align: center
+    padding: 0
+    color: lighten($colors.fire, 80%)
+    display: flex
+    align-items: stretch
+    align-content: center
+    justify-content: center
+    flex-flow: column nowrap
+    box-shadow: 0 0 1rem darken($colors.charcoal, 50%)
 
-  .avatar
-    display: inline-block
-    border-radius: 50%
-    margin-bottom: 1rem
+    &-content
+      padding: 1rem
+      margin-top: 20rem
+      background-color: rgba(black, .75)
 
-    img
-      width: 200px
-      height: auto
+    h1, p
+      text-align: left
 
-  h1, p
-    text-align: left
-    color: $colors.white
+    h1
+      padding: 0
+      margin: 0
+      font-weight: 100
+      font-size: 4rem
+      font-weight: 200
+      letter-spacing: -6px
+      line-height: 1
+    p
+      margin: 0
+      padding: 0
+      font-size: 1.75rem
+      line-height: 1
 
-  h1
-    padding: 1rem 2rem
-    margin: 0
-    font-weight: 500
-  p
-    margin: 0
-    padding: 0 2rem .5rem 2rem
-    font-size: 2rem
+    @media screen and (min-width: 700px)
+      h1
+        font-size: 9rem
+      p
+        font-size: 3rem
+
+    &.small
+      .header-content
+        margin-top: 0
+      h1
+        margin: 5rem 0 0 0
+        font-size: 4rem
+        padding: 0
+      p
+        font-size: 1rem
+        padding: 0
+        margin: 0
 </style>

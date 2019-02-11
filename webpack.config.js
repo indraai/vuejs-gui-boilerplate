@@ -1,3 +1,5 @@
+"use strict"
+
 // Copyright 2018 Quinn Michaels
 // This file is part of Indra VueJs Gui Boilerplate
 //
@@ -14,53 +16,68 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
-
-var path = require('path')
-var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack')
+const nodeExternals = require('webpack-node-externals')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
-  entry: './src/app.js',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './www'),
+    path: path.resolve(__dirname, './build'),
     publicPath: '',
-    filename: 'build.js'
+    filename: 'app.js',
+    devtoolModuleFilenameTemplate: '[absolute-resource-path]',
+    devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hahs]',
   },
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/main.html',
+      baseUrl: '/',
+    }),
+  ],
+  devtool: 'inline-cheap-module-source-map',
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        use: ['vue-loader'],
         exclude: /node_modules/,
-        options: {
-          loaders: {
-          }
-          // other vue-loader options go here
-        }
       },
-      // {
-      //   test: /\.js$/,
-      //   loader: 'babel-loader',
-      //   exclude: /node_modules/
-      // },
       {
         test: /\.(png|jpg|gif|svg)$/i,
-        loader: 'file-loader',
+        loader: ['file-loader'],
       },
       {
-        test: /\.styl$/,
-        exclude: /node_modules/,
-        loader: 'style-loader!css-loader!stylus-loader',
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+        ],
+
+      },
+      {
+        test: /\.styl(us)$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader'
+        ],
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/i,
         exclude: /node_modules/,
-        loader: 'file-loader?name=[path][name].[ext]'
+        use: [
+          'file-loader?name=[path][name].[ext]'
+        ]
       },
       {
         test: /\.(mp3|ogg|wav)$/i,
         exclude: /node_modules/,
-        loader: 'url-loader'
+        use: 'url-loader'
       },
       {
         test: /\.md$/i,
@@ -78,25 +95,18 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({template: './src/app.html'})
-  ],
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
     }
   },
   devServer: {
     historyApiFallback: true,
     noInfo: true,
     headers: {
-        'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
     }
-  },
-  performance: {
-    hints: false
-  },
-  devtool: '#eval-source-map',
+  }
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -106,15 +116,6 @@ if (process.env.NODE_ENV === 'production') {
       'process.env': {
         NODE_ENV: '"production"'
       }
-    }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   sourceMap: true,
-    //   compress: {
-    //     warnings: false
-    //   }
-    // }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
     })
   ])
 }

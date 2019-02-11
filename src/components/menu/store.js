@@ -17,12 +17,67 @@
 
 "use strict";
 // THIS IS THE STORE TEMPLATE MAKE SURE TO ADDE IT TO THE ./store/index.js file
+
 const menu = {
   namespaced: true,
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
+  state: {
+    open: false,
+    title: 'Quinn Michaels',
+    items: [
+      {
+        href: 'main',
+        class: 'icn icn-home',
+        text: 'home',
+      },
+      {
+        href: 'blog',
+        class: 'icn icn-pencil',
+        text: 'blog',
+      },
+      {
+        href: 'gallery',
+        class: 'icn icn-picture',
+        text: 'art',
+      },
+      {
+        href: 'videos',
+        class: 'icn icn-camera-video',
+        text: 'videos',
+      },
+      {
+        href: 'artist',
+        class: 'icn icn-user',
+        text: 'artist',
+      },
+      {
+        href: 'gui',
+        class: 'icn icn-rocket',
+        text: 'gui',
+      }
+    ],
+
+  },
+  getters: {
+    open(state) {
+      return state.open
+    },
+    items(state) {
+      return state.items
+    },
+    title(state) {
+      return state.title
+    }
+  },
+  mutations: {
+    toggle(state) {
+      state.open = !state.open
+    }
+  },
+  actions: {
+    toggle({commit}) {
+      commit('toggle');
+    },
+  },
 }
 
 export { menu }

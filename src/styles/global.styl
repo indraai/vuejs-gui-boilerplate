@@ -24,7 +24,7 @@
 html, body, header, main, footer, div, p, article, section, h1, h2, h3, h4, h5, h6, a, span, ul, ol, li, dt, dd, aside, dialog, form, textarea, input, select
   box-sizing: border-box
 
-body, button, h1, h2, h3, h4, h5, p, div, article, section, span
+body, button, p, div, article, section, span, ul, ol, dt, form, textarea, input, select, h1, h2, h3, h4, h5, h6
   font-family: $fontFamily
 
 html, body
@@ -33,9 +33,9 @@ html, body
 
 body
   transition: background-color .5s linear
-  background-color: $colors.orange-md
+  background-color: lighten($colors.charcoal, 10%)
   -webkit-text-size-adjust: none
-  font-size: 12px
+  font-size: 14px
   margin: 0px
   padding: 0px
   width: 100%
@@ -43,13 +43,16 @@ body
   color: $text-color
 
 
+hr
+  border-top: 1px solid lighten($colors.charcoal, 75%)
+  margin: 1.5rem 0
+
 // global color classes
 for $color in $colors
-  .{$color}
-    &-txt
-      color: $colors[$color]
-    &-bg
-      background-color: $colors[$color]
-    &-border
-      border: 1px solid transparent
-      border-color: $colors[$color]
+  .text-{$color}
+    color: $colors[$color]
+  .bg-{$olor}
+    background-color: $colors[$color]
+  .border-{$color}
+    border: 1px solid transparent
+    border-color: $colors[$color]

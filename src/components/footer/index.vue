@@ -18,7 +18,10 @@ You should have received a copy of the GNU General Public License
 along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
  -->
 <template>
-  <footer>&copy;2018 Quinn Michaels - indra.ai</footer>
+  <footer :class="{'footer': true, 'chat-open': chatOpen}" id="footer">
+    <article class="footer-left">&copy;Copyright 2018 Quinn Michaels</article>
+    <article class="footer-right">&nbsp;</article>
+  </footer>
 </template>
 
 <script>
@@ -26,12 +29,35 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 export default {
   name: 'IndraFooter',
   components: {},
-  computed: {},
+  computed: {
+    chatOpen() {
+      return this.$store.getters['chat/open']
+    },
+  },
   methods: {},
   created() {}
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
+  @require '../../styles/vars'
+  .footer
+    position: fixed
+    bottom: 0
+    left: 0
+    right: 0
+    transition: $transition
+    padding: .5rem
+    background-color: $colors.charcoal
+    color: lighten($colors.charcoal, 75%)
+    display: flex
+    flex-flow: row nowrap
 
+    &-left
+      flex: 1
+    &-right
+      flex: 0
+
+    &.chat-open
+      margin-right: $chat-width - $chat-gap
 </style>

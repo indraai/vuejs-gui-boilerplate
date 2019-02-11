@@ -25,9 +25,9 @@ $colors = {
   blue: #0090ff,
   red: #ad2323,
   air: #e4d81a,
-  water: #315fc6,
+  water: #2572f1,
   fire: #e43b1a,
-  earth: #42c631,
+  earth: #00ff4d,
   pink: #ff6bf9,
   santa: #d12f2f,
   rose: #d6376b,
@@ -41,8 +41,12 @@ $statusColors = {
   info: $colors.air,
 }
 
-$fontFamily = 'Avenir Next', HelveticaNeue, Helvetica, Arial, sans-serif
-$transition = all .5s linear
+$fontFamily = 'brandon-grotesque', 'Avenir Next', HelveticaNeue, Helvetica, Arial, sans-serif
 
-$text-color = lighten($colors.charcoal, 40%)
+$transition = all .33s linear
+
+$text-color = $colors.charcoal
 $box-shadow = 0 .2rem .4rem rgba($colors.charcoal, 12%)
+
+$chat-width = 40rem
+$chat-gap = 8.5rem

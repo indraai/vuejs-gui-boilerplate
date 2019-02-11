@@ -28,7 +28,7 @@
 <script>
 
 export default {
-  name: 'Errors',
+  name: 'IndraError',
   computed: {
     errors() {
       return this.$store.getters['errors/list']
@@ -42,6 +42,6 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-  @require '../../styles/require'
+<style lang="stylus" scoped>
+  @require '../../styles/vars'
 </style>

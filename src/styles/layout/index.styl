@@ -17,3 +17,21 @@
 
 @require('layout')
 //this is the file
+
+.panels
+  display: flex
+  flex-flow: row wrap
+  align-items: stretch
+
+  .panel
+    flex: 1
+    background-color: rgba($colors.charcoal, .1)
+    margin: .1rem
+    padding: 1rem
+    h2
+      text-align: center
+      .icn
+        font-size: 1.2em
+        display: block
+    p
+      font-size: 1.5em

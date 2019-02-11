@@ -10,18 +10,30 @@ First you want to fork the repository into a new project for your use.
 Then clone the repository to your dev machine to start using it on your projects.
 
 ## Install
-Install the base components to get going.
-
-`npm install`
+Install the package requirements
+```
+$npm install
+```
 
 ## Running the server
 The server runs in two modes.  Development and Production.
 
 ### Development Server
-`npm run dev`
+To run the development server and see how things work run this command.
+```
+$npm run dev
+```
 
 ### Production Builds
-`npm run prod`
+To create a production build and package all the files into the `./build` directory for deployment run this command.
+```
+$npm run prod
+```
+
+### CLI
+There is a light `cli` to make it easier to create new components. This will create a blank new component for you.
+
+```$node index.js -c <name>```
 
 -------
 
@@ -30,9 +42,23 @@ https://webpack.js.org/
 The boilerplate uses webpack to package and deliver a the developer experience.
 
 ## VueJs
-https://vuejs.org/v2/api
 VueJs is the UI toolkit we are using to build the user interfaces.
 
+### General Guide
+https://vuejs.org/v2/guide
+
+### API Reference
+https://vuejs.org/v2/api
+
 ## Stylus
-http://stylus-lang.com/
 Stylus is a CSS preprocessor that provides programmer functionality to CSS development.
+http://stylus-lang.com/
+
+## Chai Assertion Library
+Chai is how you write your tests for your components
+
+## General Guide
+https://www.chaijs.com/guide/
+
+### API Reference
+https://www.chaijs.com/api/

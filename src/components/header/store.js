@@ -20,19 +20,33 @@
 const header = {
   namespaced: true,
   state: {
-    title: 'Indra.ai Super Awesome GUI Boilerplate',
-    describe: 'The coolest boilerplate app ever to be developed.',
+    title: 'quinn michaels',
+    description: 'and his horrible people skills',
   },
   getters: {
     title(state) {
       return state.title;
     },
-    describe(state) {
-      return state.describe;
+    description(state) {
+      return state.description;
     },
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    title(state, data) {
+      state.title = data;
+    },
+    description(state, data) {
+      state.description = data;
+    },
+  },
+  actions: {
+    title({commit}, data) {
+      commit('title', data);
+    },
+    description({commit}, data) {
+      commit('description', data);
+    },
+  },
 }
 
 export { header }
