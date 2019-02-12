@@ -20,31 +20,31 @@
 const header = {
   namespaced: true,
   state: {
-    title: 'quinn michaels',
-    description: 'and his horrible people skills',
+    title: 'indra.design',
+    describe: 'the design and development toolkit for indra.ai'
   },
   getters: {
     title(state) {
       return state.title;
     },
-    description(state) {
-      return state.description;
+    describe(state) {
+      return state.describe;
     },
   },
   mutations: {
     title(state, data) {
       state.title = data;
     },
-    description(state, data) {
-      state.description = data;
+    describe(state, data) {
+      state.describe = data;
     },
   },
   actions: {
     title({commit}, data) {
       commit('title', data);
     },
-    description({commit}, data) {
-      commit('description', data);
+    describe({commit}, data) {
+      commit('describe', data);
     },
   },
 }

@@ -23,8 +23,6 @@ import {header} from '../components/header/store.js'
 import {footer} from '../components/footer/store.js'
 import {menu} from '../components/menu/store.js'
 import {main} from '../components/main/store.js'
-import {share} from '../components/share/store.js'
-import {info} from '../components/info/store.js'
 
 Vue.use(Vuex)
 
@@ -35,7 +33,5 @@ export default new Vuex.Store({
     footer,
     menu,
     main,
-    share,
-    info,
   }
 })

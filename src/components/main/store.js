@@ -20,8 +20,8 @@
 const main = {
   namespaced: true,
   state: {
-    title: 'Quinn Michaels',
-    describe: 'quinnmichaels.com is the place to find Quinn Michaels'
+    title: 'indra.design',
+    describe: 'the design and development toolkit for indra.ai'
   },
   getters: {
     title(state) {

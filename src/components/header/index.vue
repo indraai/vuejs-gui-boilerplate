@@ -21,7 +21,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
   <header id="header" :class="{'header': true, 'small':smallClass}">
     <div class="header-content">
       <h1 v-text="title"></h1>
-      <p v-text="description"></p>
+      <p v-text="describe"></p>
     </div>
 </header>
 </template>
@@ -35,8 +35,8 @@ export default {
     title() {
       return this.$store.getters['header/title'];
     },
-    description() {
-      return this.$store.getters['header/description'];
+    describe() {
+      return this.$store.getters['header/describe'];
     },
     smallClass() {
       return this.$route.name !== 'main';

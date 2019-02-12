@@ -21,7 +21,6 @@ import Vue from 'vue'
 import VueTouch from 'vue-touch'
 import VueSmoothScroll from 'vue-smooth-scroll'
 import VueCookie from 'vue-cookie'
-import VueSocketIO from 'vue-socket.io'
 
 import VueRouter from 'vue-router'
 
@@ -44,24 +43,12 @@ Vue.use(VueSmoothScroll)
 Vue.use(VueCookie)
 Vue.use(VueRouter)
 
-// Vue.use(new VueSocketIO({
-//     debug: false,
-//     connection: 'http://localhost:3900/',
-// }));
-
-// global components
-Vue.component('IndraShare', IndraShare);
 
 function init() {
   new Vue({
     el: '#app',
     store,
     router,
-    sockets: {
-      connect() {
-        return console.log('socket connected');
-      },
-    },
     render: h => h(App),
     created() {}
   })
