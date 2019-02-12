@@ -44,10 +44,7 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
     },
     computed: {},
     methods: {},
-    beforeCreate() {
-      this.$store.dispatch('blog/loadTopics');
-      this.$store.dispatch('gallery/loadItems')
-    }
+    beforeCreate() {}
   }
 </script>
 

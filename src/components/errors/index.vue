@@ -18,7 +18,7 @@
  -->
 <template>
   <section class="errors">
-    <h2>Notes</h2>
+    <h2>Errors</h2>
     <div class="error" v-for="error in errors">
       <p>{{JSON.stringify(error)}}</p>
     </div>

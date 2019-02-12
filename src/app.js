@@ -1,8 +1,7 @@
-'use strict'
 // Copyright 2018 Quinn Michaels
-// This file is part of indra.design
+// This file is part of Indra VueJs Gui Boilerplate
 //
-// indra.design is free software:
+// Indra VueJs Gui Boilerplate is free software:
 // you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -16,23 +15,28 @@
 // You should have received a copy of the GNU General Public License
 // along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
-import { shallowMount, createLocalVue } from '@vue/test-utils'
-import Vuex from 'vuex'
+import Vue from 'vue'
 
-const localVue = createLocalVue()
-localVue.use(Vuex)
+import VueResource from 'vue-resource'
+import VueTouch from 'vue-touch'
+import VueSmoothScroll from 'vue-smooth-scroll'
+import VueCookie from 'vue-cookie';
 
-import IndraShare from './index.vue'
-import {share} from './store.js'
+import App from './components/App.vue'
 
-describe('IndraShare', () => {
-  let store
-  beforeEach(() => {
-    store = new Vuex.Store(share)
+import store from './store'
+
+Vue.use(VueResource)
+Vue.use(VueTouch)
+Vue.use(VueSmoothScroll)
+Vue.use(VueCookie)
+
+function init() {
+  new Vue({
+    el: '#app',
+    store,
+    render: h => h(App),
+    created() {}
   })
-
-  it('expect component to be defined', () => {
-    const wrapper = shallowMount(IndraShare, {store, localVue})
-    expect(wrapper).to.not.be.an('undefined')
-  })
-})
+}
+init()

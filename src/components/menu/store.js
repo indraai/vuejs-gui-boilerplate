@@ -29,33 +29,7 @@ const menu = {
         class: 'icn icn-home',
         text: 'home',
       },
-      {
-        href: 'blog',
-        class: 'icn icn-pencil',
-        text: 'blog',
-      },
-      {
-        href: 'gallery',
-        class: 'icn icn-picture',
-        text: 'art',
-      },
-      {
-        href: 'videos',
-        class: 'icn icn-camera-video',
-        text: 'videos',
-      },
-      {
-        href: 'artist',
-        class: 'icn icn-user',
-        text: 'artist',
-      },
-      {
-        href: 'gui',
-        class: 'icn icn-rocket',
-        text: 'gui',
-      }
     ],
-
   },
   getters: {
     open(state) {

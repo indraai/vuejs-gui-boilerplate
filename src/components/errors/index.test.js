@@ -28,7 +28,7 @@ const router = new VueRouter()
 import IndraError from './index.vue'
 import {errors} from './store.js'
 
-describe('IndraGallery', () => {
+describe('Indra Errors', () => {
   let store
   beforeEach(() => {
     store = new Vuex.Store({modules:{errors}})

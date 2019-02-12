@@ -20,20 +20,16 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <template>
   <main :class="{'main': true}">
-    <IndraBlog type="small"></IndraBlog>
-    <IndraGallery type="small"></IndraGallery>
-    <IndraVideos type="small"></IndraVideos>
-    <IndraInfo type="small"></IndraInfo>
     <section class="information" id="information">
       <h2><i class="icn icn-eye"></i> Contact</h2>
       <h5>Email</h5>
       <ul>
-        <li><a href="mailto:contact@quinnmichaels.com">contact@quinnmichaels.com</a></li>
+        <li><a href="mailto:contact@indra.design">contact@indra.design</a></li>
       </ul>
       <h5>Social Media</h5>
       <ul>
-        <li><a href="https://twitter.com/quinnmichaels">twitter.com/quinnmichaels</a></li>
-        <li><a href="http://www.youtube.com/quinnmichaels">youtube.com/quinnmichaels</a></li>
+        <li><a href="https://twitter.com/indradotai">twitter.com/indradotai</a></li>
+        <li><a href="http://www.youtube.com/IndraDeva">youtube.com/IndraDeva</a></li>
       </ul>
     </section>
   </main>
@@ -41,19 +37,10 @@ along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
 
 <script>
 // template javascript
-import IndraGallery from '../gallery/index.vue';
-import IndraBlog from '../blog/index.vue';
-import IndraVideos from '../videos/index.vue';
-import IndraInfo from '../info/index.vue';
 
 export default {
   name: 'IndraMain',
-  components: {
-    IndraGallery,
-    IndraBlog,
-    IndraVideos,
-    IndraInfo,
-  },
+  components: {},
   computed: {},
   methods: {},
   created() {}
